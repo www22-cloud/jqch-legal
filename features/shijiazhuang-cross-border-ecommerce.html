@@ -1,0 +1,2254 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b1120" />
+<title>石家庄跨境电商 · 新功能探索</title>
+<style>
+:root{--bg:#0b1120;--panel:#111c33;--panel-solid:#0f172a;--line:#243251;--line-soft:rgba(148,163,184,.18);--text:#e7ecf6;--muted:#93a1ba;--accent:#38bdf8;--violet:#818cf8;--green:#34d399;--amber:#fbbf24;--red:#f87171;--shadow:0 20px 60px rgba(0,0,0,.28)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(900px 500px at 85% -10%,rgba(56,189,248,.16),transparent 60%),linear-gradient(180deg,#0b1120,#0f172a);color:var(--text);padding:0 0 40px;line-height:1.6}
+button,input,textarea,select{font:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(56,189,248,.45);outline-offset:2px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(11,17,32,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(148,163,184,.14)}
+.topbar .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:16px;min-height:68px;padding:8px 20px}
+.brand{font-weight:800;display:flex;align-items:center;gap:10px;min-width:0}
+.brand{flex:1 1 auto;min-width:max-content}.brand span{white-space:nowrap;overflow:visible;text-overflow:clip}#industrySelect.industry-select{appearance:none;flex:0 0 136px;width:136px;max-width:136px;margin-left:auto;padding-right:28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2393a1ba' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;background-size:9px 5px}
+.brand img{height:48px;width:48px;max-width:none;object-fit:cover;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:block;flex:0 0 auto}
+select{background:#0b1428;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 10px;font-size:13px;outline:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.hero{padding:56px 0 30px}
+.eyebrow{display:inline-block;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);color:#bae6fd;padding:6px 12px;border-radius:999px;font-size:13px}
+h1{font-size:clamp(30px,5vw,52px);margin:16px 0;letter-spacing:-1px;line-height:1.2}
+h2,h3{line-height:1.35}
+.lead{color:var(--muted);max-width:760px;font-size:17px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{border:1px solid rgba(148,163,184,.2);cursor:pointer;border-radius:12px;padding:11px 16px;font-size:14px;font-weight:700;color:var(--text);background:rgba(148,163,184,.12);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .16s ease,background .16s ease,border-color .16s ease}
+.btn:hover{background:rgba(148,163,184,.2);border-color:rgba(148,163,184,.34);transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--violet));color:#07111f;border:0}
+.btn.small{padding:8px 11px;font-size:12px}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--text);display:block;transition:transform .18s ease,border-color .18s ease}
+.card:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.48)}
+.card b{display:block;font-size:16px;margin:8px 0 6px}
+.card p{margin:0;font-size:12px;color:var(--muted)}
+.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 30px}
+.stat{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(8,15,30,.55)}
+.stat small{display:block;color:var(--muted);font-size:12px}
+.stat strong{display:block;font-size:26px;margin-top:3px}
+.module{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:26px;scroll-margin-top:86px}
+.module-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.module-head h2{margin:0;font-size:22px}
+.module-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.tag,.pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;background:rgba(251,191,36,.14);color:#fde68a;border:1px solid rgba(251,191,36,.3)}
+.tag{font-size:12px;padding:5px 9px;background:rgba(129,140,248,.14);color:#c7d2fe;border-color:rgba(129,140,248,.28)}
+.pill.red{background:rgba(248,113,113,.14);color:#fecaca;border-color:rgba(248,113,113,.35)}
+.pill.green{background:rgba(52,211,153,.14);color:#86efac;border-color:rgba(52,211,153,.35)}
+.pill.blue{background:rgba(56,189,248,.14);color:#bae6fd;border-color:rgba(56,189,248,.35)}
+.grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:20px}
+.panel{background:rgba(7,13,26,.55);border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}
+.panel h3{margin:0 0 12px;font-size:16px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
+input,textarea,select{width:100%;background:#0b1428;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:10px 12px;font-size:14px;outline:none;font-family:inherit}
+textarea{resize:vertical;min-height:106px}
+.drop{border:2px dashed #33456e;border-radius:14px;padding:24px 16px;text-align:center;cursor:pointer;background:rgba(56,189,248,.04);color:var(--muted);transition:border-color .16s ease,background .16s ease,color .16s ease;word-break:break-word}
+.drop:hover,.drop.dragging{border-color:var(--accent);background:rgba(56,189,248,.08);color:var(--text)}
+.form-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.placeholder{color:var(--muted);text-align:center;padding:36px 12px;font-size:14px}
+.risk{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0}
+.risk b{font-size:13px}
+.risk p{margin:4px 0 0;color:var(--muted);font-size:12px}
+.score-line{display:flex;align-items:center;gap:14px;margin:12px 0;flex-wrap:wrap}
+.score-line b{font-size:32px}
+.bar{height:9px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;flex:1;min-width:110px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#34d399,#38bdf8);transition:width .45s ease}
+.hot{position:relative;display:inline-block;max-width:100%;overflow:hidden;border-radius:12px;vertical-align:top}
+.hot img{display:block;max-width:100%;border-radius:12px}
+.hot .zone{position:absolute;border:2px solid var(--red);background:rgba(248,113,113,.18);color:#fff;font-size:12px;padding:4px 6px;border-radius:8px;text-shadow:0 1px 3px #000}
+.steps{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}
+.step{flex:1 1 120px;text-align:center;font-size:12px;padding:8px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted)}
+.step.active{color:#bae6fd;border-color:var(--accent);background:rgba(56,189,248,.08)}
+.file-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.file-chip{max-width:100%;padding:6px 9px;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.035);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.node-list{display:grid;gap:8px;margin:12px 0}
+.node{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025)}
+.node-index{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(56,189,248,.14);color:#bae6fd;font-size:12px;flex:0 0 auto}
+.node-name{min-width:0;overflow-wrap:anywhere;flex:1}
+.node .pill{flex:0 0 auto}
+.notice{border-left:3px solid var(--accent);background:rgba(56,189,248,.07);padding:10px 12px;border-radius:0 10px 10px 0;color:var(--muted);font-size:12px;margin:12px 0}
+.footer{border-top:1px solid var(--line);margin-top:30px;padding-top:20px;color:var(--muted);font-size:12px;text-align:center}
+.modal{display:none;position:fixed;inset:0;background:rgba(3,7,18,.84);z-index:100;padding:30px;overflow:auto;overscroll-behavior:contain}
+.modal.open{display:block}
+.modal-box{max-width:960px;margin:0 auto;background:var(--panel-solid);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px}
+.modal-head h2{margin:0;font-size:22px}
+.report-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.report-section{margin:18px 0;padding:14px;border:1px solid #243251;border-radius:12px;break-inside:avoid;page-break-inside:avoid}
+.report-section h3{margin:0 0 8px}
+.report-meta{color:var(--muted);font-size:12px;margin:4px 0 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#101b31;border:1px solid #243251;border-radius:12px;padding:11px 15px;color:#e7ecf6;z-index:200;box-shadow:var(--shadow);max-width:calc(100vw - 32px)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:900px){.cards,.dashboard{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}
+@media(max-width:620px){
+  body{padding-bottom:24px}.wrap{padding:0 14px}.topbar .inner{padding:8px 14px;align-items:flex-start;flex-wrap:wrap}.brand{width:100%;font-size:14px}.brand img{height:40px;width:40px}#industrySelect.industry-select{margin-left:0!important;width:100%!important;max-width:none;flex:1 1 100%;background-position:right 12px center}
+  .hero{padding:34px 0 20px}.lead{font-size:15px}.cta .btn{flex:1 1 calc(50% - 12px)}.cards{grid-template-columns:1fr}.dashboard{grid-template-columns:1fr 1fr}.module{padding:16px;border-radius:16px}.panel{padding:14px}.score-line b{font-size:28px}
+  .modal{padding:12px}.modal-box{padding:16px;border-radius:14px}.modal-head{display:block}.report-actions{margin-top:12px;justify-content:flex-start}.report-actions .btn{flex:1 1 auto}
+}
+@media print{
+  @page{margin:14mm}
+  body.report-open{background:#fff!important;color:#111!important;padding:0!important}
+  body.report-open>.topbar,body.report-open>.wrap{display:none!important}
+  body.report-open .modal{position:static!important;display:block!important;background:#fff!important;padding:0!important;overflow:visible!important}
+  body.report-open .modal-box{max-width:none!important;background:#fff!important;color:#111!important;border:0!important;padding:0!important;box-shadow:none!important}
+  body.report-open .report-actions{display:none!important}
+  body.report-open .report-section,body.report-open .report-section *{background:transparent!important;color:#111!important;border-color:#d1d5db!important;box-shadow:none!important}
+  body.report-open .report-section{page-break-inside:avoid}
+  body.report-open .report-meta{color:#555!important}
+}
+/* 工厂老板友好版增强 */
+.tool-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 30px}
+.tool-nav a{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);color:var(--text);text-decoration:none;font-size:13px;font-weight:700;text-align:center}
+.tool-nav a:hover{border-color:var(--accent);background:rgba(56,189,248,.08)}
+.section-kicker{display:inline-block;font-size:12px;color:#bae6fd;margin-bottom:6px}
+.module-title small{display:block;color:var(--muted);font-size:13px;font-weight:400;margin-top:6px}
+.plain-note{font-size:12px;color:var(--muted);margin:6px 0 0}
+.score-explain{margin:8px 0 12px;padding:10px 12px;border-radius:10px;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.18);font-size:13px}
+.benchmark{display:grid;gap:10px;margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+.benchmark-row{display:grid;grid-template-columns:96px 1fr 42px;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.benchmark-row .bar{min-width:0;height:10px}
+.benchmark-row .bar span{background:rgba(148,163,184,.45)}
+.benchmark-row.mine .bar span{background:linear-gradient(90deg,#34d399,#38bdf8)}
+details.checklist{margin-top:9px;border:1px solid var(--line);border-radius:10px;background:rgba(7,13,26,.48);overflow:hidden}
+details.checklist summary{cursor:pointer;padding:9px 11px;font-size:12px;font-weight:700;color:#bae6fd;list-style:none}
+details.checklist summary::-webkit-details-marker{display:none}
+.check-list{padding:0 10px 10px}
+.check-row{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-top:1px solid rgba(148,163,184,.1);font-size:12px;color:var(--text)}
+.check-row input{width:auto;margin-top:3px;flex:0 0 auto;accent-color:var(--accent)}
+.check-row label{margin:0;color:var(--text);font-size:12px;line-height:1.45;cursor:pointer}
+.next-steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.highlight-box{margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#081021;color:#cfd8e8;font-size:13px;line-height:1.9;white-space:pre-wrap;max-height:260px;overflow:auto}
+mark.pii-hit{background:rgba(251,191,36,.32);color:#fff3c4;border-radius:3px;padding:0 2px}
+mark.copy-hit{background:rgba(248,113,113,.34);color:#ffe1e1;border-radius:3px;padding:0 2px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.legend .red{background:rgba(248,113,113,.65)}.legend .amber{background:rgba(251,191,36,.65)}
+.history-list{display:grid;gap:7px;margin-top:10px}
+.history-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--muted)}
+.upload-preview{display:grid;place-items:center;min-height:160px;margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#081021;overflow:hidden}
+.upload-preview img{display:block;width:100%;max-height:260px;object-fit:contain}
+.upload-preview p{margin:0;color:var(--muted);font-size:12px;padding:18px;text-align:center}
+.brand-hint{display:grid;gap:8px;margin:10px 0}
+.brand-row{display:flex;justify-content:space-between;gap:10px;padding:9px 11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);font-size:12px}
+.suggestion-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.suggestion-box{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+.suggestion-box b{font-size:13px}.suggestion-box p{font-size:12px;color:var(--muted);margin:5px 0 0}
+.swatches{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.swatch{width:40px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,.25);cursor:pointer}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}.compare-card{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}.compare-card h4{margin:0 0 8px}.compare-image{display:grid;place-items:center;min-height:180px;border-radius:10px;background:linear-gradient(135deg,#172554,#0f766e);color:#fff;text-align:center;padding:14px}
+.flow-builder{display:grid;grid-template-columns:170px 1fr;gap:12px}
+.flow-palette{display:flex;flex-direction:column;gap:7px}
+.palette-item{padding:8px 9px;border:1px dashed #3b4d78;border-radius:10px;background:rgba(56,189,248,.05);font-size:12px;cursor:grab;color:#dbeafe}
+.palette-item:active{cursor:grabbing}
+.flow-canvas{min-height:132px;padding:12px;border:2px dashed #33456e;border-radius:13px;background:rgba(7,13,26,.48);display:flex;align-content:flex-start;align-items:flex-start;gap:6px;flex-wrap:wrap}
+.flow-canvas.dragging{border-color:var(--accent);background:rgba(56,189,248,.07)}
+.flow-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid rgba(56,189,248,.32);border-radius:10px;background:rgba(56,189,248,.1);font-size:12px;color:#dbeafe}
+.flow-chip button{width:19px;height:19px;border:0;border-radius:50%;background:rgba(248,113,113,.25);color:#fecaca;cursor:pointer;padding:0}
+.flow-arrow{color:var(--muted);padding:7px 0}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini-card{padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.mini-card h3{margin:0 0 7px}.mini-card p{margin:0;color:var(--muted);font-size:12px}
+.search-row{display:grid;grid-template-columns:1fr auto;gap:8px}
+.knowledge-results{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.knowledge-item{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+.knowledge-item b{display:block;margin-bottom:4px}.knowledge-item p{margin:0;color:var(--muted);font-size:12px}
+.progress-line{display:flex;align-items:center;gap:12px}.progress-line .bar{height:12px}.progress-line strong{min-width:52px}
+.task-list{display:grid;gap:8px;margin-top:12px}.task{display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);font-size:13px}.task input{width:auto;margin-top:3px;accent-color:var(--accent)}.task.done{opacity:.6}.task.done label{text-decoration:line-through}.task label{flex:1;margin:0;color:var(--text);cursor:pointer}.task a{font-size:12px;color:#bae6fd}
+.certificate{margin-top:12px;padding:16px;border:1px dashed rgba(251,191,36,.5);border-radius:14px;background:rgba(251,191,36,.07)}
+.map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.map-card{padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}.map-card strong{font-size:28px}.map-card span{float:right}.risk-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:8px}.risk-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--amber),var(--red))}
+.policy-grid,.course-grid,.provider-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.policy-item,.course-item,.provider-item{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}.policy-item label,.course-item label{display:flex;align-items:flex-start;gap:8px;margin:0;color:var(--text);font-size:13px}.policy-item input{width:auto;margin-top:4px}.policy-update{margin-top:12px;padding:12px;border-left:3px solid var(--accent);border-radius:0 10px 10px 0;background:rgba(56,189,248,.07);font-size:12px}.provider-item p{margin:4px 0;color:var(--muted);font-size:12px}.stars{color:var(--amber)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:900px){.tool-nav{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.tool-nav{grid-template-columns:1fr 1fr}.flow-builder{grid-template-columns:1fr}.flow-palette{display:grid;grid-template-columns:1fr 1fr}.suggestion-grid,.compare-grid{grid-template-columns:1fr}.score-line{gap:8px}.benchmark-row{grid-template-columns:78px 1fr 36px}.history-item{display:block}.history-item span{display:block}}
+@media print{body.report-open #compareModal{display:none!important}body.report-open #reportModal .form-actions{display:none!important}}
+/* 企业合规画像模块 */
+.privacy-check{display:flex;align-items:flex-start;gap:9px;margin-top:12px;padding:10px 11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);font-size:12px;color:var(--muted)}
+.privacy-check input{width:auto;margin-top:3px;flex:0 0 auto;accent-color:var(--accent)}
+.privacy-check label{margin:0;color:var(--muted);font-size:12px;line-height:1.5;cursor:pointer}
+.personality-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:16px;align-items:stretch}
+.personality-card{padding:18px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(56,189,248,.08),rgba(129,140,248,.05))}
+.personality-code{font-size:clamp(36px,6vw,58px);font-weight:900;letter-spacing:5px;line-height:1.1;margin:6px 0 8px;background:linear-gradient(135deg,#7dd3fc,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+.personality-labels{font-size:14px;color:#dbeafe;line-height:1.8}
+.radar-wrap{display:grid;place-items:center;min-height:280px;border:1px solid var(--line);border-radius:16px;background:rgba(7,13,26,.55);overflow:hidden}
+.radar-wrap canvas{display:block;max-width:100%;height:auto}
+.dimension-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.dimension-item{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);font-size:12px;color:var(--muted)}
+.dimension-item b{display:block;color:var(--text);font-size:13px;margin-bottom:2px}
+.recommend-list{display:grid;gap:8px;margin:12px 0}
+.recommend-item{display:flex;gap:10px;align-items:flex-start;padding:10px 11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);font-size:13px}
+.recommend-index{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:rgba(56,189,248,.15);color:#bae6fd;font-size:12px;font-weight:800;flex:0 0 auto}
+.doc-pills{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0 12px}
+.poster-stage{display:none;margin-top:20px;padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(7,13,26,.55)}
+.poster-stage.open{display:block}
+.poster-stage canvas{display:block;width:min(100%,360px);height:auto;margin:0 auto;border-radius:14px;box-shadow:var(--shadow)}
+.poster-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}
+.module-focus{box-shadow:0 0 0 2px var(--accent),0 0 32px rgba(56,189,248,.24)!important;transition:box-shadow .25s ease}
+@media(max-width:900px){.personality-hero{grid-template-columns:1fr}}
+@media(max-width:620px){.dimension-grid{grid-template-columns:1fr}.personality-code{letter-spacing:3px}.privacy-check{align-items:flex-start}}
+/* 合并检测模块与企业画像细化 */
+.detect-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px;padding:6px;border:1px solid var(--line);border-radius:14px;background:rgba(7,13,26,.5)}
+.detect-tab{border:0;border-radius:10px;padding:11px 12px;background:transparent;color:var(--muted);font-size:13px;font-weight:800;cursor:pointer;transition:.18s ease}
+.detect-tab:hover{color:var(--text);background:rgba(148,163,184,.08)}
+.detect-tab.active{color:#07111f;background:linear-gradient(135deg,var(--accent),var(--violet))}
+.detect-intro{margin:0 0 14px;padding:10px 12px;border-left:3px solid var(--accent);border-radius:0 10px 10px 0;background:rgba(56,189,248,.07);color:var(--muted);font-size:13px}
+.detect-pane[hidden]{display:none!important}
+.m5-check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.m5-check-grid div{padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025)}
+.m5-check-grid b{display:block;font-size:12px;color:#dbeafe;margin-bottom:3px}
+.m5-check-grid span{display:block;font-size:11px;color:var(--muted);line-height:1.5}
+.profile-overview{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-bottom:14px}
+.profile-score-box{padding:15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.profile-score-box small{display:block;color:var(--muted)}
+.profile-score-box strong{display:block;font-size:34px;margin:2px 0 6px}
+.quality-list{display:grid;gap:7px;margin:10px 0}
+.quality-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);font-size:12px}
+.quality-item b{font-size:12px}.quality-item span{color:var(--muted)}
+.quality-item.ok{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.07)}
+.quality-item.missing{border-color:rgba(251,191,36,.28);background:rgba(251,191,36,.055)}
+.profile-actions{display:grid;gap:8px;margin-top:12px}
+@media(max-width:900px){.detect-tabs{grid-template-columns:1fr}.m5-check-grid,.profile-overview{grid-template-columns:1fr}}
+@media(max-width:620px){.detect-tab{text-align:left}.m5-check-grid{grid-template-columns:1fr}}
+/* 四维分析图增强 */
+.radar-wrap{gap:6px;padding:12px 10px 8px}
+.radar-head{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:0 4px}
+.radar-head b{font-size:13px}.radar-head span{font-size:11px;color:var(--muted)}
+.radar-legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:11px;color:var(--muted);padding:0 0 4px}
+.radar-legend i{display:inline-block;width:18px;height:3px;border-radius:99px;margin-right:5px;vertical-align:middle}
+.radar-legend .company{background:#38bdf8}.radar-legend .benchmark{background:#a78bfa}
+.dimension-item{position:relative;overflow:hidden}
+.dimension-bar{height:7px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:7px 0 5px}
+.dimension-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#34d399,#38bdf8)}
+.dimension-meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:10px}
+.detail-good{color:#86efac}.detail-warn{color:#fde68a}
+.radar-insights{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.insight-box{padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);font-size:11px;color:var(--muted)}
+.insight-box b{display:block;color:var(--text);font-size:12px;margin-bottom:3px}
+@media(max-width:620px){.radar-insights{grid-template-columns:1fr}}
+/* 模块重组的核心层级与合并入口 */ .module.core-module{position:relative;overflow:hidden;border-color:rgba(56,189,248,.42);background:linear-gradient(145deg,rgba(8,47,73,.72),rgba(15,23,42,.78) 48%,rgba(49,46,129,.34));box-shadow:0 24px 70px rgba(2,8,23,.28),inset 0 1px 0 rgba(255,255,255,.06)} .core-glow{position:absolute;width:360px;height:360px;right:-120px;top:-210px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.3),rgba(99,102,241,.08) 48%,transparent 72%);pointer-events:none} .core-kicker{display:inline-block;margin-bottom:8px;color:#7dd3fc;font-size:11px;font-weight:900;letter-spacing:.16em} .core-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;position:relative;z-index:1} .core-benefits div{padding:12px 14px;border:1px solid rgba(125,211,252,.18);border-radius:12px;background:rgba(7,13,26,.42)} .core-benefits b{display:block;margin-bottom:4px;color:#bae6fd;font-size:12px} .core-benefits span{display:block;color:var(--muted);font-size:12px;line-height:1.55} @media(max-width:900px){.core-benefits{grid-template-columns:1fr}}
+/* 模块二产业感知引擎 */
+.m3-engine-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px}
+.m3-engine-bar div{padding:10px 12px;border:1px solid rgba(125,211,252,.18);border-radius:12px;background:rgba(7,13,26,.42)}
+.m3-engine-bar span{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}
+.m3-engine-bar b{display:block;color:#dbeafe;font-size:12px;line-height:1.45}
+.m3-score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}
+.m3-score-card{padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025)}
+.m3-score-card span{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
+.m3-score-card b{display:block;color:#e7ecf6;font-size:20px;margin-bottom:6px}
+.trace-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.trace-pill{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid rgba(125,211,252,.2);border-radius:999px;background:rgba(56,189,248,.07);color:#bae6fd;font-size:11px}
+.advice-list{display:grid;gap:8px;margin-top:10px}
+.advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025)}
+.advice-item .pill{flex:0 0 auto}
+.advice-item b{display:block;font-size:12px;color:#e7ecf6;margin-bottom:3px}
+.advice-item p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+@media(max-width:900px){.m3-engine-bar,.m3-score-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.m3-engine-bar,.m3-score-grid{grid-template-columns:1fr}.advice-item{display:block}.advice-item .pill{display:inline-block;margin-bottom:6px}}
+.zone-legend{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02);color:var(--muted);font-size:11px}
+.zone-legend span{display:flex;align-items:center;gap:6px;color:#fecaca;font-weight:800}
+.zone-legend i{display:block;width:10px;height:10px;border:2px solid var(--red);background:rgba(248,113,113,.18);border-radius:3px}
+/* 新增：出海准入合规自查清单，独立于原有一/二/三模块 */
+.m1b-module{border-color:rgba(45,212,191,.32);background:linear-gradient(160deg,rgba(13,45,48,.48),rgba(15,23,42,.72))}
+.m1b-form-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:16px;align-items:start}
+.m1b-form-panel{display:grid;gap:12px}
+.m1b-step{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.018)}
+.m1b-step-no{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:rgba(45,212,191,.12);color:#5eead4;font-size:12px;font-weight:900}
+.m1b-step-body h3{margin:0 0 9px;font-size:14px}
+.m1b-choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.m1b-choice-grid input,.m1b-market-grid input{position:absolute;opacity:0;pointer-events:none}
+.m1b-choice-grid span,.m1b-market-grid span{display:flex;align-items:center;justify-content:center;min-height:40px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(7,13,26,.36);color:var(--muted);font-size:12px;font-weight:700;text-align:center;cursor:pointer;transition:.18s ease}
+.m1b-choice-grid input:checked+span,.m1b-market-grid input:checked+span{border-color:rgba(45,212,191,.62);background:rgba(45,212,191,.13);color:#ccfbf1;box-shadow:inset 0 0 0 1px rgba(45,212,191,.16)}
+.m1b-market-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.m1b-market-grid span{min-height:38px}
+.m1b-preview-panel{position:sticky;top:88px}
+.m1b-preview-note{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+.m1b-preview-note span{color:var(--muted);text-align:right}
+.m1b-preview-panel .upload-preview{margin-top:12px}
+.m1b-jump-note{margin-top:12px;padding:11px;border:1px solid rgba(125,211,252,.18);border-radius:10px;background:rgba(56,189,248,.055)}
+.m1b-jump-note b{display:block;color:#bae6fd;margin-bottom:4px}
+.m1b-jump-note span{display:block;color:var(--muted);font-size:12px;line-height:1.6}
+.m1b-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.m1b-summary-card{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+.m1b-summary-card small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}
+.m1b-summary-card b{display:block;font-size:22px;color:#e7ecf6}
+.m1b-output-section{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.m1b-output-section h3{margin:0 0 10px;font-size:15px}
+.m1b-cert-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.m1b-cert-card{padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.023)}
+.m1b-cert-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.m1b-cert-head b{font-size:13px;color:#e7ecf6}
+.m1b-cert-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px}
+.m1b-cert-meta div{padding:7px;border-radius:8px;background:rgba(7,13,26,.4)}
+.m1b-cert-meta small{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}
+.m1b-cert-meta span{display:block;color:#dbeafe;font-size:11px}
+.m1b-rule-card{display:grid;gap:8px;padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.023);margin-bottom:8px}
+.m1b-rule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m1b-rule-grid div{padding:8px;border-radius:8px;background:rgba(7,13,26,.4)}
+.m1b-rule-grid small{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}
+.m1b-rule-grid span{display:block;color:#dbeafe;font-size:11px;line-height:1.5}
+.m1b-ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m1b-ip-card{padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.023)}
+.m1b-path-list{display:grid;gap:8px;margin-top:10px}
+.m1b-path-item{padding:10px;border:1px solid rgba(125,211,252,.18);border-radius:10px;background:rgba(56,189,248,.055)}
+.m1b-path-item b{display:block;color:#bae6fd;margin-bottom:3px}
+.m1b-path-item span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+@media(max-width:900px){.m1b-form-grid,.m1b-ip-grid{grid-template-columns:1fr}.m1b-preview-panel{position:static}.m1b-market-grid{grid-template-columns:repeat(3,1fr)}.m1b-cert-list{grid-template-columns:1fr}.m1b-summary{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.m1b-choice-grid,.m1b-market-grid,.m1b-rule-grid,.m1b-cert-meta{grid-template-columns:1fr}.m1b-step{grid-template-columns:1fr}.m1b-step-no{width:28px;height:28px}}
+</style>
+<style>
+html,body{overflow-x:clip!important;max-width:100%}
+.feature-backlink{position:fixed;left:max(1rem,env(safe-area-inset-left));bottom:max(1rem,env(safe-area-inset-bottom));z-index:120;padding:.7rem .9rem;border:1px solid rgba(125,211,252,.4);border-radius:10px;background:rgba(11,17,32,.9);color:#e7ecf6;text-decoration:none;font-size:13px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.feature-backlink:hover{border-color:#7dd3fc;color:#bae6fd}
+</style>
+</head>
+<body>
+<a class="feature-backlink" href="../index.html#new-feature">← 返回新功能探索</a>
+<header class="topbar">
+  <div class="inner">
+    <div class="brand"><img src="../assets/logo.svg" alt="冀企出海" /> <span>冀企出海 · AI合规智检平台</span></div>
+    <label class="sr-only" for="industrySelect">切换产业</label>
+    <select id="industrySelect" class="industry-select">
+      <option>白沟箱包</option><option selected>石家庄跨境电商</option><option>清河羊绒</option>
+    </select>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow">不交企业机密，只传内容样本，30秒出合规初步筛查</span>
+    <h1>护航石家庄跨境电商：<br>从AI合规体检到企业数据链路验证。</h1>
+    <p class="lead">面向石家庄跨境电商企业，把商品准入、AIGC营销素材、企业资质和跨境数据流变成可检测、可整改、可留痕的合规资产。</p>
+    <div class="cta"><a class="btn primary" href="#m1">30秒AI体检</a><a class="btn" href="#m2">产品原型图与素材智检</a><a class="btn" href="#m3">企业画像与综合检测</a></div>
+  </section>
+
+  <section class="dashboard" aria-label="平台状态概览">
+    <div class="stat"><small>当前产业合规参考分</small><strong id="avgScore">78</strong></div>
+    <div class="stat"><small>已生成模块</small><strong><span id="doneCount">0</span><span style="font-size:14px;color:var(--muted)"> / 3</span></strong></div>
+    <div class="stat"><small>待优先处理项</small><strong id="riskCount">0</strong></div>
+    <div class="stat"><small>最近更新</small><strong id="lastUpdate" style="font-size:16px;padding-top:7px">尚未检测</strong></div>
+  </section>
+
+    <div class="cards">
+    <a class="card" href="#m1"><b>AI体检报告</b><p>30秒评估企业AI合规风险。</p></a>
+    <a class="card" href="#m2"><b>产品原型图与素材智检</b><p>集中检测产品原型图、AIGC素材与营销文案风险。</p></a>
+    <a class="card" href="#m3"><b>企业画像与综合检测</b><p>合并企业资质画像、注册信息和数据出国链路检测。</p></a>
+  </div>
+      <nav class="tool-nav" aria-label="平台功能导航">
+    <a href="#m1">① 出海体检</a><a href="#m2">② 产品素材智检</a><a href="#m3">③ 企业画像与综合检测</a>
+  </nav>
+
+  <section class="module" id="m1">
+    <div class="module-head"><div><h2>模块一 · AI出海体检 · 30秒知道有没有风险</h2><p>选产业、选市场、选AI用途，点一下出报告。</p></div><span class="tag">快速筛查</span></div>
+    <div class="grid">
+      <div class="panel">
+        <h3>只回答3个问题</h3>
+        <label for="m1Industry">你是做什么的？</label><select id="m1Industry"><option>白沟箱包</option><option selected>石家庄跨境电商</option><option>清河羊绒</option></select>
+        <label for="m1Market">你想卖到哪里？</label><select id="m1Market"><option>欧盟</option><option>北美</option><option>东盟</option><option>中东</option></select>
+        <label for="m1Tool">你用了AI做什么？</label><select id="m1Tool"><option>AI生成产品图</option><option>AI客服</option><option>AI翻译</option><option>AI选品分析</option></select>
+        <div id="m1Tags" class="file-list" style="margin-top:12px" aria-live="polite"></div>
+        <p class="plain-note">匹配到的每一项都会用大白话解释，不会只丢专业名词。</p>
+        <div class="form-actions"><button class="btn primary" id="m1Btn" type="button">生成体检报告</button></div>
+      </div>
+      <div class="panel"><h3>合规风险报告</h3><div id="m1Out" class="placeholder" aria-live="polite">选择产业、市场与AI用途后生成。</div></div>
+    </div>
+  </section>
+
+<section class="module m1b-module" id="m1b">
+  <div class="module-head">
+    <div>
+      <span class="core-kicker">PRE-FLIGHT CHECK · 出海前置导航</span>
+      <h2>模块一扩展 · 出海准入合规自查清单</h2>
+      <p>在产品上线前回答：需要准备哪些认证、平台要求怎么执行、知产从哪里开始查，以及预计费用和周期。</p>
+    </div>
+    <span class="tag">准入自查</span>
+  </div>
+  <div class="detect-intro"><b>四步输入：</b>产品类别、目标市场、计划上架平台和知识产权前置信息。系统输出“产品认证、平台规则、知识产权”三类清单。</div>
+
+  <div class="m1b-form-grid">
+    <div class="panel m1b-form-panel">
+      <div class="m1b-step">
+        <span class="m1b-step-no">01</span>
+        <div class="m1b-step-body">
+          <h3>选择产品类别</h3>
+          <div class="m1b-choice-grid" id="m1bCategories">
+            <label><input type="radio" name="m1bCategory" value="电子产品" checked><span>电子产品</span></label>
+            <label><input type="radio" name="m1bCategory" value="AI软件"><span>AI软件 / 含AI功能产品</span></label>
+            <label><input type="radio" name="m1bCategory" value="化妆品"><span>化妆品</span></label>
+            <label><input type="radio" name="m1bCategory" value="服装箱包"><span>服装箱包 / 纺织品</span></label>
+            <label><input type="radio" name="m1bCategory" value="食品"><span>食品</span></label>
+            <label><input type="radio" name="m1bCategory" value="其他"><span>其他产品</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="m1b-step">
+        <span class="m1b-step-no">02</span>
+        <div class="m1b-step-body">
+          <h3>选择目标市场（可多选）</h3>
+          <div class="m1b-market-grid" id="m1bMarkets">
+            <label><input type="checkbox" value="欧盟" checked><span>欧盟</span></label>
+            <label><input type="checkbox" value="美国"><span>美国</span></label>
+            <label><input type="checkbox" value="日本"><span>日本</span></label>
+            <label><input type="checkbox" value="东盟"><span>东盟</span></label>
+            <label><input type="checkbox" value="中东"><span>中东</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="m1b-step">
+        <span class="m1b-step-no">03</span>
+        <div class="m1b-step-body">
+          <h3>计划上架的电商平台</h3>
+          <select id="m1bPlatform">
+            <option value="亚马逊">亚马逊</option>
+            <option value="TikTok Shop">TikTok Shop</option>
+            <option value="独立站">独立站</option>
+            <option value="速卖通">速卖通</option>
+            <option value="Temu">Temu</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="m1b-step">
+        <span class="m1b-step-no">04</span>
+        <div class="m1b-step-body">
+          <h3>知识产权前置信息（选填）</h3>
+          <label for="m1bBrand">品牌名 / 产品名</label>
+          <input id="m1bBrand" type="text" placeholder="例如：白沟智行">
+          <div class="drop" id="m1bPatternDrop" role="button" tabindex="0" aria-controls="m1bPatternFile">拖拽或点击上传核心图案（PNG / JPG / WEBP / SVG）</div>
+          <input type="file" id="m1bPatternFile" hidden accept=".png,.jpg,.jpeg,.webp,.svg" />
+          <div class="file-list" id="m1bPatternFiles" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn primary" id="m1bGenerateBtn" type="button">生成合规自查清单</button>
+        <button class="btn" id="m1bSampleBtn" type="button">载入河北示例</button>
+      </div>
+    </div>
+
+    <div class="panel m1b-preview-panel">
+      <h3>知识产权前置预览</h3>
+      <div class="m1b-preview-note">
+        <b>品牌文字</b><span id="m1bBrandPreview">尚未输入</span>
+      </div>
+      <div class="m1b-preview-note">
+        <b>核心图案</b><span id="m1bPatternStatus">尚未上传</span>
+      </div>
+      <div class="upload-preview" id="m1bPatternPreview"><p>上传核心图案后在这里预览</p></div>
+      <div class="notice"><b>原型说明：</b>商标数据库暂以官方检索入口和规则提示为主；图形比对复用本地dHash能力，结果仅用于前置预警。</div>
+      <div class="m1b-jump-note">
+        <b>检测闭环</b>
+        <span>发现AI素材风险可跳转素材智检；发现资质或数据链路问题可进入企业画像与综合检测。</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="m1bOut" class="placeholder" aria-live="polite">完成四步输入后生成个性化合规自查清单。</div>
+</section>
+
+<section class="module core-module" id="m2">
+    <div class="core-glow" aria-hidden="true"></div>
+    <div class="module-head">
+      <div>
+        <span class="core-kicker">CORE MODULE · 核心能力</span>
+        <h2>模块二 · 产品原型图与素材智检</h2>
+        <p>把产品原型图、AIGC生成图和营销文案作为独立核心能力，集中识别相似风险、品牌线索、修改建议与AIGC标识情况。</p>
+      </div>
+      <span class="tag">核心模块</span>
+    </div>
+    <div class="detect-intro"><b>核心检测：</b>上传产品原型图、AI生成图或营销文案，快速查看素材相似度、疑似品牌来源、侵权风险与可执行的修改建议。</div>
+<div class="m3-engine-bar" aria-label="模块二检测策略">
+      <div><span>当前产业策略</span><b id="m3IndustryStrategy">白沟箱包 · 相似度复核线 65%</b></div>
+      <div><span>目标市场规则</span><b id="m3MarketStrategy">欧盟</b></div>
+      <div><span>检测引擎</span><b>本地 dHash 指纹 · 主色调 · 版式 · AIGC痕迹</b></div>
+    </div>
+    <div class="grid">
+      <div class="panel">
+        <h3>上传产品原型图与营销素材</h3>
+        <div class="drop" id="m3Drop" role="button" tabindex="0" aria-controls="m3File">拖拽或点击上传产品原型图 / AI生成图 / 文案（TXT、CSV、JSON、MD）</div>
+        <input type="file" id="m3File" hidden multiple accept=".png,.jpg,.jpeg,.webp,.txt,.csv,.json,.md" />
+        <div class="file-list" id="m3Files" aria-live="polite"></div>
+        <div class="upload-preview" id="m3Preview"><p>上传后先在这里看到图片预览</p></div>
+        <div class="form-actions"><button class="btn primary" id="m3Btn" type="button">开始图片与文案检测</button><button class="btn" id="m3SampleBtn" type="button">载入示例产品图</button></div>
+      </div>
+      <div class="panel"><h3>素材风险检测结果</h3><div id="m3Out" class="placeholder" aria-live="polite">上传图片后开始检测。</div></div>
+    </div>
+    <div class="core-benefits" aria-label="核心模块能力概览">
+      <div><b>01 · 内容指纹</b><span>读取真实像素生成dHash，图片改名后结果保持一致</span></div>
+      <div><b>02 · 河北产业规则</b><span>按白沟箱包、清河羊绒、石家庄跨境电商动态匹配</span></div>
+      <div><b>03 · 五维整改闭环</b><span>综合版权、AIGC标识、文案、差异化和素材完整度</span></div>
+    </div>
+  </section>
+
+<section class="module" id="m3">
+    <div class="module-head">
+      <div><h2>模块三 · 企业合规画像与综合合规检测</h2><p>一个入口完成企业资质画像、注册与经营信息、合规流程与数据出国三类企业级检测。</p></div>
+      <span class="tag">企业级综合检测</span>
+    </div>
+    <div class="detect-tabs" id="detectTabs" role="tablist" aria-label="企业合规画像与综合合规检测类型">
+      <button class="detect-tab active" type="button" role="tab" data-detect-tab="profile" aria-selected="true">01 企业合规画像</button>
+      <button class="detect-tab" type="button" role="tab" data-detect-tab="registration" aria-selected="false">02 注册与经营信息</button>
+      <button class="detect-tab" type="button" role="tab" data-detect-tab="compliance" aria-selected="false">03 合规流程与数据出国</button>
+    </div>
+
+    <div class="detect-pane" data-detect-pane="profile">
+      <div class="detect-intro"><b>检测内容：</b>上传营业执照、出口备案、CE、ISO、平台入驻等材料，识别企业类型、资质缺口、市场准备度和优先整改路线。</div>
+      <div class="grid">
+        <div class="panel">
+          <h3>第一步：上传企业资质</h3>
+          <div class="drop" id="m5Drop" role="button" tabindex="0" aria-controls="m5File">拖拽或点击上传营业执照 / 出口备案 / CE / ISO / 平台入驻截图</div>
+          <input type="file" id="m5File" hidden multiple accept=".pdf,.jpg,.jpeg,.png,.txt" />
+          <div class="file-list" id="m5Files" aria-live="polite"></div>
+          <div class="m5-check-grid">
+            <div><b>主体信息</b><span>营业执照、统一社会信用代码、经营范围</span></div>
+            <div><b>出海资质</b><span>出口备案、平台入驻、海外认证</span></div>
+            <div><b>合规基础</b><span>ISO、隐私政策、数据保护与专员配置</span></div>
+          </div>
+          <div class="privacy-check"><input type="checkbox" id="m5Privacy"><label for="m5Privacy">我已阅读并同意隐私说明：文件仅在浏览器本次识别中使用，不保存原文，只保留企业合规画像和摘要。</label></div>
+          <div class="form-actions"><button class="btn primary" id="m5Btn" type="button">生成企业合规画像</button><button class="btn" id="m5SampleBtn" type="button">载入演示文件</button></div>
+          <div class="notice"><b>原型说明：</b>纯文本文件可直接读取；PDF、图片当前主要依据文件名识别，正式上线可接入 OCR。识别完成后原始文件会从页面状态中移除。</div>
+        </div>
+        <div class="panel"><h3>企业画像结果</h3><div id="m5Out" class="placeholder" aria-live="polite">上传文件并同意隐私说明后开始识别。</div></div>
+      </div>
+      <div class="poster-stage" id="m5PosterStage">
+        <canvas id="m5PosterCanvas" width="720" height="1020" aria-label="企业合规画像海报"></canvas>
+        <div class="poster-actions"><button class="btn small primary" id="m5PosterBtn" type="button">保存画像海报 PNG</button><button class="btn small" id="m5ShareBtn" type="button">分享画像结果</button></div>
+      </div>
+    </div>
+
+    <div class="detect-pane" data-detect-pane="registration" hidden>
+      <div class="detect-intro"><b>检测内容：</b>营业执照主体信息、经营范围、注册地址、出口资质、隐私与授权描述是否完整、是否存在直接暴露敏感信息。</div>
+      <div class="grid">
+        <div class="panel">
+          <h3>输入注册与经营资料</h3>
+          <label for="m2Text" class="sr-only">注册与经营资料文本</label>
+          <textarea id="m2Text" placeholder="粘贴营业执照、店铺入驻信息或企业介绍，或上传 txt / csv / jsonl / docx / zip"></textarea>
+          <div class="drop" id="m2Drop" role="button" tabindex="0" aria-controls="m2File">拖拽或点击上传营业执照、店铺资料、出口备案或企业介绍</div>
+          <input type="file" id="m2File" hidden multiple accept=".txt,.csv,.jsonl,.json,.docx,.zip" />
+          <div class="file-list" id="m2Files" aria-live="polite"></div>
+          <div class="form-actions"><button class="btn primary" id="m2Btn" type="button">开始注册信息检测</button><button class="btn" id="m2SampleBtn" type="button">载入河北示例</button></div>
+          <div class="notice">检测在企业本地完成；真实 OCR 接入后可自动读取营业执照和备案文件。</div>
+        </div>
+        <div class="panel"><h3>注册信息检测结果</h3><div id="m2Out" class="placeholder" aria-live="polite">输入资料后开始检测。</div></div>
+      </div>
+    </div>
+
+    <div class="detect-pane" data-detect-pane="compliance" hidden>
+      <div class="detect-intro"><b>检测内容：</b>数据从企业到海外服务商经过哪些环节，是否缺少脱敏、加密、合同、安全评估或本地化处理措施。</div>
+      <div class="grid">
+        <div class="panel">
+          <h3>画出数据流转链路</h3>
+          <div class="flow-builder">
+            <div class="flow-palette" id="m4Palette" aria-label="可用环节"></div>
+            <div>
+              <div class="flow-canvas" id="m4Canvas" aria-label="你的数据流转链路"><span class="plain-note">你的链路会显示在这里</span></div>
+              <div class="form-actions"><button class="btn" id="m4ClearBtn" type="button">清空重画</button><button class="btn" id="m4SampleBtn" type="button">填入示例</button></div>
+            </div>
+          </div>
+          <details class="checklist" style="margin-top:12px"><summary>高级模式：直接输入链路</summary><div class="check-list"><label for="m4Flow">数据从哪走到哪？</label><textarea id="m4Flow" placeholder="河北工厂CRM → 阿里云杭州 → AWS法兰克福 → OpenAI API"></textarea></div></details>
+          <label for="m4Region">按哪个地方的规定检查？</label><select id="m4Region"><option>欧盟GDPR</option><option>中国PIPL</option><option>新加坡PDPA</option></select>
+          <div class="form-actions"><button class="btn primary" id="m4Btn" type="button">检查这条链路</button></div>
+        </div>
+        <div class="panel"><h3>跨境合规检测结果</h3><div id="m4Out" class="placeholder" aria-live="polite">添加环节后开始检查。</div></div>
+      </div>
+    </div>
+  </section>
+</section>
+<div class="footer">隐私说明：文本检测在浏览器本地完成；本页面不上传文件。演示结果用于合规初步筛查，不构成法律意见。<br>冀企出海 · AI合规智检平台</div>
+</main>
+
+<div id="reportModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><h2 id="reportTitle">冀企出海 · AI合规智检总览报告</h2><p class="report-meta" id="reportGeneratedAt"></p></div>
+      <div class="report-actions">
+        <button class="btn small" type="button" id="downloadHtmlBtn">下载 HTML</button>
+        <button class="btn small primary" type="button" id="printReportBtn">打印 / 导出 PDF</button>
+        <button class="btn small" type="button" id="closeReportBtn">关闭</button>
+      </div>
+    </div>
+    <div id="reportBody"></div>
+  </div>
+</div>
+<div id="compareModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="compareTitle">
+  <div class="modal-box">
+    <div class="modal-head"><div><h2 id="compareTitle">素材特征对比</h2><p class="report-meta">左侧为上传素材与产业参考差异区，右侧展示算法生成的产业特征参考，不展示未经核实的真实品牌原图。</p></div><div class="report-actions"><button class="btn small" type="button" id="closeCompareBtn">关闭</button></div></div>
+    <div id="compareBody"></div>
+  </div>
+</div>
+<script>
+'use strict';
+const $ = (selector, root=document) => root.querySelector(selector);
+const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const nowText = () => new Intl.DateTimeFormat('zh-CN', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date());
+const todayText = () => new Intl.DateTimeFormat('zh-CN', {year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+
+function storageGet(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : JSON.parse(value);
+  } catch { return fallback; }
+}
+function storageSet(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* 文件模式或隐私设置下静默降级 */ }
+}
+
+const glossary = {
+  'GDPR':'欧盟数据保护法（GDPR）',
+  'CE认证':'欧盟产品安全认证（CE）',
+  'AI Act透明度要求':'欧盟AI透明度要求（AI Act）',
+  'AIGC显式标识':'AI生成内容要标注',
+  'PII':'个人隐私信息（手机号、邮箱等）',
+  'SCC':'欧盟标准合同条款（SCC）',
+  'CCPA':'美国加州消费者隐私法（CCPA）',
+  'PIPL':'中国个人信息保护法（PIPL）',
+  '跨境传输':'数据传到国外'
+};
+const plain = text => glossary[text] || text;
+
+const state = {
+  reports: {},
+  risks: {},
+  lastUpdate: '',
+  m2Files: [],
+  m3Files: [],
+  history: storageGet('jqch_history', []),
+  flowNodes: [],
+  recommendedPath: [],
+  compareUrl: ''
+};
+
+function toast(message) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.setAttribute('role', 'status');
+  el.textContent = message;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 2400);
+}
+
+async function copyText(text, success='已复制') {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast(success);
+  } catch {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+    toast(success);
+  }
+}
+
+function fmtBytes(n) {
+  if (!n) return '0 B';
+  const units = ['B','KB','MB','GB'];
+  let i = 0;
+  while (n >= 1024 && i < units.length - 1) { n /= 1024; i += 1; }
+  return `${n.toFixed(i ? 1 : 0)} ${units[i]}`;
+}
+
+const industryData = {
+  '白沟箱包': {score:78, avg:68, top10:88, total:1200, term:'白沟箱包设计词库', focus:'外观设计、品牌标识和产品图版权', risks:[35,28,22,15]},
+  '石家庄跨境电商': {score:74, avg:74, top10:91, total:800, term:'跨境电商平台规则库', focus:'商品页面、客服对话和消费者数据', risks:[24,30,31,15]},
+  '清河羊绒': {score:69, avg:69, top10:86, total:600, term:'羊绒产品标准库', focus:'材质宣称、原产地标识和供应商数据', risks:[22,25,34,19]}
+};
+const marketData = {
+  '欧盟': {delta:-8, regs:['GDPR','CE认证','AI Act透明度要求'], focus:'个人数据出国、AI生成内容标识和产品安全'},
+  '北美': {delta:-5, regs:['CCPA','平台版权审查','FTC广告披露'], focus:'消费者隐私、素材版权和营销真实性'},
+  '东盟': {delta:-2, regs:['PDPA类隐私规则','平台内容规范'], focus:'不同国家隐私规则差异与平台要求'},
+  '中东': {delta:-4, regs:['本地数据保护规则','宗教文化合规'], focus:'数据存放地点、营销内容与文化适配'}
+};
+const toolData = {
+  'AI生成产品图': {delta:-10, risk:'高', focus:'生成图片和参考素材太像，可能构成侵权'},
+  'AI客服': {delta:-7, risk:'中高', focus:'客户对话中的个人信息、保存时间和数据出国'},
+  'AI翻译': {delta:-3, risk:'中', focus:'翻译准确性、品牌用语和第三方文本授权'},
+  'AI选品分析': {delta:-5, risk:'中', focus:'数据来源、网页抓取合规和商业信息保护'}
+};
+
+const taskCatalog = [
+  {id:'m1-source', module:'m1', title:'给每批训练数据标注来源和授权文件', href:'#m3'},
+  {id:'m1-clean', module:'m1', title:'保存清洗记录，至少保留6个月', href:'#m3'},
+  {id:'m1-ai-label', module:'m1', title:'给AI生成的图片加“AI生成”标识', href:'#m2'},
+  {id:'m1-prompt', module:'m1', title:'保存AI生成记录和Prompt', href:'#m2'},
+  {id:'m2-pii', module:'m2', title:'把训练数据中的手机号、邮箱等隐私信息脱敏', href:'#m3'},
+  {id:'m2-copyright', module:'m2', title:'替换训练数据中的未授权或高风险短语', href:'#m3'},
+  {id:'m4-gateway', module:'m4', title:'给数据出国链路增加加密中转站', href:'#m3'},
+  {id:'m4-scc', module:'m4', title:'签署欧盟标准合同条款（SCC）或采用其他合规机制', href:'#m3'}
+];
+let taskStatus = storageGet('jqch_task_status', {});
+const getTask = id => taskCatalog.find(task => task.id === id);
+const isTaskDone = id => Boolean(taskStatus[id]);
+function toggleTask(id, done) {
+  taskStatus[id] = Boolean(done);
+  storageSet('jqch_task_status', taskStatus);
+}
+function renderChecklist(ids) {
+  const rows = ids.map(id => {
+    const task = getTask(id);
+    if (!task) return '';
+    return `<div class="check-row"><input type="checkbox" data-task-id="${task.id}" ${isTaskDone(task.id) ? 'checked' : ''}><label>${escapeHtml(task.title)}${task.href ? ` <a href="${task.href}" style="color:#bae6fd">去处理</a>` : ''}</label></div>`;
+  }).join('');
+  return `<details class="checklist"><summary>我要怎么改（${ids.length}项）</summary><div class="check-list">${rows}</div></details>`;
+}
+
+function scoreBand(score) {
+  if (score >= 90) return {label:'优秀', desc:'可直接进入下一步，但仍要保留来源与授权记录。', cls:'green'};
+  if (score >= 75) return {label:'良好', desc:'整体可用，但仍有问题需要整改。', cls:'green'};
+  if (score >= 60) return {label:'及格', desc:'建议整改后再用于训练或投放。', cls:'blue'};
+  return {label:'不合格', desc:'不建议直接使用，请先完成整改。', cls:'red'};
+}
+
+function updateDashboard() {
+  const generated = completedReportCount();
+  const risks = Object.values(state.risks).reduce((sum, value) => sum + Number(value || 0), 0);
+  $('#doneCount').textContent = generated;
+  $('#riskCount').textContent = risks;
+  $('#lastUpdate').textContent = state.lastUpdate || '尚未检测';
+  $('#avgScore').textContent = industryData[$('#industrySelect').value]?.avg ?? 70;
+}
+
+function markGenerated(moduleKey, reportHtml, riskCount=0) {
+  state.reports[moduleKey] = reportHtml;
+  state.risks[moduleKey] = riskCount;
+  state.lastUpdate = nowText();
+  updateDashboard();
+}
+
+function actionButtons() {
+  return `<div class="form-actions"><button class="btn small" type="button" data-action="copy-summary">复制摘要</button><button class="btn small primary" type="button" data-action="open-report">生成总览报告</button></div>`;
+}
+
+function refreshM1Tags() {
+  const ind = $('#m1Industry').value;
+  const market = $('#m1Market').value;
+  const tool = $('#m1Tool').value;
+  const tags = [...(marketData[market]?.regs || []), industryData[ind]?.term, tool === 'AI生成产品图' ? 'AIGC显式标识' : ''].filter(Boolean);
+  $('#m1Tags').innerHTML = tags.map(tag => `<span class="pill blue">${escapeHtml(plain(tag))}</span>`).join('');
+}
+
+function runM1() {
+  const ind = $('#m1Industry').value;
+  const market = $('#m1Market').value;
+  const tool = $('#m1Tool').value;
+  const industry = industryData[ind];
+  const score = clamp(industry.score + marketData[market].delta + toolData[tool].delta, 35, 95);
+  const band = scoreBand(score);
+  const beat = clamp(Math.round((score - industry.avg + 20) * 2.2), 12, 96);
+  const html = `<div class="score-line"><span class="pill ${band.cls}">${band.label}</span><b>${score}分</b><div class="bar"><span style="width:${score}%"></span></div></div>
+    <div class="score-explain"><b>${band.label}：</b>${band.desc}</div>
+    <div class="risk"><span class="pill red">重点一</span><b>${escapeHtml(tool)}：${escapeHtml(toolData[tool].focus)}</b><p>不要只换颜色或改几个字，要保留生成记录、参考素材来源和人工审核痕迹。</p>${renderChecklist(['m1-ai-label','m1-prompt'])}</div>
+    <div class="risk"><span class="pill">重点二</span><b>${escapeHtml(ind)}卖到${escapeHtml(market)}，要重点看：${escapeHtml(marketData[market].focus)}</b><p>先核对${escapeHtml(marketData[market].regs.map(plain).join('、'))}，再准备对应材料。</p></div>
+    <div class="risk"><span class="pill blue">重点三</span><b>行业专项：${escapeHtml(industry.term)}</b><p>围绕${escapeHtml(industry.focus)}建立来源、授权和清洗台账。</p>${renderChecklist(['m1-source','m1-clean'])}</div>
+    <div class="benchmark">
+      <div><b>你和同行比：</b>${escapeHtml(ind)}平均${industry.avg}分，你${score}分，大约超过${beat}%的同行。</div>
+      <div class="benchmark-row mine"><span>你的得分</span><div class="bar"><span style="width:${score}%"></span></div><b>${score}</b></div>
+      <div class="benchmark-row"><span>行业平均</span><div class="bar"><span style="width:${industry.avg}%"></span></div><b>${industry.avg}</b></div>
+      <div class="benchmark-row"><span>前10%企业</span><div class="bar"><span style="width:${industry.top10}%"></span></div><b>${industry.top10}</b></div>
+    </div>
+    <div class="risk"><span class="pill green">下一步建议</span><b>别停在看分数，直接把风险变成待办。</b><p>先查注册信息，再查产品原型图，最后检查合规流程与数据链路。</p><div class="next-steps"><a class="btn small" href="#m2">去查产品图 →</a><a class="btn small" href="#m3" data-detect-jump="registration">去查注册信息 →</a><a class="btn small" href="#m3" data-detect-jump="compliance">去查数据链路 →</a><button class="btn small primary" type="button" data-action="open-report">生成总览报告</button></div></div>`;
+  $('#m1Out').innerHTML = html;
+  markGenerated('m1', html, score < 65 ? 3 : score < 80 ? 2 : 1);
+  toast('AI出海体检报告已生成');
+}
+function collectMatches(text, regex, type, className) {
+  const flags = regex.flags.includes('g') ? regex.flags : `${regex.flags}g`;
+  const re = new RegExp(regex.source, flags);
+  const matches = [];
+  let match;
+  while ((match = re.exec(text)) !== null) {
+    if (!match[0]) { re.lastIndex += 1; continue; }
+    matches.push({start:match.index, end:match.index + match[0].length, text:match[0], type, className});
+  }
+  return matches;
+}
+
+function analyzeText(text) {
+  const matches = [
+    ...collectMatches(text, /(?<!\d)(?:\+?86[-\s]?)?1[3-9]\d{9}(?!\d)/g, '手机号', 'pii-hit'),
+    ...collectMatches(text, /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, '邮箱', 'pii-hit'),
+    ...collectMatches(text, /(?<!\d)\d{17}[\dXx](?!\d)/g, '身份证号', 'pii-hit'),
+    ...collectMatches(text, /未授权|侵权|洗稿|商业机密|客户名单|病历|爬取|私域数据/gi, '高风险词', 'copy-hit')
+  ].sort((a,b) => a.start - b.start || b.end - a.end);
+  const unique = matches.filter((match, index, list) => !list.slice(0,index).some(prev => match.start < prev.end && match.end > prev.start));
+  const hits = unique.filter(item => item.className === 'copy-hit');
+  const pii = unique.filter(item => item.className === 'pii-hit');
+  const score = clamp(98 - pii.length * 8 - hits.length * 5, 25, 98);
+  return {matches:unique, hits, pii, score};
+}
+
+function highlightText(text) {
+  const analysis = analyzeText(text);
+  if (!analysis.matches.length) return escapeHtml(text);
+  let cursor = 0;
+  const parts = [];
+  analysis.matches.forEach(match => {
+    if (match.start < cursor) return;
+    parts.push(escapeHtml(text.slice(cursor, match.start)));
+    const tip = match.className === 'pii-hit' ? match.type : `高风险词：${match.text}`;
+    parts.push(`<mark class="${match.className}" title="${escapeHtml(tip)}">${escapeHtml(match.text)}</mark>`);
+    cursor = match.end;
+  });
+  parts.push(escapeHtml(text.slice(cursor)));
+  return parts.join('');
+}
+
+async function readPlainFile(file) {
+  const readable = /\.(txt|csv|jsonl|json|md)$/i.test(file.name);
+  if (!readable || file.size > 1024 * 1024) return '';
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = () => resolve('');
+    reader.readAsText(file);
+  });
+}
+
+function renderM2Files() {
+  $('#m2Drop').textContent = state.m2Files.length ? `已选择 ${state.m2Files.length} 个文件，点击可继续添加` : '拖拽或点击上传 txt / csv / jsonl / docx / zip';
+  $('#m2Files').innerHTML = state.m2Files.map(file => `<span class="file-chip">${escapeHtml(file.name)} · ${fmtBytes(file.size)}</span>`).join('');
+}
+
+function extractM2Text() {
+  const text = $('#m2Text').value.trim();
+  return text.length > 80000 ? text.slice(0, 80000) : text;
+}
+
+function addHistory(score, issueCount) {
+  state.history.unshift({time:nowText(), score, issues:issueCount});
+  state.history = state.history.slice(0, 6);
+  storageSet('jqch_history', state.history);
+}
+
+function renderHistory() {
+  if (!state.history.length) return '';
+  return `<details class="checklist"><summary>我的检测历史（${state.history.length}条）</summary><div class="check-list">${state.history.map(item => `<div class="history-item"><span>${escapeHtml(item.time)}</span><b>${item.score}分 · ${item.issues}处问题</b></div>`).join('')}</div></details>`;
+}
+
+function renderM2Result(analysis, text, repaired=false) {
+  const band = scoreBand(analysis.score);
+  const issueCount = analysis.pii.length + analysis.hits.length;
+  const piiTypes = [...new Set(analysis.pii.map(item => item.type))];
+  const hitWords = [...new Set(analysis.hits.map(item => item.text))];
+  const html = `<div class="score-line"><span class="pill ${band.cls}">${band.label}</span><b>${analysis.score}分</b><span>安全训练指数</span><div class="bar"><span style="width:${analysis.score}%"></span></div></div>
+    <div class="score-explain"><b>${band.label}：</b>${repaired ? '系统已按预设规则替换可处理内容，请人工复核后再使用。' : `${band.desc} 当前发现 ${issueCount} 处需要处理的问题。`}<br><span class="plain-note">90-100优秀｜75-89良好｜60-74及格｜60以下不合格</span></div>
+    <div class="highlight-box" aria-label="问题原文">${highlightText(text)}</div>
+    <div class="legend"><span><i class="red"></i>红色：疑似未授权/高风险表达</span><span><i class="amber"></i>黄色：手机号、邮箱、身份证号等隐私信息</span></div>
+    <div class="risk"><span class="pill ${analysis.pii.length ? 'red' : 'green'}">隐私信息</span><b>${analysis.pii.length ? `发现 ${analysis.pii.length} 处：${escapeHtml(piiTypes.join('、'))}` : '未发现常见手机号、邮箱或身份证号'}</b><p>${analysis.pii.length ? '这些内容应在训练或对外使用前替换为占位符。' : '仍建议结合企业自己的数据分类规则做人工复核。'}</p></div>
+    <div class="risk"><span class="pill ${analysis.hits.length ? 'red' : 'green'}">版权/敏感表达</span><b>${analysis.hits.length ? `发现 ${analysis.hits.length} 处：${escapeHtml(hitWords.join('、'))}` : '未命中预设高风险词'}</b><p>关键词只能做初筛；是否真正侵权，还要看来源、授权文件、相似程度和具体用途。</p></div>
+    ${repaired ? '<div class="notice"><b>✅ 已完成自动修复：</b>隐私信息已替换为占位符，高风险表达已按预设规则改写，请重新查看并人工确认。</div>' : ''}
+    <div class="form-actions">${issueCount ? `<button class="btn small primary" type="button" data-action="fix-all">一键修复全部</button><button class="btn small" type="button" data-action="mask-text">只脱敏隐私信息</button>` : ''}<button class="btn small" type="button" data-action="copy-summary">复制摘要</button><button class="btn small" type="button" data-action="open-report">生成总览报告</button></div>
+    ${renderHistory()}`;
+  $('#m2Out').innerHTML = html;
+  state.m2Analysis = analysis;
+  state.m2DisplayText = text;
+  markGenerated('m2', html, issueCount);
+}
+
+async function runM2() {
+  const pasted = extractM2Text();
+  const fileTexts = (await Promise.all(state.m2Files.map(readPlainFile))).filter(Boolean);
+  const text = `${pasted}\n${fileTexts.join('\n')}`.trim();
+  if (!text && !state.m2Files.length) { toast('请先输入或上传训练数据'); return; }
+  $('#m2Out').innerHTML = '<div class="steps"><div class="step active">读取内容</div><div class="step">定位问题句子</div><div class="step">计算安全指数</div></div>';
+  setTimeout(() => {
+    if (!text) {
+      const html = `<div class="notice">已记录 ${state.m2Files.length} 个文件，但浏览器没有解析出文字。请粘贴文本，或上传 txt / csv / jsonl / json 文件。</div>${actionButtons()}`;
+      $('#m2Out').innerHTML = html;
+      markGenerated('m2', html, 1);
+      return;
+    }
+    const analysis = analyzeText(text);
+    addHistory(analysis.score, analysis.pii.length + analysis.hits.length);
+    renderM2Result(analysis, text, false);
+  }, 420);
+}
+
+function maskText() {
+  const before = $('#m2Text').value;
+  if (!before.trim()) { toast('文本框为空，暂无可脱敏内容'); return; }
+  const after = before
+    .replace(/(?<!\d)(?:\+?86[-\s]?)?1[3-9]\d{9}(?!\d)/g, '[手机号已脱敏]')
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, '[邮箱已脱敏]')
+    .replace(/(?<!\d)\d{17}[\dXx](?!\d)/g, '[身份证号已脱敏]');
+  if (after === before) { toast('没有发现可自动脱敏的手机号、邮箱或身份证号'); return; }
+  $('#m2Text').value = after;
+  const analysis = analyzeText(after);
+  renderM2Result(analysis, after, true);
+  toast('隐私信息已脱敏，请人工复核');
+}
+
+function fixAll() {
+  const before = $('#m2Text').value || state.m2DisplayText || '';
+  if (!before.trim()) { toast('没有可修复的内容'); return; }
+  const replacements = {
+    '未授权':'已获得授权',
+    '侵权':'风险',
+    '洗稿':'原创改写',
+    '商业机密':'公开商业信息',
+    '客户名单':'客户信息清单',
+    '病历':'健康信息',
+    '爬取':'授权采集',
+    '私域数据':'自有数据'
+  };
+  let after = before
+    .replace(/(?<!\d)(?:\+?86[-\s]?)?1[3-9]\d{9}(?!\d)/g, '[手机号已脱敏]')
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, '[邮箱已脱敏]')
+    .replace(/(?<!\d)\d{17}[\dXx](?!\d)/g, '[身份证号已脱敏]');
+  Object.entries(replacements).forEach(([from, to]) => { after = after.split(from).join(to); });
+  $('#m2Text').value = after;
+  const analysis = analyzeText(after);
+  renderM2Result(analysis, after, true);
+  addHistory(analysis.score, analysis.pii.length + analysis.hits.length);
+  toast('已自动修复，请检查改写后的内容');
+}
+
+function sampleM2() {
+  $('#m2Text').value = '白沟箱包产品描述：采用进口头层牛皮，起绒工艺处理，支持定制logo。参考了某海外品牌未授权设计描述。联系电话13812348000，邮箱 ali@example.com，客户名单保存在河北工厂CRM。';
+  toast('河北示例数据已载入');
+}
+
+function bindDrop(dropSelector, inputSelector, arr, render) {
+  const drop = $(dropSelector);
+  const input = $(inputSelector);
+  const addFiles = files => { arr.push(...files); render(); };
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); input.click(); } });
+  input.addEventListener('change', () => { addFiles(input.files); input.value = ''; });
+  ['dragover','dragenter'].forEach(eventName => drop.addEventListener(eventName, event => { event.preventDefault(); drop.classList.add('dragging'); }));
+  ['dragleave','drop'].forEach(eventName => drop.addEventListener(eventName, event => { event.preventDefault(); drop.classList.remove('dragging'); }));
+  drop.addEventListener('drop', event => addFiles(event.dataTransfer.files));
+}
+
+function renderM3Files() {
+  $('#m3Drop').textContent = state.m3Files.length ? `已选择 ${state.m3Files.length} 个素材，点击可继续添加` : '拖拽或点击上传产品图 / 文案';
+  $('#m3Files').innerHTML = state.m3Files.map(file => `<span class="file-chip">${escapeHtml(file.name)} · ${fmtBytes(file.size)}</span>`).join('');
+  const image = state.m3Files.find(file => file.type.startsWith('image/'));
+  if (!image) { $('#m3Preview').innerHTML = '<p>上传后先在这里看到图片预览</p>'; return; }
+  if (!image._sampleUrl && !image._previewUrl) image._previewUrl = URL.createObjectURL(image);
+  const url = image._sampleUrl || image._previewUrl;
+  $('#m3Preview').innerHTML = `<img src="${escapeHtml(url)}" alt="${escapeHtml(image.name)}">`;
+}
+
+function sampleM3() {
+  const file = new File([new Uint8Array([1,2,3])], 'AI箱包产品图.png', {type:'image/png'});
+  file._sampleUrl = '冀企出海logo.png';
+  state.m3Files = [file];
+  renderM3Files();
+  toast('示例产品图已载入，可先看到预览');
+}
+
+function assetHash(text) {
+  let hash = 2166136261;
+  for (let i = 0; i < text.length; i += 1) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+const hebeiFingerprintLibrary = {
+  '白沟箱包': {
+    brands: [
+      { name:'白沟箱包设计风格A', colorProfile:['#1a1a2e','#16213e','#d9b382'], pattern:'几何线条', risk:'中', aspect:0.82, edgeDensity:0.20, hashSeed:'baigou-style-a' },
+      { name:'白沟箱包设计风格B', colorProfile:['#8b4513','#d2691e','#f1e3d3'], pattern:'皮质纹理', risk:'低', aspect:1.05, edgeDensity:0.27, hashSeed:'baigou-style-b' },
+      { name:'高端旅行箱视觉风格', colorProfile:['#0f172a','#334155','#cbd5e1'], pattern:'金属质感', risk:'中高', aspect:0.72, edgeDensity:0.34, hashSeed:'baigou-style-c' }
+    ],
+    riskTerms:['头层牛皮','万向轮','ABS+PC','拉杆箱','双肩包','同款','平替'],
+    commonElements:['产品45度角展示','纯色背景','模特手持'],
+    safePalette:['#0b1f3a','#2563eb','#f59e0b','#f8fafc']
+  },
+  '清河羊绒': {
+    brands: [
+      { name:'清河羊绒材质风格A', colorProfile:['#f5f5dc','#d2b48c','#8b7355'], pattern:'绒毛质感', risk:'中', aspect:0.86, edgeDensity:0.15, hashSeed:'qinghe-style-a' },
+      { name:'高端针织成分展示风', colorProfile:['#e7e5e4','#a8a29e','#57534e'], pattern:'细腻纹理', risk:'中高', aspect:1.10, edgeDensity:0.22, hashSeed:'qinghe-style-b' }
+    ],
+    riskTerms:['分梳山羊绒','无毛绒','双面绒','精梳','羊绒纱线','100%羊绒','原产地'],
+    commonElements:['材质特写','成分标签展示','模特穿着'],
+    safePalette:['#7c5c45','#d6c7b0','#2f6f5e','#f8fafc']
+  },
+  '石家庄跨境电商': {
+    brands: [
+      { name:'平台爆款视觉风格', colorProfile:['#ffffff','#ef4444','#111827'], pattern:'高对比促销版式', risk:'中高', aspect:0.78, edgeDensity:0.31, hashSeed:'sjz-style-a' },
+      { name:'跨境白底商品风格', colorProfile:['#ffffff','#e5e7eb','#0f766e'], pattern:'白底多角度', risk:'中', aspect:1.00, edgeDensity:0.18, hashSeed:'sjz-style-b' }
+    ],
+    riskTerms:['爆款','同款','平替','工厂直销','全网最低','销量第一'],
+    commonElements:['白底产品图','多角度拼图','使用场景图'],
+    safePalette:['#0f766e','#14b8a6','#f97316','#f8fafc']
+  }
+};
+
+const industryDetectionConfig = {
+  '白沟箱包': {
+    focusDimensions:['外观设计相似度','品牌Logo识别','产品图版权','AIGC标识','素材完整度'],
+    similarityThreshold:65,
+    textAdvice:'重点核对外观轮廓、五金结构、模特构图与品牌标识，避免只做镜像、裁切或换色。'
+  },
+  '清河羊绒': {
+    focusDimensions:['材质宣称合规','原产地标识','成分描述','AIGC标识','素材完整度'],
+    similarityThreshold:70,
+    textAdvice:'重点核对山羊绒含量、原产地和材质宣称依据，避免无检测依据的绝对化表达。'
+  },
+  '石家庄跨境电商': {
+    focusDimensions:['平台规则合规','商品描述','消费者数据','AIGC标识','素材完整度'],
+    similarityThreshold:60,
+    textAdvice:'重点核对平台规则、促销词、图片版权和消费者信息，保留素材授权与生成记录。'
+  }
+};
+
+const multilingualRiskTerms = {
+  '欧盟': {
+    '绝对化用语': {
+      en:['best','no.1','perfect','100%','guaranteed'],
+      de:['beste','garantiert','100%'],
+      fr:['meilleur','garanti'],
+      desc:'欧盟《不公平商业行为指令》要求营销宣称真实、可证实。'
+    },
+    '环保宣称': {
+      en:['eco-friendly','carbon neutral','green product'],
+      desc:'欧盟绿色声明规则要求环保宣称具备清晰、科学的依据。'
+    }
+  },
+  '北美': {
+    'FTC敏感宣称': {
+      en:['cure','treat','prevent','fda approved','clinically proven'],
+      desc:'FTC对健康、功效和认证类宣称有严格限制。'
+    },
+    '绝对化用语': {
+      en:['best','number one','guaranteed','risk-free'],
+      desc:'未经验证的绝对化宣称可能构成误导。'
+    }
+  },
+  '东盟': {
+    '功效宣称': {
+      en:['cure','guaranteed','miracle'],
+      desc:'不同东盟国家对视同药品、功效和认证类宣称要求不同。'
+    }
+  },
+  '中东': {
+    '文化与宣传限制': {
+      en:['alcohol','pork','religious guarantee'],
+      desc:'需要结合目标国宗教文化与广告规范复核。'
+    }
+  }
+};
+
+function getCurrentIndustry() {
+  return $('#m1Industry')?.value || '白沟箱包';
+}
+function getCurrentMarket() {
+  return $('#m1Market')?.value || '欧盟';
+}
+function getIndustryLibrary(industry=getCurrentIndustry()) {
+  return hebeiFingerprintLibrary[industry] || hebeiFingerprintLibrary['白沟箱包'];
+}
+function getIndustryConfig(industry=getCurrentIndustry()) {
+  return industryDetectionConfig[industry] || industryDetectionConfig['白沟箱包'];
+}
+function refreshM3Strategy() {
+  const industry=getCurrentIndustry();
+  const config=getIndustryConfig(industry);
+  const industryEl=$('#m3IndustryStrategy');
+  const marketEl=$('#m3MarketStrategy');
+  if(industryEl) industryEl.textContent=`${industry} · 相似度复核线 ${config.similarityThreshold}%`;
+  if(marketEl) marketEl.textContent=getCurrentMarket();
+}
+
+function hashTextSeed(text) {
+  return assetHash(String(text || ''));
+}
+function expandHashFromSeed(seed) {
+  let x=(Number(seed)>>>0)||0x9e3779b9;
+  let out='';
+  for(let i=0;i<64;i+=1){
+    x^=x<<13;x^=x>>>17;x^=x<<5;x>>>=0;
+    out+=(x>>>31).toString();
+  }
+  return out;
+}
+function hammingDistance(hashA,hashB) {
+  if(!hashA||!hashB)return 32;
+  let distance=0;
+  const length=Math.min(hashA.length,hashB.length);
+  for(let i=0;i<length;i+=1){if(hashA[i]!==hashB[i])distance+=1;}
+  distance+=Math.abs(hashA.length-hashB.length);
+  return distance;
+}
+function hexToRgb(hex) {
+  const value=String(hex||'').replace('#','');
+  const normalized=value.length===3?value.split('').map(ch=>ch+ch).join(''):value.padEnd(6,'0').slice(0,6);
+  return {
+    r:parseInt(normalized.slice(0,2),16)||0,
+    g:parseInt(normalized.slice(2,4),16)||0,
+    b:parseInt(normalized.slice(4,6),16)||0
+  };
+}
+function rgbToHex(r,g,b) {
+  return '#'+[r,g,b].map(value=>clamp(Math.round(value),0,255).toString(16).padStart(2,'0')).join('');
+}
+function colorDistance(hexA,hexB) {
+  const a=hexToRgb(hexA),b=hexToRgb(hexB);
+  return Math.sqrt((a.r-b.r)**2+(a.g-b.g)**2+(a.b-b.b)**2);
+}
+function colorProfileSimilarity(uploadedColors,referenceColors) {
+  if(!uploadedColors?.length||!referenceColors?.length)return 52;
+  const scores=uploadedColors.map(color=>{
+    const best=Math.max(...referenceColors.map(reference=>100-colorDistance(color,reference)/4.42));
+    return clamp(best,0,100);
+  });
+  return Math.round(scores.reduce((sum,value)=>sum+value,0)/scores.length);
+}
+function averageColorDistance(uploadedColors,referenceColors) {
+  if(!uploadedColors?.length||!referenceColors?.length)return 140;
+  const distances=[];
+  uploadedColors.forEach(color=>{
+    distances.push(Math.min(...referenceColors.map(reference=>colorDistance(color,reference))));
+  });
+  return distances.reduce((sum,value)=>sum+value,0)/distances.length;
+}
+function dominantColorsFromPixels(pixels) {
+  const buckets=new Map();
+  for(let i=0;i<pixels.length;i+=4){
+    const r=pixels[i],g=pixels[i+1],b=pixels[i+2],a=pixels[i+3];
+    if(a<120)continue;
+    const key=`${r>>5}-${g>>5}-${b>>5}`;
+    const item=buckets.get(key)||{count:0,r:0,g:0,b:0};
+    item.count+=1;item.r+=r;item.g+=g;item.b+=b;
+    buckets.set(key,item);
+  }
+  return [...buckets.values()]
+    .sort((a,b)=>b.count-a.count)
+    .slice(0,4)
+    .map(item=>rgbToHex(item.r/item.count,item.g/item.count,item.b/item.count));
+}
+function createFallbackFingerprint(file,error='image-decode-fallback') {
+  const seed=assetHash(`${file?.name||'asset'}-${file?.size||0}`);
+  const palette=getIndustryLibrary().safePalette;
+  const hash=expandHashFromSeed(seed);
+  const blocks=Array.from({length:64},(_,index)=>{
+    const row=Math.floor(index/8),col=index%8;
+    const color=hexToRgb(palette[(index+seed)%palette.length]);
+    const delta=(Number(hash[index%hash.length]||0)?18:-12)+(row-3.5)*2;
+    const r=clamp(color.r+delta,0,255),g=clamp(color.g+delta,0,255),b=clamp(color.b+delta,0,255);
+    const luminance=0.299*r+0.587*g+0.114*b;
+    return {row,col,r,g,b,luminance,variance:120+Math.abs(delta)*9};
+  });
+  return {
+    hash,
+    colors:palette.slice(0,3),
+    width:0,
+    height:0,
+    edgeDensity:0.12+(seed%19)/100,
+    brightness:110+(seed%80),
+    blocks,
+    source:error,
+    fileSize:file?.size||0
+  };
+}
+
+async function extractImageFingerprint(file) {
+  const ownUrl=file._sampleUrl||file._previewUrl||URL.createObjectURL(file);
+  const shouldRevoke=!(file._sampleUrl||file._previewUrl);
+  return new Promise(resolve=>{
+    const img=new Image();
+    img.onload=()=>{
+      try{
+        const hashCanvas=document.createElement('canvas');
+        hashCanvas.width=9;hashCanvas.height=8;
+        const hashCtx=hashCanvas.getContext('2d',{willReadFrequently:true});
+        hashCtx.drawImage(img,0,0,9,8);
+        const hashData=hashCtx.getImageData(0,0,9,8).data;
+        const gray=[];
+        for(let i=0;i<hashData.length;i+=4)gray.push(0.299*hashData[i]+0.587*hashData[i+1]+0.114*hashData[i+2]);
+        let hash='';
+        for(let row=0;row<8;row+=1){
+          for(let col=0;col<8;col+=1)hash+=gray[row*9+col]>gray[row*9+col+1]?'1':'0';
+        }
+
+        const sampleCanvas=document.createElement('canvas');
+        sampleCanvas.width=64;sampleCanvas.height=64;
+        const sampleCtx=sampleCanvas.getContext('2d',{willReadFrequently:true});
+        sampleCtx.drawImage(img,0,0,64,64);
+        const pixels=sampleCtx.getImageData(0,0,64,64).data;
+        const blocks=[];
+        let edgeSum=0,edgeCount=0,brightnessSum=0;
+        for(let row=0;row<8;row+=1){
+          for(let col=0;col<8;col+=1){
+            let luminanceSum=0,luminanceSq=0,rSum=0,gSum=0,bSum=0,count=0;
+            for(let y=row*8;y<row*8+8;y+=1){
+              for(let x=col*8;x<col*8+8;x+=1){
+                const index=(y*64+x)*4;
+                const r=pixels[index],g=pixels[index+1],b=pixels[index+2];
+                const luminance=0.299*r+0.587*g+0.114*b;
+                rSum+=r;gSum+=g;bSum+=b;luminanceSum+=luminance;luminanceSq+=luminance*luminance;brightnessSum+=luminance;count+=1;
+              }
+            }
+            const average=luminanceSum/count;
+            blocks.push({row,col,luminance:average,r:rSum/count,g:gSum/count,b:bSum/count,variance:Math.max(0,luminanceSq/count-average*average)});
+          }
+        }
+        for(let y=0;y<63;y+=1){
+          for(let x=0;x<63;x+=1){
+            const index=(y*64+x)*4;
+            const right=(y*64+x+1)*4;
+            const down=((y+1)*64+x)*4;
+            edgeSum+=Math.abs(pixels[index]-pixels[right])+Math.abs(pixels[index+1]-pixels[right+1])+Math.abs(pixels[index+2]-pixels[right+2]);
+            edgeSum+=Math.abs(pixels[index]-pixels[down])+Math.abs(pixels[index+1]-pixels[down+1])+Math.abs(pixels[index+2]-pixels[down+2]);
+            edgeCount+=6;
+          }
+        }
+        resolve({
+          hash,
+          colors:dominantColorsFromPixels(pixels),
+          width:img.naturalWidth||img.width,
+          height:img.naturalHeight||img.height,
+          edgeDensity:clamp(edgeSum/Math.max(1,edgeCount)/255,0,1),
+          brightness:brightnessSum/(64*64),
+          blocks,
+          source:'canvas-dhash',
+          fileSize:file.size
+        });
+      }catch(error){
+        resolve(createFallbackFingerprint(file,'canvas-read-restricted'));
+      }finally{
+        if(shouldRevoke)URL.revokeObjectURL(ownUrl);
+      }
+    };
+    img.onerror=()=>{
+      if(shouldRevoke)URL.revokeObjectURL(ownUrl);
+      resolve(createFallbackFingerprint(file,'image-load-failed'));
+    };
+    img.src=ownUrl;
+  });
+}
+function referenceMatchesForIndustry(fingerprint,industry=getCurrentIndustry()) {
+  const brands=getIndustryLibrary(industry).brands||[];
+  return brands.map(brand=>{
+    const referenceHash=expandHashFromSeed(hashTextSeed(brand.hashSeed));
+    const structureScore=(64-hammingDistance(fingerprint.hash,referenceHash))/64*100;
+    const colorScore=colorProfileSimilarity(fingerprint.colors,brand.colorProfile);
+    const uploadedRatio=fingerprint.width&&fingerprint.height?fingerprint.width/fingerprint.height:brand.aspect;
+    const aspectScore=(1-Math.abs(uploadedRatio-brand.aspect)/Math.max(uploadedRatio,brand.aspect,0.1))*100;
+    const edgeScore=100-Math.abs(fingerprint.edgeDensity-brand.edgeDensity)*260;
+    const similarity=clamp(structureScore*0.45+colorScore*0.30+aspectScore*0.15+edgeScore*0.10,0,100);
+    return {
+      ...brand,
+      structureScore:Math.round(structureScore),
+      colorScore:Math.round(colorScore),
+      aspectScore:Math.round(clamp(aspectScore,0,100)),
+      edgeScore:Math.round(clamp(edgeScore,0,100)),
+      similarity:Math.round(similarity)
+    };
+  }).sort((a,b)=>b.similarity-a.similarity);
+}
+function blocksFromPixelData(pixels,width=64,grid=8) {
+  const blockSize=width/grid;
+  const blocks=[];
+  for(let row=0;row<grid;row+=1){
+    for(let col=0;col<grid;col+=1){
+      let rSum=0,gSum=0,bSum=0,luminanceSum=0,luminanceSq=0,count=0;
+      for(let y=row*blockSize;y<(row+1)*blockSize;y+=1){
+        for(let x=col*blockSize;x<(col+1)*blockSize;x+=1){
+          const index=(y*width+x)*4;
+          const r=pixels[index],g=pixels[index+1],b=pixels[index+2];
+          const luminance=0.299*r+0.587*g+0.114*b;
+          rSum+=r;gSum+=g;bSum+=b;luminanceSum+=luminance;luminanceSq+=luminance*luminance;count+=1;
+        }
+      }
+      const average=luminanceSum/count;
+      blocks.push({row,col,luminance:average,r:rSum/count,g:gSum/count,b:bSum/count,variance:Math.max(0,luminanceSq/count-average*average)});
+    }
+  }
+  return blocks;
+}
+
+function createIndustryReference(match) {
+  const canvas=document.createElement('canvas');
+  canvas.width=320;canvas.height=220;
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  const colors=match?.colorProfile||getIndustryLibrary().safePalette;
+  const pattern=match?.pattern||'产业视觉特征';
+  const hash=expandHashFromSeed(hashTextSeed(match?.hashSeed||pattern));
+  const gradient=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+  gradient.addColorStop(0,colors[0]||'#0b1f3a');
+  gradient.addColorStop(.55,colors[1]||colors[0]||'#2563eb');
+  gradient.addColorStop(1,colors[2]||colors[1]||'#f59e0b');
+  ctx.fillStyle=gradient;ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.globalAlpha=.14;
+  for(let i=0;i<18;i+=1){
+    const bit=hash[i%hash.length]==='1';
+    const x=(i*47+(bit?31:7))%canvas.width;
+    const y=(i*29+(bit?17:41))%canvas.height;
+    ctx.fillStyle=colors[(i+1)%colors.length];
+    if(/几何|金属|版式/.test(pattern)){
+      ctx.save();ctx.translate(x,y);ctx.rotate(bit?-.35:.35);ctx.fillRect(-38,-7,76,14);ctx.restore();
+    }else if(/纹理|绒毛|皮质/.test(pattern)){
+      ctx.beginPath();ctx.ellipse(x,y,26+(i%3)*8,12+(i%2)*7,bit?.5:-.35,0,Math.PI*2);ctx.fill();
+    }else{
+      ctx.fillRect(x-24,y-14,48+(i%3)*10,28+(i%4)*7);
+    }
+  }
+  ctx.globalAlpha=1;
+  ctx.fillStyle='rgba(255,255,255,.88)';
+  ctx.beginPath();ctx.ellipse(160,112,82,58,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='rgba(7,17,31,.2)';
+  ctx.beginPath();ctx.ellipse(178,124,52,38,0,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,.72)';ctx.lineWidth=2;ctx.strokeRect(9,9,canvas.width-18,canvas.height-18);
+
+  const sample=document.createElement('canvas');sample.width=64;sample.height=64;
+  const sampleCtx=sample.getContext('2d',{willReadFrequently:true});
+  sampleCtx.drawImage(canvas,0,0,64,64);
+  const pixels=sampleCtx.getImageData(0,0,64,64).data;
+  return {
+    dataUrl:canvas.toDataURL('image/png'),
+    blocks:blocksFromPixelData(pixels,64,8),
+    colors,
+    pattern
+  };
+}
+
+function detectHotZones(fingerprint,referenceVisual) {
+  const uploadedBlocks=fingerprint.blocks||[];
+  const referenceBlocks=referenceVisual?.blocks||[];
+  if(!uploadedBlocks.length||!referenceBlocks.length)return [];
+  const maxVariance=Math.max(...uploadedBlocks.map(block=>block.variance),1);
+  const candidates=uploadedBlocks.map(block=>{
+    const reference=referenceBlocks[block.row*8+block.col];
+    if(!reference)return null;
+    const colorDifference=Math.sqrt((block.r-reference.r)**2+(block.g-reference.g)**2+(block.b-reference.b)**2);
+    const luminanceDifference=Math.abs(block.luminance-reference.luminance);
+    const textureWeight=Math.min(1,block.variance/maxVariance);
+    const score=clamp((colorDifference/441.7)*62+(luminanceDifference/255)*28+textureWeight*10,0,99);
+    return {...block,score};
+  }).filter(Boolean).sort((a,b)=>b.score-a.score);
+  const selected=[];
+  for(const item of candidates){
+    if(selected.some(other=>Math.abs(other.row-item.row)<=1&&Math.abs(other.col-item.col)<=1))continue;
+    selected.push(item);
+    if(selected.length===3)break;
+  }
+  return selected.map(item=>({
+    x:clamp(item.col/8*100-5,0,80),
+    y:clamp(item.row/8*100-5,0,80),
+    width:22.5,
+    height:22.5,
+    score:Math.round(item.score)
+  }));
+}
+async function readFileHead(file,maxBytes=262144) {
+  const blob=file.slice(0,Math.min(file.size,maxBytes));
+  return new Promise(resolve=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(reader.result||new ArrayBuffer(0));
+    reader.onerror=()=>resolve(new ArrayBuffer(0));
+    reader.readAsArrayBuffer(blob);
+  });
+}
+async function readImageMetadataText(file) {
+  if(!file?.type?.startsWith('image/'))return '';
+  const buffer=await readFileHead(file);
+  const bytes=new Uint8Array(buffer);
+  let text='';
+  const chunkSize=8192;
+  for(let i=0;i<bytes.length;i+=chunkSize){
+    text+=String.fromCharCode(...bytes.subarray(i,Math.min(i+chunkSize,bytes.length)));
+  }
+  return text;
+}
+async function detectAITraces(file,fingerprint,textContent='') {
+  const metadata=await readImageMetadataText(file);
+  const combined=`${file.name}\n${metadata}\n${textContent}`.toLowerCase();
+  const indicators=[];
+  let aiScore=0;
+  const cameraMatch=/(canon|nikon|sony|fujifilm|panasonic|olympus|apple|huawei|xiaomi|oppo|vivo|samsung)/i.test(metadata);
+  if(!cameraMatch){indicators.push({name:'缺少常见相机元数据',weight:15});aiScore+=15;}
+  const commonAISizes=[
+    {w:1024,h:1024},{w:512,h:512},{w:768,h:768},{w:1024,h:1792},{w:1792,h:1024}
+  ];
+  const isAISize=commonAISizes.some(size=>Math.abs(fingerprint.width-size.w)<10&&Math.abs(fingerprint.height-size.h)<10);
+  if(isAISize){indicators.push({name:'尺寸符合AI常见输出规格',weight:20});aiScore+=20;}
+  if(/(ai[-_ ]?gen|dall[-_ ]?e|midjourney|stable[-_ ]?diffusion|ai箱包|ai生成|生成图|aigc)/i.test(file.name)){
+    indicators.push({name:'文件名含AI生成线索',weight:25});aiScore+=25;
+  }
+  const metadataAISoftware=/(midjourney|stable diffusion|dall-e|comfyui|automatic1111|firefly|ai generated|aigc)/i.test(metadata);
+  if(metadataAISoftware){indicators.push({name:'元数据含AI工具或生成标识',weight:45});aiScore+=45;}
+  const frequencyAnomaly=fingerprint.edgeDensity>0.23;
+  if(frequencyAnomaly){indicators.push({name:'高频细节密度异常，需人工复核',weight:20});aiScore+=20;}
+  const hasLabel=/(ai生成标识|aigc标识|generated content label|已标注ai生成|ai-generated label)/i.test(combined);
+  const hasAIClue=aiScore>=40;
+  return {
+    aiScore:clamp(aiScore,0,100),
+    indicators,
+    isLikelyAI:hasAIClue,
+    needLabel:hasAIClue,
+    hasLabel,
+    metadataAvailable:Boolean(metadata.trim())
+  };
+}
+function detectMultilingualRisk(text,targetMarket=getCurrentMarket()) {
+  const risks=[];
+  const marketTerms=multilingualRiskTerms[targetMarket]||{};
+  Object.entries(marketTerms).forEach(([category,config])=>{
+    Object.entries(config).forEach(([language,terms])=>{
+      if(!Array.isArray(terms))return;
+      terms.forEach(term=>{
+        if(String(text||'').toLowerCase().includes(term.toLowerCase())){
+          risks.push({category,language,term,description:config.desc,severity:'高'});
+        }
+      });
+    });
+  });
+  return risks;
+}
+function detectIndustryTerms(text,industry=getCurrentIndustry()) {
+  const lower=String(text||'').toLowerCase();
+  return getIndustryLibrary(industry).riskTerms.filter(term=>lower.includes(term.toLowerCase()));
+}
+function informationComplianceScore(multilingualRisks,industryTerms) {
+  const strongHits=industryTerms.filter(term=>/同款|平替|爆款|全网最低|销量第一|100%/.test(term)).length;
+  return Math.round(clamp(100-multilingualRisks.length*14-strongHits*12-Math.max(0,industryTerms.length-strongHits)*5,35,100));
+}
+function prototypeScores(fingerprint,primaryMatch,threshold,aigc,multilingualRisks,industryTerms,imageCount) {
+  const similarity=primaryMatch?.similarity||0;
+  const copyrightSafety=similarity<=threshold
+    ? clamp(96-similarity*0.22,70,96)
+    : clamp(94-(similarity-threshold)*2.6,35,92);
+  const differentiation=primaryMatch?clamp(100-Math.max(0,primaryMatch.colorScore-50)*0.8,45,96):78;
+  const infoCompliance=informationComplianceScore(multilingualRisks,industryTerms);
+  const aigcLabel=aigc.needLabel?(aigc.hasLabel?100:30):100;
+  const assetCompleteness=imageCount>=3?100:imageCount===2?78:55;
+  const scores={
+    '版权安全度':Math.round(copyrightSafety),
+    '品牌差异化':Math.round(differentiation),
+    '信息合规度':infoCompliance,
+    'AIGC标识完整度':aigcLabel,
+    '素材完整度':assetCompleteness
+  };
+  const totalScore=Math.round(Object.values(scores).reduce((sum,value)=>sum+value,0)/Object.keys(scores).length);
+  return {scores,totalScore};
+}
+function buildActionableAdvice({primaryMatch,threshold,hotZones,aigc,multilingualRisks,industryTerms,imageCount,safePalette,config}) {
+  const advice=[];
+  const topZone=hotZones[0];
+  if(primaryMatch?.similarity>threshold||topZone?.y<30){
+    advice.push({priority:'高',area:'主视觉与构图',issue:`当前最高相似度 ${primaryMatch?.similarity||0}%，已超过${threshold}%复核线`,action:'调整产品摆放角度、主体占比和背景构图，不要只做镜像、裁切或换色。'});
+  }
+  if(primaryMatch?.colorScore>75){
+    advice.push({priority:'中',area:'整体配色',issue:'主色调与产业参考风格较接近',action:`推荐改用这组更具差异化的配色：${safePalette.join('、')}`});
+  }
+  if(aigc.needLabel&&!aigc.hasLabel){
+    advice.push({priority:'高',area:'AIGC合规标识',issue:'发现AI生成线索，但未检测到明确AI生成标识',action:'在图片角落添加“AI生成”标识，并在生成记录或元数据中保留工具、时间和提示词。'});
+  }
+  if(multilingualRisks.length){
+    advice.push({priority:'高',area:'多语言营销文案',issue:`发现${multilingualRisks.length}处目标市场高风险宣称`,action:'删除未经证实的绝对化、环保或功效宣称，并补充检测报告、认证或依据文件。'});
+  }
+  if(industryTerms.length){
+    advice.push({priority:'中',area:'产业宣传词',issue:`命中需复核词：${industryTerms.join('、')}`,action:config.textAdvice});
+  }
+  if(imageCount<3){
+    advice.push({priority:'中',area:'素材完整度',issue:`当前仅上传${imageCount}张图片`,action:'补充正面、侧面、细节或使用场景图，降低因单一素材相似而导致的整体风险。'});
+  }
+  return advice.slice(0,6);
+}
+function findM3TextFile(files=state.m3Files) {
+  return files.find(file=>/\.(txt|csv|json|md)$/i.test(file.name));
+}
+function renderM3ImageReport(analysis) {
+  const {
+    imageFile,fingerprint,industry,market,config,primaryMatch,secondaryMatch,
+    hotZones,aigc,multilingualRisks,industryTerms,scores,totalScore,advice,imageCount
+  }=analysis;
+  const url=imageFile._sampleUrl||imageFile._previewUrl||URL.createObjectURL(imageFile);
+  const band=scoreBand(totalScore);
+  const zoneHtml=hotZones.map((zone,index)=>`<div class="zone" style="left:${zone.x}%;top:${zone.y}%;width:${zone.width}%;height:${zone.height}%" title="参考差异评分 ${zone.score}%">参考差异区 ${index+1}</div>`).join('');
+  const brandRows=[primaryMatch,secondaryMatch].filter(Boolean).map((match,index)=>`<div class="brand-row"><span>产业特征 ${index+1}</span><b>${escapeHtml(match.name)} · ${escapeHtml(match.pattern)} · 相似度 ${match.similarity}% · 结构 ${match.structureScore}% · 配色 ${match.colorScore}% · ${escapeHtml(match.risk)}风险</b></div>`).join('');
+  const scoreCards=Object.entries(scores).map(([label,value])=>`<div class="m3-score-card"><span>${escapeHtml(label)}</span><b>${value}</b><div class="bar"><span style="width:${value}%"></span></div></div>`).join('');
+  const adviceRows=advice.length?advice.map(item=>`<div class="advice-item"><span class="pill ${item.priority==='高'?'red':''}">${escapeHtml(item.priority)}优先级</span><div><b>${escapeHtml(item.area)}：${escapeHtml(item.issue)}</b><p>${escapeHtml(item.action)}</p></div></div>`).join(''):'<div class="plain-note">当前未发现需要优先处理的规则项，仍建议进行人工复核。</div>';
+  const traceRows=aigc.indicators.length?aigc.indicators.map(item=>`<span class="trace-pill">${escapeHtml(item.name)} +${item.weight}</span>`).join(''):'<span class="trace-pill">未命中明显AI生成线索</span>';
+  const multilingualRows=multilingualRisks.length?multilingualRisks.map(item=>`<div class="brand-row"><span>${escapeHtml(item.category)}</span><b>${escapeHtml(item.term)} · ${escapeHtml(item.language.toUpperCase())} · ${escapeHtml(item.description)}</b></div>`).join(''):'<div class="plain-note">未命中当前目标市场的多语言高风险宣传词。</div>';
+  const riskCount=clamp(
+    (primaryMatch?.similarity>config.similarityThreshold?2:0)+
+    (aigc.needLabel&&!aigc.hasLabel?2:0)+
+    (multilingualRisks.length?1:0)+
+    (industryTerms.length?1:0)+
+    (imageCount<2?1:0),1,5
+  );
+  return {
+    html:`<div class="score-line"><span class="pill ${band.cls}">${band.label}</span><b>${totalScore}分</b><span>产品原型综合分</span><div class="bar"><span style="width:${totalScore}%"></span></div></div>
+      <div class="detect-intro"><b>本地视觉指纹：</b>${escapeHtml(industry)} · ${escapeHtml(market)} · 图片内容驱动 · 指纹 ${escapeHtml(fingerprint.hash.slice(0,16))}… · ${fingerprint.source==='canvas-dhash'?'已读取真实像素':'图片读取受限，已使用可复现降级指纹'}</div>
+      <div class="hot"><img src="${escapeHtml(url)}" alt="${escapeHtml(imageFile.name)}">${zoneHtml}</div>
+      <div class="zone-legend"><span><i></i>参考差异区</span><small>按上传素材与产业参考特征的块差异排序</small></div><div class="brand-hint">${brandRows}</div>
+      <div class="risk"><span class="pill ${primaryMatch?.similarity>=config.similarityThreshold?'red':'green'}">${primaryMatch?.similarity>=config.similarityThreshold?'超过复核线':'未超过复核线'}</span><b>最高产业特征相似度 ${primaryMatch?.similarity||0}%（${escapeHtml(industry)}复核线 ${config.similarityThreshold}%）</b><p>本结果由dHash结构、主色调、长宽版式和高频细节加权生成，同一图片改名后结果保持一致。原型暂未连接真实版权图库，不构成侵权认定。</p></div>
+      <div class="m3-score-grid">${scoreCards}</div>
+      <div class="risk"><span class="pill ${aigc.needLabel&&!aigc.hasLabel?'red':'blue'}">AIGC痕迹初筛</span><b>AI生成可能性评分 ${aigc.aiScore}%${aigc.needLabel&&!aigc.hasLabel?'，建议补充生成标识':''}</b><p>${aigc.hasLabel?'已检测到AI生成或AIGC标识线索。':'未检测到明确AI生成标识。'}</p><div class="trace-list">${traceRows}</div></div>
+      <div class="risk"><span class="pill ${multilingualRisks.length?'red':'green'}">多语言文案</span><b>${multilingualRisks.length?`命中${multilingualRisks.length}处风险宣称`:'未命中多语言高风险词'}</b><div class="brand-hint">${multilingualRows}</div></div>
+      <div class="risk"><span class="pill blue">产业关键词</span><b>${industryTerms.length?`需人工复核：${escapeHtml(industryTerms.join('、'))}`:'未命中产业高频风险词'}</b><p>关键词只用于召回和提醒，是否违规仍需结合授权材料、检测依据和具体使用场景判断。</p></div>
+      <div class="suggestion-grid"><div class="suggestion-box"><b>推荐安全配色（点击复制）</b><p>用于调整主视觉、标签或页面配色的差异化参考。</p><div class="swatches">${config.similarityThreshold?getIndustryLibrary(industry).safePalette.map(color=>`<button class="swatch" style="background:${color}" data-copy="${color}" title="${color}"></button>`).join(''):''}</div></div><div class="suggestion-box"><b>产业整改重点</b><p>${escapeHtml(config.textAdvice)}</p><button class="btn small" type="button" data-action="copy-copywriting">复制合规文案示例</button></div></div>
+      <div class="risk"><span class="pill green">可操作建议</span><b>共生成${advice.length}条整改建议</b><div class="advice-list">${adviceRows}</div></div>
+      <div class="form-actions"><button class="btn small" type="button" data-action="compare-image">查看素材特征对比</button><button class="btn small" type="button" data-action="copy-summary">复制摘要</button><button class="btn small primary" type="button" data-action="open-report">生成总览报告</button></div>`,
+    riskCount,
+    url
+  };
+}
+
+async function runM3() {
+  if(!state.m3Files.length){toast('请先上传产品原型图、AI生成素材或营销文案');return;}
+  const out=$('#m3Out');
+  out.innerHTML='<div class="steps"><div class="step active">读取图片真实像素</div><div class="step">计算产业指纹与多维相似度</div><div class="step">生成整改建议</div></div>';
+  try{
+    await new Promise(resolve=>setTimeout(resolve,180));
+    const imageFile=state.m3Files.find(file=>file.type.startsWith('image/'));
+    const textFile=findM3TextFile();
+    const textContent=textFile?await readPlainFile(textFile):'';
+    const combinedText=[textContent,...state.m3Files.map(file=>file.name)].filter(Boolean).join('\n');
+    const industry=getCurrentIndustry();
+    const market=getCurrentMarket();
+    const config=getIndustryConfig(industry);
+    const multilingualRisks=detectMultilingualRisk(combinedText,market);
+    const industryTerms=detectIndustryTerms(combinedText,industry);
+
+    if(imageFile){
+      const fingerprint=await extractImageFingerprint(imageFile);
+      const matches=referenceMatchesForIndustry(fingerprint,industry);
+      const primaryMatch=matches[0];
+      const secondaryMatch=matches[1];
+      const referenceVisual=createIndustryReference(primaryMatch);
+      const hotZones=detectHotZones(fingerprint,referenceVisual);
+      const aigc=await detectAITraces(imageFile,fingerprint,textContent);
+      const imageCount=state.m3Files.filter(file=>file.type.startsWith('image/')).length;
+      const {scores,totalScore}=prototypeScores(fingerprint,primaryMatch,config.similarityThreshold,aigc,multilingualRisks,industryTerms,imageCount);
+      const advice=buildActionableAdvice({primaryMatch,threshold:config.similarityThreshold,hotZones,aigc,multilingualRisks,industryTerms,imageCount,safePalette:getIndustryLibrary(industry).safePalette,config});
+      const analysis={imageFile,fingerprint,referenceVisual,industry,market,config,primaryMatch,secondaryMatch,hotZones,aigc,multilingualRisks,industryTerms,scores,totalScore,advice,imageCount};
+      const report=renderM3ImageReport(analysis);
+      state.compareUrl=report.url;
+      state.m3Analysis=analysis;
+      out.innerHTML=report.html;
+      markGenerated('m3',report.html,report.riskCount);
+      toast('产品原型图精细检测完成');
+      return;
+    }
+
+    const result=analyzeText(combinedText);
+    const html=`<div class="score-line"><span class="pill ${result.hits.length||multilingualRisks.length?'red':'green'}">${result.hits.length||multilingualRisks.length?'需复核':'初步通过'}</span><b>${result.score}分</b><span>营销文案安全指数</span><div class="bar"><span style="width:${result.score}%"></span></div></div>
+      <div class="risk"><span class="pill ${result.hits.length?'red':'green'}">中文高风险表达</span><b>${result.hits.length?`发现：${escapeHtml([...new Set(result.hits.map(item=>item.text))].join('、'))}`:'未命中预设高风险词'}</b><p>建议继续核对授权来源、品牌词和平台规则。</p></div>
+      <div class="risk"><span class="pill ${multilingualRisks.length?'red':'green'}">多语言市场规则</span><b>${multilingualRisks.length?`命中${multilingualRisks.length}处风险宣称`:`未命中${escapeHtml(market)}高风险词`}</b><p>${multilingualRisks.map(item=>`${escapeHtml(item.term)}：${escapeHtml(item.description)}`).join('<br>')||'可继续补充目标市场的本地化合规审查。'}</p></div>
+      <div class="risk"><span class="pill blue">产业关键词</span><b>${industryTerms.length?`需人工复核：${escapeHtml(industryTerms.join('、'))}`:'未命中产业高频风险词'}</b><p>${escapeHtml(config.textAdvice)}</p></div>
+      ${actionButtons()}`;
+    out.innerHTML=html;
+    markGenerated('m3',html,result.hits.length+multilingualRisks.length+industryTerms.length);
+    toast('营销文案多语言检测完成');
+  }catch(error){
+    out.innerHTML='<div class="risk"><span class="pill red">检测未完成</span><b>图片或文案读取失败</b><p>请改用PNG、JPG、WEBP图片，或TXT、CSV、JSON、MD文本文件后重试。</p></div>';
+    toast('素材读取失败，请更换文件重试');
+  }
+}
+
+function openCompare() {
+  if(!state.compareUrl){toast('请先检测一张图片');return;}
+  const analysis=state.m3Analysis;
+  const primary=analysis?.primaryMatch;
+  const zones=analysis?.hotZones||[];
+  const zoneHtml=zones.map((zone,index)=>`<div class="zone" style="left:${zone.x}%;top:${zone.y}%;width:${zone.width}%;height:${zone.height}%" title="参考差异评分 ${zone.score}%">参考差异区 ${index+1}</div>`).join('');
+  const referenceImage=analysis?.referenceVisual?.dataUrl||'';
+  const palette=primary?.colorProfile||getIndustryLibrary(analysis?.industry).safePalette;
+  $('#compareBody').innerHTML=`<div class="compare-grid"><div class="compare-card"><h4>上传素材与产业参考差异区</h4><div class="compare-image" style="position:relative;overflow:hidden;background:#07111f">${zoneHtml}<img src="${escapeHtml(state.compareUrl)}" alt="上传素材" style="max-width:100%;max-height:360px"></div></div><div class="compare-card"><h4>算法生成的产业特征参考</h4><div class="compare-image">${referenceImage?`<img src="${referenceImage}" alt="产业特征参考图" style="max-width:100%;max-height:360px;border-radius:10px">`:`<div><div style="font-weight:900;font-size:18px;margin-bottom:8px">${escapeHtml(primary?.name||'未匹配到产业特征')}</div><div>${escapeHtml(primary?.pattern||'待接入真实产业参考图库')}</div></div>`}</div></div></div><div class="brand-hint"><div class="brand-row"><span>参考特征</span><b>${escapeHtml(primary?.name||'产业参考')} · ${escapeHtml(primary?.pattern||'视觉特征')} · 结构 ${primary?.structureScore||0}% · 配色 ${primary?.colorScore||0}% · 综合 ${primary?.similarity||0}%</b></div><div class="brand-row"><span>参考配色</span><b>${palette.map(escapeHtml).join('、')}</b></div></div><div class="notice"><b>说明：</b>热区由上传素材与算法生成的产业特征参考图进行8×8分块颜色、亮度和纹理差异比较后产生，不是简单圈出图片中的高对比位置；参考图不是真实品牌原图，正式上线仍应接入真实版权图库并人工复核。</div>`;
+  $('#compareModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCompare() { $('#compareModal').classList.remove('open'); if (!$('#reportModal').classList.contains('open')) document.body.style.overflow=''; }
+
+function generateCompliantCopy() {
+  const industry=getCurrentIndustry();
+  const text={
+    '白沟箱包':'采用自有原创版型与配色方案，五金结构、图案和展示构图均已完成原创设计核查，支持企业个性化定制。',
+    '清河羊绒':'产品成分、含量与产地信息以检测报告和标签标注为准，不使用无法验证的绝对化材质宣称。',
+    '石家庄跨境电商':'商品图片、文案和授权素材均已完成来源核查，宣传内容以平台规则和实际检测依据为准。'
+  }[industry]||'素材与文案已完成来源核查，具体功效、认证与环保宣称均有可验证依据。';
+  copyText(text,'合规版本文案已复制');
+}
+
+const nodeCatalog = [
+  {id:'domestic-server', name:'国内服务器', kind:'domestic', help:'数据还在国内'},
+  {id:'api-gateway', name:'API网关', kind:'domestic', help:'统一接口入口'},
+  {id:'overseas-ai', name:'海外AI服务商', kind:'overseas', help:'数据会传到国外'},
+  {id:'eu-user', name:'欧洲用户端', kind:'overseas', help:'欧洲用户接收或使用'},
+  {id:'encrypt-gateway', name:'加密中转站', kind:'protective', help:'相当于加密网关'},
+  {id:'scc-node', name:'SCC合同环节', kind:'protective', help:'欧盟标准合同条款（SCC）'},
+  {id:'mask-node', name:'数据脱敏环节', kind:'protective', help:'先把手机号等信息去掉'},
+  {id:'local-ai', name:'欧盟本地AI服务商', kind:'protective', help:'数据尽量留在当地处理'}
+];
+
+function renderPalette() {
+  $('#m4Palette').innerHTML = nodeCatalog.map(node => `<div class="palette-item" draggable="true" data-node-id="${node.id}" title="${escapeHtml(node.help)}">${escapeHtml(node.name)}<br><small>${escapeHtml(node.help)}</small></div>`).join('');
+}
+function renderFlowBuilder() {
+  const canvas = $('#m4Canvas');
+  if (!state.flowNodes.length) {
+    canvas.innerHTML = '<span class="plain-note">你的链路会显示在这里</span>';
+  } else {
+    canvas.innerHTML = state.flowNodes.map((id,index) => {
+      const node = nodeCatalog.find(item => item.id === id);
+      const arrow = index ? '<span class="flow-arrow">→</span>' : '';
+      return `${arrow}<span class="flow-chip">${escapeHtml(node?.name || id)}<button type="button" data-remove-node="${id}" aria-label="移除${escapeHtml(node?.name || id)}">×</button></span>`;
+    }).join('');
+  }
+  const names = state.flowNodes.map(id => nodeCatalog.find(node => node.id === id)?.name).filter(Boolean);
+  $('#m4Flow').value = names.join(' → ');
+}
+function addFlowNode(id) {
+  if (!nodeCatalog.some(node => node.id === id)) return;
+  state.flowNodes.push(id);
+  renderFlowBuilder();
+}
+function removeFlowNode(id) {
+  const index = state.flowNodes.lastIndexOf(id);
+  if (index >= 0) state.flowNodes.splice(index,1);
+  renderFlowBuilder();
+}
+function clearFlow() { state.flowNodes = []; renderFlowBuilder(); }
+function loadFlowSample() {
+  state.flowNodes = ['domestic-server','api-gateway','overseas-ai','eu-user'];
+  renderFlowBuilder();
+  toast('示例链路已放入，点击“检查这条链路”查看问题');
+}
+
+const domesticPatterns = /(河北|白沟|石家庄|清河|北京|上海|深圳|杭州|广州|中国|境内|阿里云|腾讯云|华为云|火山引擎)/i;
+const overseasPatterns = /(AWS|Amazon|Azure|Google|OpenAI|法兰克福|新加坡|美国|欧盟|欧洲|日本|韩国|德国|法国|英国|加拿大|澳大利亚|境外)/i;
+const protectivePatterns = /(加密|脱敏|SCC|标准合同|合同环节|本地AI|本地服务)/i;
+
+function classifyNode(name) {
+  const catalogNode = nodeCatalog.find(node => node.name === name);
+  if (catalogNode) return catalogNode.kind;
+  if (domesticPatterns.test(name)) return 'domestic';
+  if (overseasPatterns.test(name)) return 'overseas';
+  if (protectivePatterns.test(name)) return 'protective';
+  return 'unknown';
+}
+function parseFlow(flow) {
+  return flow.split(/(?:→|->|=>|—>|\n)+/).map(item => item.trim()).filter(Boolean).map(name => ({name, kind:classifyNode(name)}));
+}
+function kindLabel(kind) { return kind === 'domestic' ? '国内' : kind === 'overseas' ? '出国' : kind === 'protective' ? '保护措施' : '待核验'; }
+function kindClass(kind) { return kind === 'domestic' ? 'green' : kind === 'overseas' ? 'red' : kind === 'protective' ? 'blue' : ''; }
+function renderFlowNodes(nodes) {
+  return `<div class="node-list">${nodes.map((node,index) => `<div class="node"><span class="node-index">${index+1}</span><span class="node-name">${escapeHtml(node.name)}</span><span class="pill ${kindClass(node.kind)}">${kindLabel(node.kind)}</span></div>`).join('')}</div>`;
+}
+
+function runM4() {
+  const flow = $('#m4Flow').value.trim();
+  if (!flow) { toast('请先把数据环节拖进链路，或输入一条链路'); return; }
+  const region = $('#m4Region').value;
+  const nodes = parseFlow(flow);
+  const overseas = nodes.filter(node => node.kind === 'overseas');
+  const protective = nodes.filter(node => node.kind === 'protective');
+  const unknown = nodes.filter(node => node.kind === 'unknown');
+  const hasEncryption = nodes.some(node => /加密/.test(node.name));
+  const hasContract = nodes.some(node => /SCC|合同/.test(node.name));
+  const hasMask = nodes.some(node => /脱敏/.test(node.name));
+  const missing = [];
+  if (overseas.length && !hasMask) missing.push('缺少数据脱敏环节');
+  if (overseas.length && !hasEncryption) missing.push('缺少加密中转站');
+  if (overseas.length && !hasContract && region !== '中国PIPL') missing.push('缺少欧盟标准合同条款（SCC）或其他合规机制');
+  if (overseas.length && region === '中国PIPL' && !hasContract) missing.push('缺少数据出境评估、标准合同或认证材料');
+  const path = region === '中国PIPL'
+    ? ['国内服务器','数据脱敏环节','加密中转站','SCC合同环节','海外AI服务商']
+    : ['国内服务器','数据脱敏环节','加密中转站','SCC合同环节','欧盟本地AI服务商'];
+  state.recommendedPath = path;
+  const html = `<div class="risk"><span class="pill blue">链路检查</span><b>共${nodes.length}个环节：${domesticCountText(nodes)}，${overseas.length}个环节会把数据带到国外，${protective.length}个保护措施。</b><p>这里的“环节”就是数据从公司电脑到海外服务商之间经过的每一站。</p></div>
+    ${renderFlowNodes(nodes)}
+    <div class="risk"><span class="pill ${missing.length ? 'red' : 'green'}">${missing.length ? '发现缺口' : '保护措施较完整'}</span><b>${missing.length ? escapeHtml(missing.join('；')) : '已看到脱敏、加密和合同类措施'}</b><p>${overseas.length ? `${escapeHtml(region)}下还要结合实际数据类型、接收方和处理目的逐项核验。` : '当前未识别到数据出国环节，但仍要排查供应商的日志、客服和CDN。'}</p></div>
+    <div class="risk"><span class="pill green">推荐合规路径</span><b>${escapeHtml(path.join(' → '))}</b><p>先把个人信息去掉，再加密传输，并补上合同或评估材料，最后才交给海外服务商。</p><button class="btn small primary" type="button" data-action="apply-path">一键采用这条路径</button></div>
+    ${actionButtons()}`;
+  $('#m4Out').innerHTML = html;
+  markGenerated('m4', html, missing.length + unknown.length + overseas.length);
+  toast('数据出国链路检查完成');
+}
+function domesticCountText(nodes) {
+  const count = nodes.filter(node => node.kind === 'domestic').length;
+  return `${count}个国内环节`;
+}
+function applyRecommendedPath() {
+  const ids = state.recommendedPath.map(name => nodeCatalog.find(node => node.name === name)?.id).filter(Boolean);
+  state.flowNodes = ids;
+  renderFlowBuilder();
+  runM4();
+  toast('已采用推荐路径，可继续按清单采购或配置');
+}
+
+
+function switchDetectTab(tabName){
+  $$('.detect-tab').forEach(tab=>{const active=tab.dataset.detectTab===tabName;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));});
+  $$('.detect-pane').forEach(pane=>{pane.hidden=pane.dataset.detectPane!==tabName;});
+}
+function reportGroups(){
+  return [
+    {title:'一、AI出海体检报告',keys:['m1']},
+    {title:'二、核心产品原型与素材智检',keys:['m3']},
+    {title:'三、企业合规画像与综合合规检测',keys:['m5','m2','m4']}
+  ];
+}
+function completedReportCount(){return reportGroups().filter(group=>group.keys.some(key=>state.reports[key])).length;}
+function buildReportHTML(){
+  const sections=reportGroups().map(group=>{
+    const content=group.keys.filter(key=>state.reports[key]).map(key=>state.reports[key]).join('');
+    if(!content)return '';
+    return `<section class="report-section"><h3>${group.title}</h3>${content.replace(/<div class="form-actions">[\s\S]*?<\/div>/g,'')}</section>`;
+  }).join('');
+  return sections||'<div class="placeholder">尚未生成任何检测结果。</div>';
+}
+function openReportModal() {
+  if (!Object.keys(state.reports).length) { toast('请先生成至少一个检测模块'); return; }
+  $('#reportGeneratedAt').textContent = `生成时间：${nowText()} · 已完成 ${completedReportCount()} 个检测板块`;
+  $('#reportBody').innerHTML = buildReportHTML();
+  $('#reportModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  $('#closeReportBtn').focus();
+}
+function closeReportModal() {
+  $('#reportModal').classList.remove('open');
+  document.body.classList.remove('report-open');
+  if (!$('#compareModal')?.classList.contains('open')) document.body.style.overflow = '';
+}
+function copySummary() {
+  const text = `冀企出海·AI合规智检报告已生成：共${completedReportCount()}个检测板块，${state.lastUpdate || nowText()}更新。本结果为初步筛查，不构成法律意见。`;
+  copyText(text,'报告摘要已复制');
+}
+function downloadHTMLReport() {
+  const html = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>冀企出海AI合规智检报告</title><style>body{font-family:"Microsoft YaHei",sans-serif;background:#f5f7fb;color:#1f2937;max-width:900px;margin:0 auto;padding:28px;line-height:1.65}.report-section{border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0;background:#fff;break-inside:avoid}.risk{border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;margin:8px 0}.pill{display:inline-block;border:1px solid #d1d5db;border-radius:99px;padding:2px 7px;font-size:12px}.bar{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden}.bar span{display:block;height:100%;background:#38bdf8}.form-actions{display:none}.highlight-box{padding:12px;border:1px solid #e5e7eb;border-radius:10px}.brand-row,.check-row{margin:5px 0}.report-meta{color:#6b7280}/* 模块重组的核心层级与合并入口 */ .module.core-module{position:relative;overflow:hidden;border-color:rgba(56,189,248,.42);background:linear-gradient(145deg,rgba(8,47,73,.72),rgba(15,23,42,.78) 48%,rgba(49,46,129,.34));box-shadow:0 24px 70px rgba(2,8,23,.28),inset 0 1px 0 rgba(255,255,255,.06)} .core-glow{position:absolute;width:360px;height:360px;right:-120px;top:-210px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.3),rgba(99,102,241,.08) 48%,transparent 72%);pointer-events:none} .core-kicker{display:inline-block;margin-bottom:8px;color:#7dd3fc;font-size:11px;font-weight:900;letter-spacing:.16em} .core-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;position:relative;z-index:1} .core-benefits div{padding:12px 14px;border:1px solid rgba(125,211,252,.18);border-radius:12px;background:rgba(7,13,26,.42)} .core-benefits b{display:block;margin-bottom:4px;color:#bae6fd;font-size:12px} .core-benefits span{display:block;color:var(--muted);font-size:12px;line-height:1.55} @media(max-width:900px){.core-benefits{grid-template-columns:1fr}}
+/* 模块二产业感知引擎 */
+.m3-engine-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px}
+.m3-engine-bar div{padding:10px 12px;border:1px solid rgba(125,211,252,.18);border-radius:12px;background:rgba(7,13,26,.42)}
+.m3-engine-bar span{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}
+.m3-engine-bar b{display:block;color:#dbeafe;font-size:12px;line-height:1.45}
+.m3-score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}
+.m3-score-card{padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025)}
+.m3-score-card span{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
+.m3-score-card b{display:block;color:#e7ecf6;font-size:20px;margin-bottom:6px}
+.trace-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.trace-pill{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid rgba(125,211,252,.2);border-radius:999px;background:rgba(56,189,248,.07);color:#bae6fd;font-size:11px}
+.advice-list{display:grid;gap:8px;margin-top:10px}
+.advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025)}
+.advice-item .pill{flex:0 0 auto}
+.advice-item b{display:block;font-size:12px;color:#e7ecf6;margin-bottom:3px}
+.advice-item p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+@media(max-width:900px){.m3-engine-bar,.m3-score-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.m3-engine-bar,.m3-score-grid{grid-template-columns:1fr}.advice-item{display:block}.advice-item .pill{display:inline-block;margin-bottom:6px}}
+.zone-legend{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02);color:var(--muted);font-size:11px}
+.zone-legend span{display:flex;align-items:center;gap:6px;color:#fecaca;font-weight:800}
+.zone-legend i{display:block;width:10px;height:10px;border:2px solid var(--red);background:rgba(248,113,113,.18);border-radius:3px}
+/* 新增：出海准入合规自查清单，独立于原有一/二/三模块 */
+.m1b-module{border-color:rgba(45,212,191,.32);background:linear-gradient(160deg,rgba(13,45,48,.48),rgba(15,23,42,.72))}
+.m1b-form-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:16px;align-items:start}
+.m1b-form-panel{display:grid;gap:12px}
+.m1b-step{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.018)}
+.m1b-step-no{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:rgba(45,212,191,.12);color:#5eead4;font-size:12px;font-weight:900}
+.m1b-step-body h3{margin:0 0 9px;font-size:14px}
+.m1b-choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.m1b-choice-grid input,.m1b-market-grid input{position:absolute;opacity:0;pointer-events:none}
+.m1b-choice-grid span,.m1b-market-grid span{display:flex;align-items:center;justify-content:center;min-height:40px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(7,13,26,.36);color:var(--muted);font-size:12px;font-weight:700;text-align:center;cursor:pointer;transition:.18s ease}
+.m1b-choice-grid input:checked+span,.m1b-market-grid input:checked+span{border-color:rgba(45,212,191,.62);background:rgba(45,212,191,.13);color:#ccfbf1;box-shadow:inset 0 0 0 1px rgba(45,212,191,.16)}
+.m1b-market-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.m1b-market-grid span{min-height:38px}
+.m1b-preview-panel{position:sticky;top:88px}
+.m1b-preview-note{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+.m1b-preview-note span{color:var(--muted);text-align:right}
+.m1b-preview-panel .upload-preview{margin-top:12px}
+.m1b-jump-note{margin-top:12px;padding:11px;border:1px solid rgba(125,211,252,.18);border-radius:10px;background:rgba(56,189,248,.055)}
+.m1b-jump-note b{display:block;color:#bae6fd;margin-bottom:4px}
+.m1b-jump-note span{display:block;color:var(--muted);font-size:12px;line-height:1.6}
+.m1b-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.m1b-summary-card{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+.m1b-summary-card small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}
+.m1b-summary-card b{display:block;font-size:22px;color:#e7ecf6}
+.m1b-output-section{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.m1b-output-section h3{margin:0 0 10px;font-size:15px}
+.m1b-cert-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.m1b-cert-card{padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.023)}
+.m1b-cert-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.m1b-cert-head b{font-size:13px;color:#e7ecf6}
+.m1b-cert-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px}
+.m1b-cert-meta div{padding:7px;border-radius:8px;background:rgba(7,13,26,.4)}
+.m1b-cert-meta small{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}
+.m1b-cert-meta span{display:block;color:#dbeafe;font-size:11px}
+.m1b-rule-card{display:grid;gap:8px;padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.023);margin-bottom:8px}
+.m1b-rule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m1b-rule-grid div{padding:8px;border-radius:8px;background:rgba(7,13,26,.4)}
+.m1b-rule-grid small{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}
+.m1b-rule-grid span{display:block;color:#dbeafe;font-size:11px;line-height:1.5}
+.m1b-ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m1b-ip-card{padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.023)}
+.m1b-path-list{display:grid;gap:8px;margin-top:10px}
+.m1b-path-item{padding:10px;border:1px solid rgba(125,211,252,.18);border-radius:10px;background:rgba(56,189,248,.055)}
+.m1b-path-item b{display:block;color:#bae6fd;margin-bottom:3px}
+.m1b-path-item span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+@media(max-width:900px){.m1b-form-grid,.m1b-ip-grid{grid-template-columns:1fr}.m1b-preview-panel{position:static}.m1b-market-grid{grid-template-columns:repeat(3,1fr)}.m1b-cert-list{grid-template-columns:1fr}.m1b-summary{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.m1b-choice-grid,.m1b-market-grid,.m1b-rule-grid,.m1b-cert-meta{grid-template-columns:1fr}.m1b-step{grid-template-columns:1fr}.m1b-step-no{width:28px;height:28px}}
+</style><style>
+html,body{overflow-x:clip!important;max-width:100%}
+.feature-backlink{position:fixed;left:max(1rem,env(safe-area-inset-left));bottom:max(1rem,env(safe-area-inset-bottom));z-index:120;padding:.7rem .9rem;border:1px solid rgba(125,211,252,.4);border-radius:10px;background:rgba(11,17,32,.9);color:#e7ecf6;text-decoration:none;font-size:13px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.feature-backlink:hover{border-color:#7dd3fc;color:#bae6fd}
+</style>
+</head><body>
+<a class="feature-backlink" href="../index.html#new-feature">← 返回新功能探索</a><h1>冀企出海 · AI合规智检总览报告</h1><p class="report-meta">生成时间：${escapeHtml(nowText())} · 已完成 ${completedReportCount()} 个检测板块</p>${buildReportHTML()}<hr><p class="report-meta">本报告为自动化初步筛查结果，不构成法律意见。涉及重大出海业务时，请由专业律师或合规顾问复核。</p>
+</body></html>`;
+  const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = `冀企出海AI合规智检报告-${new Date().toISOString().slice(0,10)}.html`;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+  toast('HTML报告已下载');
+}
+function printReport() {
+  if (!Object.keys(state.reports).length) { toast('请先生成至少一个检测模块'); return; }
+  if (!$('#reportModal').classList.contains('open')) openReportModal();
+  document.body.classList.add('report-open');
+  window.print();
+}
+
+
+// 事件绑定
+$('#industrySelect').addEventListener('change', event => {
+  $('#m1Industry').value = event.target.value;
+  refreshM1Tags(); refreshM3Strategy(); updateDashboard();
+  toast(`已切换至：${event.target.value}`);
+});
+['#m1Industry','#m1Market','#m1Tool'].forEach(selector => $(selector).addEventListener('change', refreshM1Tags));
+$('#m1Btn').addEventListener('click', runM1);
+$('#m2Btn').addEventListener('click', runM2);
+$('#m2SampleBtn').addEventListener('click', sampleM2);
+$('#m3Btn').addEventListener('click', runM3);
+$('#m3SampleBtn').addEventListener('click', sampleM3);
+['#m1Industry','#m1Market','#m1Tool'].forEach(selector => $(selector).addEventListener('change', refreshM3Strategy));
+$('#m4Btn').addEventListener('click', runM4);
+$('#m4SampleBtn').addEventListener('click', loadFlowSample);
+$('#m4ClearBtn').addEventListener('click', clearFlow);
+$('#downloadHtmlBtn').addEventListener('click', downloadHTMLReport);
+$('#printReportBtn').addEventListener('click', printReport);
+$('#closeReportBtn').addEventListener('click', closeReportModal);
+$('#closeCompareBtn').addEventListener('click', closeCompare);
+$('#reportModal').addEventListener('click', event => { if (event.target === $('#reportModal')) closeReportModal(); });
+$('#compareModal').addEventListener('click', event => { if (event.target === $('#compareModal')) closeCompare(); });
+
+$('#m4Palette').addEventListener('click', event => { const item = event.target.closest('[data-node-id]'); if (item) addFlowNode(item.dataset.nodeId); });
+$('#m4Palette').addEventListener('dragstart', event => { const item = event.target.closest('[data-node-id]'); if (item) event.dataTransfer.setData('text/plain',item.dataset.nodeId); });
+$('#m4Canvas').addEventListener('dragover', event => { event.preventDefault(); $('#m4Canvas').classList.add('dragging'); });
+$('#m4Canvas').addEventListener('dragleave', () => $('#m4Canvas').classList.remove('dragging'));
+$('#m4Canvas').addEventListener('drop', event => { event.preventDefault(); $('#m4Canvas').classList.remove('dragging'); addFlowNode(event.dataTransfer.getData('text/plain')); });
+$('#m4Canvas').addEventListener('click', event => { const button = event.target.closest('[data-remove-node]'); if (button) removeFlowNode(button.dataset.removeNode); });
+$('#detectTabs').addEventListener('click', event => { const tab = event.target.closest('[data-detect-tab]'); if (tab) switchDetectTab(tab.dataset.detectTab); });
+
+document.addEventListener('change', event => {
+  if (event.target.matches('[data-task-id]')) toggleTask(event.target.dataset.taskId, event.target.checked);
+});
+
+document.addEventListener('click', event => {
+  const detectJump = event.target.closest('[data-detect-jump]');
+  if (detectJump) { event.preventDefault(); switchDetectTab(detectJump.dataset.detectJump); const target=document.getElementById('m3'); target.scrollIntoView({behavior:'smooth',block:'start'}); target.classList.add('module-focus'); setTimeout(()=>target.classList.remove('module-focus'),2200); }
+  const copySwatch = event.target.closest('[data-copy]');
+  if (copySwatch) { copyText(copySwatch.dataset.copy,`已复制色值 ${copySwatch.dataset.copy}`); return; }
+  const actionEl = event.target.closest('[data-action]');
+  if (!actionEl) return;
+  const action = actionEl.dataset.action;
+  if (action === 'copy-summary') copySummary();
+  if (action === 'open-report') openReportModal();
+  if (action === 'fix-all') fixAll();
+  if (action === 'mask-text') maskText();
+  if (action === 'compare-image') openCompare();
+  if (action === 'copy-copywriting') generateCompliantCopy();
+  if (action === 'apply-path') applyRecommendedPath();
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  if ($('#compareModal').classList.contains('open')) closeCompare();
+  if ($('#reportModal').classList.contains('open')) closeReportModal();
+});
+window.addEventListener('beforeunload', () => { state.m3Files.forEach(file => { if (file._previewUrl) URL.revokeObjectURL(file._previewUrl); }); });
+
+renderPalette();
+renderFlowBuilder();
+renderM2Files();
+renderM3Files();
+refreshM1Tags();
+refreshM3Strategy();
+updateDashboard();
+</script>
+<script>
+/* 企业合规画像模块 */
+const m5DocTypeRules = [
+  {name:'营业执照', filename:['营业执照','执照'], content:['统一社会信用代码','经营范围','法定代表人']},
+  {name:'出口备案登记表', filename:['出口备案','备案登记'], content:['出口备案','备案编号','对外贸易经营者']},
+  {name:'CE认证', filename:['ce','ce认证'], content:['CE认证','符合性声明']},
+  {name:'ISO认证', filename:['iso','iso认证'], content:['ISO','质量管理体系']},
+  {name:'跨境电商平台截图', filename:['平台','店铺','亚马逊','amazon','速卖通','temu','tiktok'], content:['跨境电商','店铺','平台入驻']},
+  {name:'隐私政策/数据保护文件', filename:['gdpr','隐私政策','数据保护'], content:['GDPR','隐私政策','数据保护']}
+];
+const m5EnterpriseProfile = {
+  P:{label:'生产型',desc:'自己生产，有工厂'},T:{label:'贸易型',desc:'主要做贸易和销售'},
+  D:{label:'内销转外销',desc:'正在从国内市场转向外贸'},E:{label:'纯外销',desc:'业务以外贸出口为主'},
+  U:{label:'欧盟导向',desc:'重点市场在欧洲'},A:{label:'北美导向',desc:'重点市场在美国或加拿大'},
+  H:{label:'高风险',desc:'合规准备仍需补齐'},L:{label:'低风险',desc:'已有较多合规材料'}
+};
+const m5Recommendations = {
+  'P-D-U-H':{risks:['训练数据版权','AIGC图片侵权','欧盟数据跨境'],actions:[['去检测注册信息','m3:registration'],['去检测产品图','m2'],['去检测数据链路','m3:compliance']]},
+  'P-D-A-H':{risks:['训练数据版权','AIGC图片侵权','美国隐私规则'],actions:[['去检测注册信息','m3:registration'],['去检测产品图','m2'],['去生成出海体检','m1']]},
+  'T-E-U-L':{risks:['欧盟数据跨境','合同与平台规则'],actions:[['去检测数据链路','m3:compliance'],['去生成出海体检','m1'],['去检测产品图','m2']]},
+  'T-E-A-L':{risks:['美国隐私规则','AIGC图片侵权'],actions:[['去生成出海体检','m1'],['去检测产品图','m2']]}
+};
+const m5State = {files:[],profile:null,resultHtml:'',shareText:''};
+
+function m5SafeFiles(files){
+  const allowed=/\.(pdf|jpe?g|png|txt)$/i;
+  const list=[...files];
+  const valid=list.filter(file=>allowed.test(file.name)&&file.size<=10*1024*1024);
+  if(valid.length!==list.length) toast('已过滤不支持或超过10MB的文件');
+  return valid;
+}
+function m5RenderFiles(cleared=false){
+  $('#m5Drop').textContent=cleared?'识别完成，原始文件已从页面和内存状态中移除':stateFilesText();
+  $('#m5Files').innerHTML=m5State.files.map((file,index)=>`<span class="file-chip">${escapeHtml(file.name)} · ${escapeHtml(fmtBytes(file.size))}<button type="button" data-m5-remove="${index}" aria-label="移除${escapeHtml(file.name)}" style="margin-left:6px;border:0;background:transparent;color:#fecaca;cursor:pointer">×</button></span>`).join('');
+}
+function stateFilesText(){
+  return m5State.files.length?`已选择 ${m5State.files.length} 个文件，点击可继续添加`:'拖拽或点击上传营业执照 / 出口备案 / CE / ISO / 平台入驻截图';
+}
+function m5BindDrop(){
+  const drop=$('#m5Drop'),input=$('#m5File');
+  drop.addEventListener('click',()=>input.click());
+  drop.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();input.click();}});
+  input.addEventListener('change',()=>{m5State.files.push(...m5SafeFiles(input.files));input.value='';m5RenderFiles();});
+  ['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,event=>{event.preventDefault();drop.classList.add('dragging');}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,event=>{event.preventDefault();drop.classList.remove('dragging');}));
+  drop.addEventListener('drop',event=>{m5State.files.push(...m5SafeFiles(event.dataTransfer.files));m5RenderFiles();});
+}
+function m5LoadSample(){
+  const make=(name,size,text)=>{const file=new File([text],name,{type:'text/plain'});Object.defineProperty(file,'size',{value:size});file._sampleText=text;return file;};
+  m5State.files=[
+    make('营业执照.pdf',420000,'营业执照 统一社会信用代码 91360000MA00000000 经营范围：箱包生产、制造、销售；法定代表人：示例'),
+    make('CE认证.pdf',180000,'CE认证 符合性声明 欧盟市场 产品类别：箱包')
+  ];
+  $('#m5Privacy').checked=true;
+  m5RenderFiles();
+  toast('已载入营业执照、出口备案和ISO认证演示文件');
+}
+async function m5ReadText(file){
+  if(file._sampleText)return file._sampleText;
+  if(!/\.txt$/i.test(file.name)||file.size>1024*1024)return '';
+  return new Promise(resolve=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result||''));reader.onerror=()=>resolve('');reader.readAsText(file);});
+}
+async function m5BuildText(files){
+  const chunks=[];
+  for(const file of files){chunks.push(file.name);const text=await m5ReadText(file);if(text)chunks.push(text);}
+  return chunks.join('\n');
+}
+function m5DetectDocTypes(files,text){
+  const lower=text.toLowerCase();
+  return m5DocTypeRules.filter(rule=>rule.filename.some(key=>lower.includes(key.toLowerCase()))||rule.content.some(key=>lower.includes(key.toLowerCase()))).map(rule=>rule.name);
+}
+function m5MatchProfile(text){
+  const scores={P:0,T:0,D:0,E:0,U:0,A:0,H:0,L:0};
+  const rules=[
+    {keywords:['生产','制造','工厂','加工'],target:'P',weight:2},
+    {keywords:['贸易','销售','批发','商贸'],target:'T',weight:1},
+    {keywords:['出口备案','跨境电商','外贸','出口'],target:'E',weight:2},
+    {keywords:['内销','国内销售'],target:'D',weight:2},
+    {keywords:['ce认证','gdpr','欧盟','欧洲'],target:'U',weight:2},
+    {keywords:['fda','ccpa','美国','北美','加拿大'],target:'A',weight:2},
+    {keywords:['iso','数据保护','合规专员','隐私政策'],target:'L',weight:2}
+  ];
+  const lower=text.toLowerCase();
+  rules.forEach(rule=>rule.keywords.forEach(keyword=>{if(lower.includes(keyword.toLowerCase()))scores[rule.target]+=rule.weight;}));
+  const industry=$('#m1Industry').value;
+  if(scores.P===0&&scores.T===0)scores[industry==='石家庄跨境电商'?'T':'P']=1;
+  if(scores.E===0)scores.D=Math.max(scores.D,1);
+  const market=$('#m1Market').value;
+  if(scores.U===0&&scores.A===0)scores[market==='北美'?'A':'U']=1;
+  if(scores.L<2)scores.H=2;
+  const mode=scores.P>=scores.T?'P':'T';
+  const stage=scores.E>scores.D?'E':'D';
+  const marketCode=scores.U>=scores.A?'U':'A';
+  const readiness=scores.L>=scores.H?'L':'H';
+  const code=`${mode}-${stage}-${marketCode}-${readiness}`;
+  const pTotal=Math.max(1,scores.P+scores.T), eTotal=Math.max(1,scores.E+scores.D), uTotal=Math.max(1,scores.U+scores.A), riskTotal=Math.max(1,scores.H+scores.L);
+  return {code,scores,values:[Math.round(scores.P/pTotal*100),Math.round(scores.E/eTotal*100),Math.round(scores.U/uTotal*100),Math.round(scores.H/riskTotal*100)]};
+}
+function m5Labels(profile){
+  const [a,b,c,d]=profile.code.split('-');
+  return [m5EnterpriseProfile[a],m5EnterpriseProfile[b],m5EnterpriseProfile[c],m5EnterpriseProfile[d]];
+}
+function m5Recommendation(profile){
+  const direct=m5Recommendations[profile.code];
+  if(direct)return direct;
+  const [mode,stage,market,readiness]=profile.code.split('-');
+  const risks=[];
+  if(market==='U')risks.push('欧盟数据跨境');
+  if(market==='A')risks.push('美国隐私规则');
+  if(mode==='P')risks.push('训练数据版权');
+  risks.push('AIGC图片侵权');
+  const actions=market==='U'?[['去检测数据链路','m3:compliance'],['去检测注册信息','m3:registration'],['去检测产品图','m2']]:[['去生成出海体检','m1'],['去检测产品图','m2'],readiness==='H'?['去检测注册信息','m3:registration']:['去检测数据链路','m3:compliance']];
+  return {risks:risks.slice(0,3),actions};
+}
+function m5Benchmark(profile){
+  const industry=$('#m1Industry').value;
+  const base={白沟箱包:[68,62,70,58],石家庄跨境电商:[55,72,66,64],清河羊绒:[72,58,64,56]};
+  const row=base[industry]||[65,62,66,58];
+  return row.map((value,index)=>Math.max(35,Math.min(92,value+(index===3?(profile.code.endsWith('L')?8:-4):0))));
+}
+function m5DrawRadarOn(ctx,values,benchmark,cx,cy,radius,light=false){
+  const axes=['经营模式','市场阶段','目标市场','风险程度'];
+  const point=(index,value)=>{const angle=-Math.PI/2+index*Math.PI/2;const r=radius*value/100;return [cx+Math.cos(angle)*r,cy+Math.sin(angle)*r];};
+  const polygon=(series,fill,stroke,width,dash=[])=>{
+    ctx.beginPath();series.forEach((value,index)=>{const[x,y]=point(index,value);index?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.closePath();ctx.setLineDash(dash);ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();ctx.setLineDash([]);
+  };
+  ctx.save();
+  for(let level=1;level<=5;level+=1){ctx.beginPath();for(let i=0;i<4;i+=1){const[x,y]=point(i,level*20);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();ctx.strokeStyle=light?`rgba(71,85,105,${.18+level*.05})`:`rgba(148,163,184,${.12+level*.035})`;ctx.lineWidth=1;ctx.stroke();}
+  for(let i=0;i<4;i+=1){const[x,y]=point(i,100);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle=light?'rgba(71,85,105,.36)':'rgba(148,163,184,.28)';ctx.stroke();}
+  polygon(benchmark,light?'rgba(129,140,248,.08)':'rgba(167,139,250,.09)',light?'#818cf8':'#a78bfa',1.6,[5,4]);
+  polygon(values,light?'rgba(99,102,241,.18)':'rgba(56,189,248,.23)',light?'#4f46e5':'#38bdf8',2.6);
+  values.forEach((value,index)=>{const[x,y]=point(index,value);ctx.beginPath();ctx.arc(x,y,4.5,0,Math.PI*2);ctx.fillStyle=light?'#4f46e5':'#38bdf8';ctx.fill();ctx.strokeStyle=light?'#fff':'#07111f';ctx.lineWidth=1.5;ctx.stroke();});
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillStyle=light?'#334155':'#e7ecf6';ctx.font=light?'700 11px "Microsoft YaHei"':'700 12px "Microsoft YaHei"';
+  [[cx,cy-radius-26],[cx+radius+48,cy],[cx,cy+radius+26],[cx-radius-48,cy]].forEach(([x,y],i)=>ctx.fillText(`${axes[i]} ${values[i]}%`,x,y));
+  ctx.fillStyle=light?'#64748b':'#93a1ba';ctx.font=light?'10px "Microsoft YaHei"':'11px "Microsoft YaHei"';ctx.fillText('内圈20 · 外圈100',cx,cy+radius+48);
+  ctx.fillStyle=light?'#475569':'#cbd5e1';ctx.font=light?'700 11px "Microsoft YaHei"':'700 12px "Microsoft YaHei"';ctx.fillText('四维画像',cx,cy);
+  ctx.restore();
+}
+function m5DrawRadar(canvas,values,benchmark){
+  const dpr=Math.min(2,window.devicePixelRatio||1),w=460,h=360;canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=`${w}px`;canvas.style.height=`${h}px`;const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);m5DrawRadarOn(ctx,values,benchmark,230,175,104,false);
+}
+function m5DimensionDetails(profile){
+  const benchmark=m5Benchmark(profile);
+  const names=['经营模式','市场阶段','目标市场','风险程度'];
+  const basis=['营业执照经营范围、生产或贸易信息','出口备案、平台入驻和外贸资料','CE、GDPR、FDA、CCPA等认证文件','ISO、隐私政策与合规人员配置'];
+  const deltas=profile.values.map((value,index)=>value-benchmark[index]);
+  const strengthIndex=deltas.indexOf(Math.max(...deltas));
+  const weakIndex=deltas.indexOf(Math.min(...deltas));
+  const rows=names.map((name,index)=>{const delta=deltas[index],cls=delta>=0?'detail-good':'detail-warn';return `<div class="dimension-item"><b>${name}</b><span> ${escapeHtml(m5EnterpriseProfile[profile.code.split('-')[index]].label)} · ${profile.values[index]}%</span><div class="dimension-bar"><i style="width:${profile.values[index]}%"></i></div><div class="dimension-meta"><span>本企业 ${profile.values[index]}%</span><span class="${cls}">${delta>=0?'高于':'低于'}参考 ${Math.abs(delta)}%</span></div><div class="plain-note">判断依据：${escapeHtml(basis[index])}</div></div>`;}).join('');
+  return `<div class="radar-insights"><div class="insight-box"><b>优势维度：${names[strengthIndex]}</b>本企业 ${profile.values[strengthIndex]}%，参考值 ${benchmark[strengthIndex]}%，相对表现更好。</div><div class="insight-box"><b>待提升维度：${names[weakIndex]}</b>本企业 ${profile.values[weakIndex]}%，参考值 ${benchmark[weakIndex]}%，建议优先补齐相关材料。</div></div><div class="dimension-grid">${rows}</div>`;
+}
+function m5RequiredDocs(profile){
+  const market=profile.code.split('-')[2];
+  const docs=['营业执照','出口备案登记表','ISO认证'];
+  if(market==='U')docs.push('CE认证','隐私政策/数据保护文件');
+  else docs.push('跨境电商平台截图','隐私政策/数据保护文件');
+  return [...new Set(docs)].slice(0,5);
+}
+function m5QualificationDetails(profile,docTypes){
+  const required=m5RequiredDocs(profile);
+  const found=required.filter(doc=>docTypes.includes(doc));
+  const missing=required.filter(doc=>!docTypes.includes(doc));
+  const completeness=Math.round(found.length/required.length*100);
+  const rows=required.map(doc=>`<div class="quality-item ${docTypes.includes(doc)?'ok':'missing'}"><b>${escapeHtml(doc)}</b><span>${docTypes.includes(doc)?'已识别':'建议补充'}</span></div>`).join('');
+  return `<div class="profile-overview"><div class="profile-score-box"><small>资质完整度</small><strong>${completeness}%</strong><div class="bar"><span style="width:${completeness}%"></span></div><p class="plain-note">已识别 ${found.length}/${required.length} 类关键材料${missing.length?`，当前最需要补充：${escapeHtml(missing.slice(0,2).join('、'))}`:'，基础资质较完整。'}</p></div><div><div class="quality-list">${rows}</div></div></div>`;
+}
+function m5RenderResult(profile,docTypes){
+  const labels=m5Labels(profile),recommend=m5Recommendation(profile),industry=$('#m1Industry').value,share={白沟箱包:68,石家庄跨境电商:52,清河羊绒:57}[industry]||58;
+  const qualification=m5QualificationDetails(profile,docTypes);
+  const html=`<div class="personality-hero"><div class="personality-card"><span class="pill blue">企业合规画像</span><div class="personality-code">${profile.code}</div><div class="personality-labels">${labels.map(item=>escapeHtml(item.label)).join(' · ')}</div><div class="doc-pills">${docTypes.length?docTypes.map(type=>`<span class="pill green">识别到：${escapeHtml(type)}</span>`).join(''):'<span class="pill">未识别出标准资质类型</span>'}</div><p class="plain-note">你像${escapeHtml(industry)}约${share}%的出海企业。${labels[3].label==='高风险'?'你的合规准备度还需要补齐。':'已有较好的合规材料基础。'}</p></div><div class="radar-wrap"><div class="radar-head"><b>四维合规能力图</b><span>本企业 vs 行业参考</span></div><canvas id="m5Radar"></canvas><div class="radar-legend"><span><i class="company"></i>本企业</span><span><i class="benchmark"></i>行业参考</span></div></div></div>
+    ${qualification}
+    ${m5DimensionDetails(profile)}
+    <div class="risk"><span class="pill red">你最该关注</span><b>${recommend.risks.map(escapeHtml).join('、')}</b><p>这是根据企业类型、市场方向和资质缺口生成的优先顺序。</p></div>
+    <h3 style="margin:18px 0 7px">推荐你先做这三件事</h3>
+    <div class="recommend-list">${recommend.actions.map((action,index)=>`<div class="recommend-item"><span class="recommend-index">${index+1}</span><div><b>${escapeHtml(action[0])}</b><div class="plain-note">点击后直接跳到对应模块或页签。</div><button class="btn small primary" type="button" data-m5-jump="${action[1]}" style="margin-top:8px">${escapeHtml(action[0])} →</button></div></div>`).join('')}</div>
+    <div class="form-actions"><button class="btn small primary" type="button" id="m5GeneratePosterBtn">生成合规画像海报</button><button class="btn small" type="button" id="m5GeneratePosterBtn2">复制结果文案</button></div>`;
+  $('#m5Out').innerHTML=html;
+  const canvas=$('#m5Radar');if(canvas)m5DrawRadar(canvas,profile.values,m5Benchmark(profile));
+  m5State.profile=profile;m5State.resultHtml=html;m5State.shareText=`我的企业合规画像：${profile.code}（${labels.map(item=>item.label).join(' · ')}）。你的出海企业属于哪种合规画像？`;
+  if(typeof markGenerated==='function')markGenerated('m5',html,labels[3].label==='高风险'?2:1);
+}
+async function m5Run(){
+  if(!m5State.files.length){toast('请先上传至少一份资质文件');return;}
+  if(!$('#m5Privacy').checked){toast('请先阅读并同意隐私说明');return;}
+  const files=m5State.files.slice();
+  $('#m5Out').innerHTML='<div class="steps"><div class="step active">正在读取文件类型</div><div class="step">正在匹配企业维度</div><div class="step">生成合规定位</div></div>';
+  const text=await m5BuildText(files);
+  const docTypes=m5DetectDocTypes(files,text);
+  const profile=m5MatchProfile(text);
+  m5State.files=[];m5RenderFiles(true);
+  setTimeout(()=>{m5RenderResult(profile,docTypes);toast('企业合规画像识别完成');},1200);
+}
+function m5DrawPoster(){
+  if(!m5State.profile){toast('请先完成合规画像识别');return;}
+  const canvas=$('#m5PosterCanvas'),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height,profile=m5State.profile,labels=m5Labels(profile);
+  const gradient=ctx.createLinearGradient(0,0,w,h);gradient.addColorStop(0,'#0b1120');gradient.addColorStop(.55,'#111c33');gradient.addColorStop(1,'#1e1b4b');ctx.fillStyle=gradient;ctx.fillRect(0,0,w,h);
+  ctx.strokeStyle='rgba(56,189,248,.35)';ctx.lineWidth=2;ctx.strokeRect(28,28,w-56,h-56);
+  ctx.textAlign='center';ctx.fillStyle='#bae6fd';ctx.font='700 24px "Microsoft YaHei"';ctx.fillText('冀企出海 · AI合规智检平台',w/2,105);
+  ctx.fillStyle='#e7ecf6';ctx.font='800 30px "Microsoft YaHei"';ctx.fillText('我的企业合规画像',w/2,175);
+  ctx.fillStyle='#7dd3fc';ctx.font='900 72px "Microsoft YaHei"';ctx.fillText(profile.code,w/2,285);
+  ctx.fillStyle='#dbeafe';ctx.font='600 24px "Microsoft YaHei"';ctx.fillText(labels.map(item=>item.label).join(' · '),w/2,335);
+  ctx.fillStyle='#93a1ba';ctx.font='16px "Microsoft YaHei"';ctx.fillText('经营模式 · 市场阶段 · 目标市场 · 风险程度',w/2,375);
+  ctx.fillStyle='rgba(15,23,42,.78)';ctx.fillRect(115,420,490,330);ctx.strokeStyle='rgba(148,163,184,.25)';ctx.strokeRect(115,420,490,330);
+  m5DrawRadarOn(ctx,profile.values,m5Benchmark(profile),-95+w/2,585,105,false);
+  ctx.textAlign='center';ctx.fillStyle='#e7ecf6';ctx.font='700 22px "Microsoft YaHei"';ctx.fillText(`你像${$('#m1Industry').value}约${({白沟箱包:68,石家庄跨境电商:52,清河羊绒:57})[$('#m1Industry').value]||58}%的出海企业`,w/2,815);
+  ctx.fillStyle='#93a1ba';ctx.font='16px "Microsoft YaHei"';ctx.fillText('扫码生成你的企业合规画像',w/2,880);
+  const qx=w/2-60,qy=905,qs=120;ctx.fillStyle='#fff';ctx.fillRect(qx,qy,qs,qs);ctx.fillStyle='#0b1120';
+  for(let y=0;y<9;y+=1)for(let x=0;x<9;x+=1){const hash=(x*17+y*31+profile.code.charCodeAt((x+y)%5))%3;if(hash!==0)ctx.fillRect(qx+8+x*11,qy+8+y*11,10,10);}
+  ctx.fillStyle='#64748b';ctx.font='14px "Microsoft YaHei"';ctx.fillText('本海报为风险初筛结果，不构成法律意见',w/2,980);
+  $('#m5PosterStage').classList.add('open');
+  toast('合规画像海报已生成');
+}
+function m5DownloadPoster(){if(!m5State.profile){toast('请先完成识别');return;}m5DrawPoster();const a=document.createElement('a');a.download=`企业合规画像-${m5State.profile.code}.png`;a.href=$('#m5PosterCanvas').toDataURL('image/png');a.click();toast('海报已保存');}
+async function m5Share(){if(!m5State.profile){toast('请先完成识别');return;}if(navigator.share){try{await navigator.share({title:'企业合规画像智能识别',text:m5State.shareText});return;}catch{}}copyText(m5State.shareText,'分享文案已复制');}
+function m5Jump(targetKey){const[moduleId,tabName]=targetKey.split(':');if(tabName&&typeof switchDetectTab==='function')switchDetectTab(tabName);const target=document.getElementById(moduleId);if(!target)return;target.scrollIntoView({behavior:'smooth',block:'start'});target.classList.add('module-focus');setTimeout(()=>target.classList.remove('module-focus'),2200);}
+function m5Init(){
+  m5BindDrop();m5RenderFiles();
+  $('#m5Btn').addEventListener('click',m5Run);
+  $('#m5SampleBtn').addEventListener('click',m5LoadSample);
+  $('#m5PosterBtn').addEventListener('click',m5DownloadPoster);
+  $('#m5ShareBtn').addEventListener('click',m5Share);
+  $('#m5Files').addEventListener('click',event=>{const button=event.target.closest('[data-m5-remove]');if(!button)return;m5State.files.splice(Number(button.dataset.m5Remove),1);m5RenderFiles();});
+  $('#m5Out').addEventListener('click',event=>{if(event.target.closest('#m5GeneratePosterBtn'))m5DrawPoster();if(event.target.closest('#m5GeneratePosterBtn2'))copyText(m5State.shareText,'结果文案已复制');const jump=event.target.closest('[data-m5-jump]');if(jump)m5Jump(jump.dataset.m5Jump);});
+}
+m5Init();
+</script>
+
+<script>
+/* 新增模块：出海准入合规自查清单。独立运行，不修改原有模块一、二、三。 */
+const m1bCertificationDB = {
+  '欧盟': {
+    '电子产品': [
+      {id:'EU-CE-EMC',name:'CE-EMC认证',legalBasis:'EU 2014/30/EU',mandatory:true,cost:{min:1500,max:3000},duration:{min:5,max:7,unit:'工作日'},notes:'电磁兼容测试，普通低压电子电器产品适用。'},
+      {id:'EU-CE-LVD',name:'CE-LVD认证',legalBasis:'EU 2014/35/EU',mandatory:true,cost:{min:2000,max:5000},duration:{min:7,max:10,unit:'工作日'},notes:'低压安全测试，适配器、小家电等产品适用。'},
+      {id:'EU-CE-RED',name:'CE-RED无线认证',legalBasis:'EU 2014/53/EU',mandatory:true,cost:{min:5000,max:15000},duration:{min:15,max:30,unit:'工作日'},notes:'仅带蓝牙、WiFi等无线功能的产品需要。'},
+      {id:'EU-ROHS',name:'RoHS有害物质检测',legalBasis:'EU 2011/65/EU',mandatory:true,cost:{min:5000,max:20000},duration:{min:7,max:14,unit:'工作日'},notes:'限制电子电气设备中的六类有害物质。'}
+    ],
+    'AI软件': [
+      {id:'EU-AI-ACT',name:'EU AI Act透明度义务',legalBasis:'Regulation (EU) 2024/1689',mandatory:true,cost:{text:'法务咨询费'},duration:{text:'持续合规'},notes:'面向用户说明AI能力、限制、风险，并保留人工监督机制。'},
+      {id:'EU-GDPR',name:'GDPR数据保护合规',legalBasis:'Regulation (EU) 2016/679',mandatory:true,cost:{min:8000,max:30000},duration:{min:30,max:90,unit:'工作日'},notes:'涉及个人数据处理、跨境传输和用户权利响应。'}
+    ],
+    '化妆品': [
+      {id:'EU-CPNP',name:'CPNP产品通报',legalBasis:'EU Regulation 1223/2009',mandatory:true,cost:{min:3000,max:8000},duration:{min:5,max:15,unit:'工作日'},notes:'产品进入欧盟市场前需完成CPNP通报。'},
+      {id:'EU-CPSR',name:'CPSR安全报告',legalBasis:'EU Regulation 1223/2009',mandatory:true,cost:{min:8000,max:25000},duration:{min:15,max:40,unit:'工作日'},notes:'需由合格安全评估人员出具产品安全报告。'}
+    ],
+    '服装箱包': [
+      {id:'EU-GPSR',name:'GPSR通用产品安全',legalBasis:'Regulation (EU) 2023/988',mandatory:true,cost:{min:3000,max:12000},duration:{min:10,max:30,unit:'工作日'},notes:'需准备责任人、风险分析和产品追溯信息。'},
+      {id:'EU-REACH',name:'REACH化学物质合规',legalBasis:'(EC) 1907/2006',mandatory:true,cost:{min:10000,max:30000},duration:{min:14,max:28,unit:'工作日'},notes:'纺织品、皮革、塑料和涂层材料需关注限用物质。'},
+      {id:'EU-TEXTILE',name:'欧盟纺织标签合规',legalBasis:'EU 1007/2011',mandatory:true,cost:{min:1000,max:5000},duration:{min:5,max:15,unit:'工作日'},notes:'纤维名称和含量标识需符合规定。'}
+    ],
+    '食品': [
+      {id:'EU-FOOD-CONTACT',name:'食品接触材料合规',legalBasis:'EU 1935/2004',mandatory:true,cost:{min:3000,max:12000},duration:{min:10,max:25,unit:'工作日'},notes:'包装、餐具和接触材料需符合迁移和安全要求。'},
+      {id:'EU-FOOD-LABEL',name:'欧盟食品标签合规',legalBasis:'EU 1169/2011',mandatory:true,cost:{min:2000,max:8000},duration:{min:7,max:20,unit:'工作日'},notes:'需核对成分、过敏原、营养和原产地标识。'}
+    ],
+    '其他': [
+      {id:'EU-GPSR',name:'GPSR通用产品安全',legalBasis:'Regulation (EU) 2023/988',mandatory:true,cost:{min:3000,max:12000},duration:{min:10,max:30,unit:'工作日'},notes:'建议先完成产品风险分类和欧盟责任人安排。'}
+    ]
+  },
+  '美国': {
+    '电子产品': [
+      {id:'US-FCC-SDOC',name:'FCC-SDoC自我声明',legalBasis:'美国联邦通讯法',mandatory:true,cost:{min:1000,max:2500},duration:{min:3,max:5,unit:'工作日'},notes:'适用于不带无线功能的普通电子产品。'},
+      {id:'US-FCC-ID',name:'FCC-ID认证',legalBasis:'美国联邦通讯法',mandatory:true,cost:{min:5000,max:15000},duration:{min:14,max:28,unit:'工作日'},notes:'带蓝牙、WiFi、4G等无线功能的产品适用。'},
+      {id:'US-CPSC',name:'CPSC消费品安全合规',legalBasis:'消费品安全法案',mandatory:true,cost:{text:'视产品而定'},duration:{text:'视测试项目而定'},notes:'家电、玩具等消费品需评估适用安全标准。'}
+    ],
+    'AI软件': [
+      {id:'US-FTC-AI',name:'FTC AI宣传真实性核查',legalBasis:'FTC Act Section 5',mandatory:true,cost:{text:'法务咨询费'},duration:{text:'持续合规'},notes:'不得夸大AI能力或隐瞒重要限制。'},
+      {id:'US-PRIVACY',name:'州隐私法合规',legalBasis:'CCPA/CPRA及州隐私法',mandatory:true,cost:{min:8000,max:30000},duration:{min:30,max:90,unit:'工作日'},notes:'需提供隐私通知、删除和退出机制。'}
+    ],
+    '化妆品': [
+      {id:'US-MOCRA',name:'MoCRA化妆品合规',legalBasis:'FD&C Act as amended by MoCRA',mandatory:true,cost:{min:5000,max:20000},duration:{min:14,max:56,unit:'工作日'},notes:'涉及设施注册、产品列名和安全证据。'}
+    ],
+    '服装箱包': [
+      {id:'US-TEXTILE',name:'FTC纺织标签合规',legalBasis:'Textile Fiber Products Identification Act',mandatory:true,cost:{min:1000,max:5000},duration:{min:5,max:15,unit:'工作日'},notes:'纤维成分、原产地和护理信息需清晰标注。'}
+    ],
+    '食品': [
+      {id:'US-FDA-FOOD',name:'FDA食品设施与标签合规',legalBasis:'FD&C Act / FSMA',mandatory:true,cost:{min:5000,max:25000},duration:{min:14,max:56,unit:'工作日'},notes:'可能涉及设施注册、FSVP、营养标签和过敏原。'}
+    ],
+    '其他': [
+      {id:'US-CPSC',name:'CPSC消费品安全合规',legalBasis:'消费品安全法案',mandatory:true,cost:{text:'视产品而定'},duration:{text:'视测试项目而定'},notes:'需确认是否存在强制安全标准或召回规则。'}
+    ]
+  },
+  '日本': {
+    '电子产品': [
+      {id:'JP-PSE-CIRCLE',name:'圆形PSE认证',legalBasis:'电气用品安全法',mandatory:true,cost:{min:3000,max:15000},duration:{min:7,max:21,unit:'工作日'},notes:'非特定电气用品，通常无需验厂。'},
+      {id:'JP-PSE-DIAMOND',name:'菱形PSE认证',legalBasis:'电气用品安全法',mandatory:true,cost:{min:15000,max:40000},duration:{min:28,max:56,unit:'工作日'},notes:'特定电气用品，通常需要工厂检查。'},
+      {id:'JP-METI',name:'METI备案',legalBasis:'电气用品安全法',mandatory:true,cost:{min:1000,max:3000},duration:{text:'配合日本进口商办理'},notes:'需由日本事业申报者完成备案。'}
+    ],
+    'AI软件': [
+      {id:'JP-APPI',name:'APPI个人信息保护合规',legalBasis:'个人信息保护法',mandatory:true,cost:{min:8000,max:30000},duration:{min:30,max:90,unit:'工作日'},notes:'需处理个人信息利用目的、第三方提供和跨境传输要求。'},
+      {id:'JP-AI-GUIDE',name:'AI事业者指南合规',legalBasis:'AI事业者指南',mandatory:false,cost:{text:'内部治理成本'},duration:{text:'持续合规'},notes:'建议建立AI风险治理、透明说明和人工监督机制。'}
+    ],
+    '化妆品': [{id:'JP-COSMETIC',name:'化妆品制造销售许可',legalBasis:'药机法',mandatory:true,cost:{text:'视许可类型'},duration:{min:30,max:90,unit:'工作日'},notes:'需确认制造、销售和进口许可要求。'}],
+    '服装箱包': [{id:'JP-HOUSEHOLD-LABEL',name:'家庭用品品质标签合规',legalBasis:'家庭用品品质表示法',mandatory:true,cost:{min:1000,max:5000},duration:{min:5,max:15,unit:'工作日'},notes:'纤维成分、护理方法和表示责任人需标注。'}],
+    '食品': [{id:'JP-FOOD-IMPORT',name:'食品进口与标签合规',legalBasis:'食品卫生法 / 食品表示法',mandatory:true,cost:{text:'视产品与口岸'},duration:{min:14,max:60,unit:'工作日'},notes:'涉及进口申报、添加剂、标签和原产地信息。'}],
+    '其他': [{id:'JP-PRODUCT-SAFETY',name:'消费品安全合规',legalBasis:'消费生活用品安全法',mandatory:true,cost:{text:'视产品而定'},duration:{text:'视产品而定'},notes:'建议先确认是否属于特定产品并核对技术标准。'}]
+  },
+  '东盟': {
+    '电子产品': [{id:'ASEAN-ELECTRICAL',name:'当地电气安全与EMC合规',legalBasis:'各国电气安全法规',mandatory:true,cost:{min:2000,max:10000},duration:{min:7,max:30,unit:'工作日'},notes:'不同成员国要求不同，例如新加坡Safety Mark、泰国TISI等。'}],
+    'AI软件': [{id:'ASEAN-PDPA',name:'PDPA类隐私合规',legalBasis:'各国个人数据保护法',mandatory:true,cost:{min:6000,max:25000},duration:{min:30,max:90,unit:'工作日'},notes:'需逐国核对数据收集、使用、跨境传输和用户权利。'}],
+    '化妆品': [{id:'ASEAN-ACD',name:'东盟化妆品指令通报',legalBasis:'ASEAN Cosmetic Directive',mandatory:true,cost:{min:3000,max:10000},duration:{min:10,max:30,unit:'工作日'},notes:'通常需由当地负责人完成产品通报。'}],
+    '服装箱包': [{id:'ASEAN-TEXTILE',name:'纺织与消费品标签合规',legalBasis:'各国消费者保护与标签规则',mandatory:true,cost:{min:1000,max:6000},duration:{min:7,max:21,unit:'工作日'},notes:'需按目标成员国核对纤维、原产地和警示标识。'}],
+    '食品': [{id:'ASEAN-FOOD',name:'进口食品与清真合规预检',legalBasis:'各国食品安全法规',mandatory:true,cost:{text:'视成员国而定'},duration:{min:14,max:60,unit:'工作日'},notes:'需同步核对进口许可、标签和清真认证要求。'}],
+    '其他': [{id:'ASEAN-GENERAL',name:'目标国产品准入预检',legalBasis:'各国产品安全与消费者法规',mandatory:true,cost:{text:'视成员国而定'},duration:{text:'视成员国而定'},notes:'东盟不存在完全统一的单一产品准入认证，需要逐国匹配。'}]
+  },
+  '中东': {
+    '电子产品': [
+      {id:'ME-SASO',name:'SASO/SABER合规',legalBasis:'沙特产品安全法规',mandatory:true,cost:{min:5000,max:20000},duration:{min:14,max:45,unit:'工作日'},notes:'通常需要产品证书和批次装运证书。'},
+      {id:'ME-GCC',name:'GCC/海湾市场准入预检',legalBasis:'GCC标准',mandatory:true,cost:{text:'视成员国而定'},duration:{text:'视产品而定'},notes:'不同海湾国家认证和标签要求存在差异。'}
+    ],
+    'AI软件': [{id:'ME-PDPL',name:'UAE/沙特个人数据保护合规',legalBasis:'UAE PDPL / Saudi PDPL',mandatory:true,cost:{min:10000,max:35000},duration:{min:30,max:90,unit:'工作日'},notes:'需核对数据本地化、跨境传输和用户权利。'}],
+    '化妆品': [{id:'ME-COSMETIC',name:'SFDA/GCC化妆品注册',legalBasis:'海湾化妆品法规',mandatory:true,cost:{min:8000,max:30000},duration:{min:30,max:90,unit:'工作日'},notes:'需完成产品注册、标签和当地负责人安排。'}],
+    '服装箱包': [{id:'ME-LABEL',name:'海湾产品标签合规',legalBasis:'GSO标签与消费者保护规则',mandatory:true,cost:{min:2000,max:10000},duration:{min:7,max:30,unit:'工作日'},notes:'需核对阿拉伯语标签、成分和原产地。'}],
+    '食品': [{id:'ME-FOOD',name:'食品进口与Halal合规',legalBasis:'SFDA/GSO食品规则',mandatory:true,cost:{text:'视产品与成员国'},duration:{min:30,max:90,unit:'工作日'},notes:'需核对进口许可、标签和Halal认证。'}],
+    '其他': [{id:'ME-GENERAL',name:'SASO/GSO市场准入预检',legalBasis:'海湾产品安全法规',mandatory:true,cost:{text:'视产品而定'},duration:{text:'视产品而定'},notes:'建议按目标国逐项确认证书、标签和进口要求。'}]
+  }
+};
+
+const m1bPlatformRules = {
+  '亚马逊': [{type:'AI生成人物标识',trigger:'图片或视频包含AI生成的逼真人物',action:'在XMP dc:subject字段添加 contains-synthetic-performer，视觉水印不能替代元数据标识。',effectiveDate:'2026-08-15',penalty:'下架或账户处置',exemptions:'仅含真实人物、影视/游戏角色、不含人物或逼真人物'}],
+  'TikTok Shop': [{type:'AI生成内容标识',trigger:'完全或部分由AI生成、编辑或合成的视频、图像、音频、文本或直播',action:'发布设置中开启“AI生成内容”标识，并确保颜色、尺寸、材质、功能与商品详情一致。',effectiveDate:'平台持续执行',penalty:'警告、整改或账号级处罚',exemptions:'当前以平台发布设置和内容真实性要求为准'}],
+  '独立站': [{type:'AI与广告真实性披露',trigger:'使用AI生成人物、效果图、测评或宣传素材',action:'清晰披露AI生成信息，保留原始素材、生成记录和对广告宣称的支持材料。',effectiveDate:'持续合规',penalty:'消费者投诉、广告监管或支付渠道风险',exemptions:'真实拍摄且未使用AI生成或合成内容'}],
+  '速卖通': [{type:'AI内容与商品一致性',trigger:'商品图片、视频或描述涉及AI生成、合成或明显增强',action:'按要求添加AI标识，保证商品效果、颜色、尺寸和功能与实物一致。',effectiveDate:'以平台最新规则为准',penalty:'商品下架、流量限制或账户处罚',exemptions:'真实素材且未改变商品核心属性'}],
+  'Temu': [{type:'AI素材与真实商品一致性',trigger:'商品图或宣传内容由AI生成、合成或编辑',action:'标注AI生成内容，禁止使用误导性效果图或与实物不一致的展示。',effectiveDate:'以平台最新规则为准',penalty:'下架、扣分或店铺处罚',exemptions:'真实拍摄且未改变商品核心属性'}]
+};
+const m1bCategoryClassMap={'电子产品':'第9类','AI软件':'第9类 / 第42类','化妆品':'第3类','服装箱包':'第18类 / 第25类','食品':'第29类 / 第30类','其他':'第35类（按实际业务复核）'};
+const m1bOfficialLinks={'欧盟':{name:'EUIPO商标检索',url:'https://www.euipo.europa.eu/en/trade-marks'},'美国':{name:'USPTO商标检索',url:'https://tmsearch.uspto.gov/'},'日本':{name:'J-PlatPat商标检索',url:'https://www.j-platpat.inpit.go.jp/en/trademark'},'东盟':{name:'WIPO Global Brand Database',url:'https://branddb.wipo.int/'},'中东':{name:'WIPO Global Brand Database',url:'https://branddb.wipo.int/'}};
+const m1bState={patternFile:null,currentHtml:'',summary:''};
+function m1bEsc(value){return typeof escapeHtml==='function'?escapeHtml(value):String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function m1bSelectedMarkets(){return [...document.querySelectorAll('#m1bMarkets input:checked')].map(input=>input.value);}
+function m1bSelectedCategory(){return document.querySelector('input[name="m1bCategory"]:checked')?.value||'电子产品';}
+function m1bMoney(range){if(!range)return'待确认';if(range.text)return range.text;const min=Number(range.min||0).toLocaleString('zh-CN'),max=Number(range.max||0).toLocaleString('zh-CN');return `${min}-${max}元`;}
+function m1bDuration(range){if(!range)return'待确认';if(range.text)return range.text;return `${range.min}-${range.max}${range.unit||'天'}`;}
+function m1bMatchCertifications(category,markets){const rows=[];markets.forEach(market=>{(m1bCertificationDB[market]?.[category]||[]).forEach(item=>rows.push({...item,market}));});return rows.sort((a,b)=>Number(b.mandatory)-Number(a.mandatory)||a.market.localeCompare(b.market,'zh-CN'));}
+function m1bBrandRisk(brand,category){const name=String(brand||'').trim();if(!name)return{level:'未评估',score:0,reason:'尚未填写品牌名或产品名。'};let score=0;const reasons=[];if(name.length<=3){score+=28;reasons.push('名称较短，近似商标命中概率可能升高');}if(/best|top|no\.?1|第一|优选|旗舰|品牌/i.test(name)){score+=22;reasons.push('包含通用或绝对化词汇');}if(/test|demo|测试|示例/i.test(name)){score+=20;reasons.push('名称含测试或示例词');}if(/箱包|羊绒|跨境|智能/.test(name)){score+=10;reasons.push('名称含行业通用词，建议组合原创识别词');}const level=score>=50?'高':score>=25?'中':'低';return{level,score,reason:reasons.join('；')||'未发现明显的文字规则风险，仍需到官方商标库检索。'};}
+function m1bRegistrationPaths(markets,risk,category){const rows=[];const hasEU=markets.includes('欧盟'),hasUS=markets.includes('美国'),hasJP=markets.includes('日本');if(markets.length>=3&&risk.level!=='高'){rows.push({path:'马德里体系',reason:'覆盖多国，一份申请、一种语言、一种货币，适合多市场同步布局。',cost:'约2,500欧元（覆盖10个缔约方，含基础费和指定费参考）',duration:'12-18个月'});}if(risk.level==='高'||markets.length<3){if(hasUS)rows.push({path:'美国单一申请',reason:'基础商标稳定性弱时，单一申请可降低中心打击对整体布局的影响。',cost:'约250-400美元',duration:'约8-18个月'});if(hasEU)rows.push({path:'欧盟单一申请',reason:'EUIPO单一申请覆盖欧盟成员国，便于单独管理欧盟权利。',cost:'约850欧元起',duration:'约4-8个月'});if(hasJP)rows.push({path:'日本单一申请',reason:'直接向JPO申请，便于结合日本市场实际使用证据管理。',cost:'以JPO最新官费为准',duration:'约6-12个月'});}if(category==='服装箱包'){rows.push({path:'白沟快维中心外观设计快速预审',reason:'适合箱包外观设计和原创图案快速确权，可与商标申请同步推进。',cost:'以快维中心当期政策为准',duration:'外观设计专利约10个工作日（政策参考）'});}return rows;}
+async function m1bComparePattern(){if(!m1bState.patternFile)return null;const fingerprint=await extractImageFingerprint(m1bState.patternFile);const industry=typeof getCurrentIndustry==='function'?getCurrentIndustry():'白沟箱包';const matches=typeof referenceMatchesForIndustry==='function'?referenceMatchesForIndustry(fingerprint,industry):[];const top=matches[0]||null;const similarity=top?.similarity||0;const level=similarity>=78?'高':similarity>=62?'中':'低';return{fingerprint,industry,matches:matches.slice(0,3),similarity,level,top};}
+function m1bRenderPatternPreview(){const preview=document.getElementById('m1bPatternPreview'),status=document.getElementById('m1bPatternStatus'),list=document.getElementById('m1bPatternFiles');if(!preview)return;if(!m1bState.patternFile){preview.innerHTML='<p>上传核心图案后在这里预览</p>';status.textContent='尚未上传';list.innerHTML='';return;}status.textContent=m1bState.patternFile.name;list.innerHTML=`<span class="file-chip">${m1bEsc(m1bState.patternFile.name)}</span>`;if(!m1bState.patternFile._previewUrl)m1bState.patternFile._previewUrl=URL.createObjectURL(m1bState.patternFile);preview.innerHTML=`<img src="${m1bEsc(m1bState.patternFile._previewUrl)}" alt="核心图案预览">`;}
+function m1bBindPatternDrop(){const drop=document.getElementById('m1bPatternDrop'),input=document.getElementById('m1bPatternFile');const setFile=file=>{if(!file||!file.type.startsWith('image/')){if(typeof toast==='function')toast('请上传图片格式的核心图案');return;}m1bState.patternFile=file;m1bRenderPatternPreview();};drop.addEventListener('click',()=>input.click());drop.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();input.click();}});input.addEventListener('change',()=>{setFile(input.files[0]);input.value='';});['dragover','dragenter'].forEach(name=>drop.addEventListener(name,event=>{event.preventDefault();drop.classList.add('dragging');}));['dragleave','drop'].forEach(name=>drop.addEventListener(name,event=>{event.preventDefault();drop.classList.remove('dragging');}));drop.addEventListener('drop',event=>setFile(event.dataTransfer.files[0]));}
+function m1bRenderCertifications(certs){if(!certs.length)return'<div class="plain-note">当前组合暂无预置认证，请按目标国官方规则进一步核验。</div>';return `<div class="m1b-cert-list">${certs.map(item=>`<div class="m1b-cert-card"><div class="m1b-cert-head"><b>${item.mandatory?'🔴':'🟡'} ${m1bEsc(item.name)} · ${m1bEsc(item.market)}</b><span class="pill ${item.mandatory?'red':''}">${item.mandatory?'强制':'建议'}</span></div><div class="m1b-cert-meta"><div><small>法律依据</small><span>${m1bEsc(item.legalBasis)}</span></div><div><small>预估费用</small><span>${m1bEsc(m1bMoney(item.cost))}</span></div><div><small>预估周期</small><span>${m1bEsc(m1bDuration(item.duration))}</span></div></div><p class="plain-note">${m1bEsc(item.notes)}</p></div>`).join('')}</div>`;}
+function m1bRenderRules(platform){const rules=m1bPlatformRules[platform]||[];if(!rules.length)return'<div class="plain-note">当前平台暂无预置规则，请以平台卖家中心最新公告为准。</div>';return rules.map(rule=>`<div class="m1b-rule-card"><div class="m1b-cert-head"><b>📌 ${m1bEsc(platform)} · ${m1bEsc(rule.type)}</b><span class="pill">${m1bEsc(rule.effectiveDate)}</span></div><div class="m1b-rule-grid"><div><small>触发条件</small><span>${m1bEsc(rule.trigger)}</span></div><div><small>合规操作</small><span>${m1bEsc(rule.action)}</span></div><div><small>违规后果</small><span>${m1bEsc(rule.penalty)}</span></div></div><p class="plain-note">豁免或例外：${m1bEsc(rule.exemptions)}</p></div>`).join('');}
+function m1bRenderIP(brand,markets,category,brandRisk,patternResult){const links=markets.map(market=>{const item=m1bOfficialLinks[market];return item?`<a class="btn small" href="${item.url}" target="_blank" rel="noopener">${m1bEsc(item.name)} →</a>`:'';}).join('');const pathRows=m1bRegistrationPaths(markets,brandRisk,category);const textBlock=`<div class="m1b-ip-card"><div class="m1b-cert-head"><b>文字商标前置评估</b><span class="pill ${brandRisk.level==='高'?'red':brandRisk.level==='中'?'':'green'}">${m1bEsc(brandRisk.level)}风险</span></div><p class="plain-note">${m1bEsc(brandRisk.reason)}</p><p><b>建议检索词：</b>${m1bEsc(brand?`${brand} / ${category} / ${m1bCategoryClassMap[category]}`:'请先填写品牌名')}</p><div class="form-actions">${links}</div><p class="plain-note">当前原型未接入实时商标数据库，风险等级为规则预检，不替代官方检索结论。</p></div>`;const patternBlock=patternResult?`<div class="m1b-ip-card"><div class="m1b-cert-head"><b>核心图案图形近似</b><span class="pill ${patternResult.level==='高'?'red':patternResult.level==='中'?'':'green'}">${patternResult.level}风险 · ${patternResult.similarity}%</span></div><p class="plain-note">已复用模块二dHash指纹，在当前产业参考库中匹配：${m1bEsc(patternResult.top?.name||'暂无参考项')}。</p><p><b>指纹：</b>${m1bEsc(patternResult.fingerprint.hash.slice(0,24))}…</p><p class="plain-note">图形相似度仅用于前置预警，正式上线仍需接入真实商标图形库和人工复核。</p></div>`:`<div class="m1b-ip-card"><b>核心图案图形近似</b><p class="plain-note">未上传核心图案，本项暂不评估。</p></div>`;return `<div class="m1b-ip-grid">${textBlock}${patternBlock}</div>${pathRows.length?`<div class="m1b-path-list">${pathRows.map(item=>`<div class="m1b-path-item"><b>${m1bEsc(item.path)}</b><span>${m1bEsc(item.reason)}<br>预估费用：${m1bEsc(item.cost)} · 预估周期：${m1bEsc(item.duration)}</span></div>`).join('')}</div>`:''}`;}
+async function m1bGenerate(){const category=m1bSelectedCategory(),markets=m1bSelectedMarkets(),platform=document.getElementById('m1bPlatform').value,brand=document.getElementById('m1bBrand').value.trim();if(!markets.length){if(typeof toast==='function')toast('请至少选择一个目标市场');return;}const out=document.getElementById('m1bOut');out.innerHTML='<div class="steps"><div class="step active">匹配认证和平台规则</div><div class="step">执行知识产权前置评估</div><div class="step">生成自查清单</div></div>';try{const certs=m1bMatchCertifications(category,markets),rules=m1bPlatformRules[platform]||[],brandRisk=m1bBrandRisk(brand,category),patternResult=await m1bComparePattern();const patternLevel=patternResult?.level||'低';const rank={'低':0,'中':1,'高':2,'未评估':0};const overallIP=rank[patternLevel]>rank[brandRisk.level]?patternLevel:brandRisk.level;const summary=`产品类别：${category}；目标市场：${markets.join('、')}；平台：${platform}；认证${certs.length}项；平台规则${rules.length}项；知识产权${overallIP}风险。`;const html=`<div class="m1b-summary"><div class="m1b-summary-card"><small>产品认证</small><b>${certs.length}</b><span>项需准备</span></div><div class="m1b-summary-card"><small>平台规则</small><b>${rules.length}</b><span>项需预检</span></div><div class="m1b-summary-card"><small>知识产权</small><b>${m1bEsc(overallIP)}</b><span>风险等级</span></div><div class="m1b-summary-card"><small>覆盖市场</small><b>${markets.length}</b><span>${m1bEsc(markets.join('、'))}</span></div></div><div class="m1b-output-section"><h3>一、产品认证清单</h3>${m1bRenderCertifications(certs)}</div><div class="m1b-output-section"><h3>二、平台规则预检清单</h3>${m1bRenderRules(platform)}</div><div class="m1b-output-section"><h3>三、知识产权预警</h3>${m1bRenderIP(brand,markets,category,brandRisk,patternResult)}</div><div class="m1b-output-section"><h3>四、下一步检测闭环</h3><div class="card" style="padding:12px"><p>AI素材和平台标识问题可进入产品素材智检；企业资质、注册信息或数据链路问题可进入企业画像与综合检测。</p><div class="form-actions"><a class="btn small primary" href="#m2">去检测产品素材 →</a><a class="btn small" href="#m3" data-detect-jump="registration">去完善企业画像 →</a><a class="btn small" href="#m3" data-detect-jump="compliance">去检查数据链路 →</a></div></div><div class="form-actions"><button class="btn small primary" type="button" data-m1b-action="export">导出清单 HTML</button><button class="btn small" type="button" data-m1b-action="copy">复制摘要</button><button class="btn small" type="button" data-m1b-action="print">打印 / PDF</button></div></div>`;out.innerHTML=html;m1bState.currentHtml=html;m1bState.summary=summary;if(typeof toast==='function')toast('出海准入合规自查清单已生成');}catch(error){out.innerHTML='<div class="risk"><span class="pill red">生成失败</span><b>清单生成未完成</b><p>请检查输入或核心图案后重试。</p></div>';}}
+function m1bExportHTML(){if(!m1bState.currentHtml){if(typeof toast==='function')toast('请先生成自查清单');return;}const html=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>冀企出海准入合规自查清单</title><style>body{font-family:"Microsoft YaHei",sans-serif;background:#f5f7fb;color:#1f2937;max-width:980px;margin:0 auto;padding:28px;line-height:1.65}.m1b-summary,.m1b-cert-list,.m1b-ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.m1b-summary-card,.m1b-cert-card,.m1b-rule-card,.m1b-ip-card,.m1b-path-item{border:1px solid #dbe3ef;border-radius:10px;padding:12px}.plain-note{color:#64748b;font-size:12px}.pill{font-size:11px;padding:2px 6px;border-radius:999px;background:#e2e8f0}.btn{display:none}</style><style>
+html,body{overflow-x:clip!important;max-width:100%}
+.feature-backlink{position:fixed;left:max(1rem,env(safe-area-inset-left));bottom:max(1rem,env(safe-area-inset-bottom));z-index:120;padding:.7rem .9rem;border:1px solid rgba(125,211,252,.4);border-radius:10px;background:rgba(11,17,32,.9);color:#e7ecf6;text-decoration:none;font-size:13px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.feature-backlink:hover{border-color:#7dd3fc;color:#bae6fd}
+</style>
+</head><body>
+<a class="feature-backlink" href="../index.html#new-feature">← 返回新功能探索</a><h1>冀企出海准入合规自查清单</h1><p class="plain-note">生成时间：${new Date().toLocaleString('zh-CN')}。本清单为规则初筛，不构成法律意见。</p>${m1bState.currentHtml}</body></html>`;const blob=new Blob([html],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),anchor=document.createElement('a');anchor.href=url;anchor.download=`冀企出海准入合规自查清单-${new Date().toISOString().slice(0,10)}.html`;document.body.appendChild(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function m1bCopySummary(){if(!m1bState.summary){if(typeof toast==='function')toast('请先生成自查清单');return;}const text=`冀企出海准入合规自查摘要：${m1bState.summary}`;if(typeof copyText==='function')copyText(text,'自查摘要已复制');else navigator.clipboard?.writeText(text);}
+function m1bLoadSample(){document.querySelector('input[name="m1bCategory"][value="电子产品"]').checked=true;document.querySelectorAll('#m1bMarkets input').forEach(input=>input.checked=['欧盟','美国'].includes(input.value));document.getElementById('m1bPlatform').value='亚马逊';document.getElementById('m1bBrand').value='白沟智行';document.getElementById('m1bBrandPreview').textContent='白沟智行';const svg='<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320"><rect width="480" height="320" fill="#0b1f3a"/><circle cx="190" cy="150" r="92" fill="#2563eb"/><path d="M110 226 L250 74 L370 226 Z" fill="#f59e0b"/><rect x="152" y="126" width="176" height="92" rx="18" fill="#f8fafc"/></svg>';m1bState.patternFile=new File([svg],'白沟原创箱包图案.svg',{type:'image/svg+xml'});m1bRenderPatternPreview();if(typeof toast==='function')toast('河北示例已载入');}
+function m1bInit(){m1bBindPatternDrop();document.getElementById('m1bBrand').addEventListener('input',event=>{document.getElementById('m1bBrandPreview').textContent=event.target.value||'尚未输入';});document.getElementById('m1bGenerateBtn').addEventListener('click',m1bGenerate);document.getElementById('m1bSampleBtn').addEventListener('click',m1bLoadSample);document.getElementById('m1bOut').addEventListener('click',event=>{const button=event.target.closest('[data-m1b-action]');if(!button)return;if(button.dataset.m1bAction==='export')m1bExportHTML();if(button.dataset.m1bAction==='copy')m1bCopySummary();if(button.dataset.m1bAction==='print')window.print();});m1bRenderPatternPreview();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',m1bInit);else m1bInit();
+</script>
+</body>
+</html>
+

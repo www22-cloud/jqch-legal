@@ -1,0 +1,67 @@
+﻿/* Hallmark · genre: modern-minimal · macrostructure: Workbench · theme: Cobalt Deep
+ * tone: technical / utilitarian · nav: N5 Floating pill · footer: Ft1 Mast-headed
+ * accent: electric cobalt on deep navy · motion: one-shot reveal + result transition
+ */
+:root {
+  color-scheme: dark;
+  --color-paper: oklch(18% 0.035 255);
+  --color-paper-2: oklch(22% 0.042 255);
+  --color-paper-3: oklch(27% 0.048 255);
+  --color-ink: oklch(96% 0.008 250);
+  --color-ink-2: oklch(86% 0.016 250);
+  --color-muted: oklch(72% 0.02 252);
+  --color-rule: oklch(36% 0.04 255);
+  --color-rule-2: oklch(45% 0.05 255);
+  --color-accent: oklch(72% 0.17 250);
+  --color-accent-ink: oklch(16% 0.03 255);
+  --color-focus: oklch(78% 0.14 250);
+  --color-graphite: oklch(12% 0.025 255);
+  --color-graphite-2: oklch(32% 0.035 255);
+  --color-console-rule: oklch(80% 0.04 250 / 0.18);
+  --color-console-meta: oklch(82% 0.025 250);
+  --color-overlay: oklch(8% 0.025 255 / 0.78);
+  --color-overlay-strong: oklch(8% 0.025 255 / 0.88);
+  --color-ok: oklch(62% 0.13 160);
+  --color-warn: oklch(72% 0.15 75);
+  --color-danger: oklch(58% 0.19 25);
+  --font-display: "Space Grotesk", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --font-body: "Inter", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --font-mono: "JetBrains Mono", "Microsoft YaHei", "PingFang SC", monospace;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6.5rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
+  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-display-s: clamp(2.4rem, 4vw + 1rem, 4.25rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --shadow-nav: 0 8px 24px -18px oklch(15% 0.02 258 / 0.35);
+  --shadow-code: 0 1px 2px oklch(18% 0.02 258 / 0.18);
+  --shadow-panel: 0 18px 50px -28px oklch(18% 0.02 258 / 0.5);
+  --shadow-modal: 0 22px 60px -30px oklch(18% 0.02 258 / 0.5);
+  --rule-hair: 1px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+}
+
+
+

@@ -1,0 +1,629 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<base href="../" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#08142b" />
+<meta name="description" content="河北企业出海法律风险智能体：出口管制、知识产权、跨境用工、东道国政治与投资风险四模块初筛。" />
+<title>冀企出海｜河北企业出海法律风险智能体</title>
+<link rel="icon" href="assets/logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html#overview" aria-label="返回总览">
+      <img class="brand-mark" src="assets/logo.svg" alt="" />
+      <span class="brand-copy"><strong>冀企出海</strong><small>LEGAL RISK WORKBENCH</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html#overview" class="active">总览</a>
+      <a href="modules/export.html">出口管制</a>
+      <a href="modules/ip.html">知识产权</a>
+      <a href="modules/labor.html">用工合规</a>
+      <a href="modules/political.html">政治风险</a>
+      <a href="index.html#knowledge">知识库</a>
+    </nav>
+    <div class="top-actions">
+      <button class="nav-command" id="openCommand" type="button" aria-label="打开快捷导航"><span class="command-key">Ctrl K</span><span>快速定位</span></button>
+      <button class="btn small primary" id="openReport" type="button">生成报告</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero" id="overview">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">河北企业出海 · 四类高发法律风险初筛</span>
+        <h1><span class="hero-title-main">出海法律风险的</span><span class="hero-title-accent">“分诊台”</span></h1>
+        <p class="hero-lead"><em class="hero-disclaimer">（初筛参考，不替代正式法律意见）</em><br>出海合规，看不见的风险最致命。输入业务信息，AI 3分钟完成四大模块风险初筛。低风险自查自纠，高风险精准对接专业律师。</p>
+<div class="hero-console" aria-label="智能体运行状态">
+          <div class="console-line"><span class="console-prompt">$</span><code>risk.scan --markets EU,US --modules 4</code><span class="console-caret" aria-hidden="true"></span></div>
+          <div class="console-meta"><span>LOCAL ENGINE</span><span>28 SOURCES</span><span>NO UPLOAD</span></div>
+        </div>
+                <div class="hero-actions">
+          <a class="btn primary" href="modules/export.html">开始四模块诊断</a>
+          <a class="btn" href="index.html#knowledge">进入法规知识库</a>
+        </div>
+
+      </div>
+
+      <div class="panel profile-panel">
+        <div class="panel-kicker">GLOBAL RISK PROFILE</div>
+        <h2>全局风险画像</h2>
+        <p class="panel-note">输入 3 组业务信息，AI 智能推算四大模块风险优先级。<em class="panel-disclaimer">（初筛参考，不替代正式法律意见）</em></p>
+        <form id="profileForm">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="profileIndustry">企业所属行业</label>
+              <select id="profileIndustry"></select>
+              <div class="industry-hint" id="industryHint"></div>
+            </div>
+            <div class="field full">
+              <span class="field-label">重点目标市场（可多选，支持搜索）</span>
+              <div class="market-picker" id="marketPicker"></div>
+              <div class="profile-followup" id="marketFollowup"></div>
+            </div>
+            <div class="field full">
+              <span class="field-label">计划开展的出海业务（可多选）</span>
+              <div class="multi-select" id="activityPicker" aria-label="计划开展的出海业务形式"></div>
+              <div class="profile-followup" id="activityFollowup"></div>
+            </div>
+          </div>
+          <div class="form-actions form-actions-stacked">
+            <button class="btn primary btn-wide" type="submit">一键生成模块优先级</button>
+            <button class="case-link" type="button" id="loadRecommendedCase">＋ 体验典型河北出海案例</button>
+          </div>
+        </form>
+        <div class="quick-output" id="quickResult">
+          <div class="empty">尚未生成画像。建议至少选择一项目标市场和一类出海业务。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics" aria-label="智能体状态">
+    <div class="metric"><small>出口管制与海关</small><b id="metricExport">待评估</b><p id="metricExportNote">钢铁、许可证、两用物项申报</p></div>
+    <div class="metric"><small>知识产权海外布局</small><b id="metricIp">待评估</b><p id="metricIpNote">商标、专利、平台投诉</p></div>
+    <div class="metric"><small>跨境用工合规</small><b id="metricLabor">待评估</b><p id="metricLaborNote">资格、三件套合同、工时</p></div>
+    <div class="metric"><small>东道国政治与投资</small><b id="metricPolitical">待评估</b><p id="metricPoliticalNote">BIT、征收、政治风险保险</p></div>
+  </section>
+
+  <nav class="module-nav" aria-label="四大模块快捷入口">
+    <a href="modules/export.html" data-num="01"><b>出口管制与海关合规</b><span>产品、HS编码、许可证与申报一致性</span></a>
+    <a href="modules/ip.html" data-num="02"><b>知识产权海外布局</b><span>商标抢注、专利侵权与平台风险</span></a>
+    <a href="modules/labor.html" data-num="03"><b>跨境用工合规</b><span>对外劳务资格、合同、工时与社保</span></a>
+    <a href="modules/political.html" data-num="04"><b>政治与法律主权风险</b><span>BIT、国家安全审查、征收与保险</span></a>
+  </nav>
+  <div class="module-bulk-actions">
+    <button class="btn primary" type="button" id="runAllModules">一键生成综合评估</button>
+    <span>依次运行四个模块，并将结果汇总到综合报告</span>
+  </div>
+
+  <section class="workspace" aria-label="四模块风险诊断">
+    <article class="panel module-card" id="module-export" data-module="export">
+      <div class="module-head">
+        <div class="module-title-wrap">
+          <div class="module-index">01</div>
+          <div><h2>出口管制与海关合规模块</h2><p>识别产品管制属性、许可证、申报要素和贸易救济风险。</p></div>
+        </div>
+        <button class="btn small sample-btn" type="button" data-sample="export">载入河北钢铁案例</button>
+      </div>
+      <div class="module-layout">
+        <div class="form-panel" data-panel="INPUT">
+          <h3>输入出口业务信息</h3>
+          <form id="exportForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="exportType">产品类别</label>
+                <select id="exportType">
+                  <option value="steel">钢铁及金属制品</option>
+                  <option value="dual">可能受控的两用物项</option>
+                  <option value="chemical">化学品、农药</option>
+                  <option value="technology">技术、软件或设备</option>
+                  <option value="agri">农产品、食品</option>
+                  <option value="general">一般消费品</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="exportMarket">主要出口市场</label>
+                <select id="exportMarket">
+                  <option value="eu">欧盟</option><option value="us">美国</option><option value="uk">英国</option>
+                  <option value="turkey">土耳其</option><option value="sea">东南亚</option><option value="other">其他市场</option>
+                </select>
+              </div>
+              <div class="field full"><div class="control-hint" id="exportCategoryHint"></div></div>
+              <div class="field full">
+                <label for="exportHs">HS编码或产品描述 <span class="field-help">必填。系统将以HS编码、材质、用途和技术参数判断管制可能性</span></label>
+                <input id="exportHs" type="text" required placeholder="例如：7208.51 热轧卷板 / 化合物名称 / 设备技术参数" />
+                <button class="inline-link" type="button" id="exportAiClassify">不会归类？使用 AI 辅助归类</button>
+              </div>
+            </div>
+
+            <fieldset class="form-section">
+              <legend>管制属性排查进度</legend>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="exportScreening" value="verified" checked /><span><b>已对照管制清单逐项排查</b><small>已核查清单、技术参数和最终用途</small></span></label>
+                <label class="choice-card"><input type="radio" name="exportScreening" value="partial" /><span><b>仅核对了HS编码</b><small>尚未核查元素含量、技术指标等参数</small></span></label>
+                <label class="choice-card"><input type="radio" name="exportScreening" value="freight" /><span><b>依赖货代/报关行判断</b><small>由外部服务商协助判断是否需要许可</small></span></label>
+                <label class="choice-card"><input type="radio" name="exportScreening" value="unknown" /><span><b>完全不了解是否需要许可</b><small>需要从产品属性开始辅助排查</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>HS编码归类风险自查</legend>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="exportClassification" value="predetermination" checked /><span><b>已使用归类预裁定或专业服务</b><small>已核对目的国编码差异</small></span></label>
+                <label class="choice-card"><input type="radio" name="exportClassification" value="self" /><span><b>自行归类，参考同类产品</b><small>可能存在材质、功能或用途争议</small></span></label>
+                <label class="choice-card"><input type="radio" name="exportClassification" value="history" /><span><b>曾被海关质疑或调整</b><small>需要评估信用等级和整改影响</small></span></label>
+                <label class="choice-card"><input type="radio" name="exportClassification" value="none" /><span><b>未关注过归类问题</b><small>建议启动HS编码辅助归类</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>业务模式合规排查</legend>
+              <div class="field full">
+                <span class="field-label">出口模式</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="exportMode" value="self" checked /><span><b>自营出口</b><small>自有进出口权，自行报关</small></span></label>
+                  <label class="choice-card"><input type="radio" name="exportMode" value="agent" /><span><b>委托代理出口</b><small>通过外贸公司、货代或代理报关</small></span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">技术与贸易救济信号</span>
+                <div class="check-row">
+                  <label class="check"><input id="exportUSOrigin" type="checkbox" /> 产品包含美国原产技术或软件成分</label>
+                  <label class="check"><input id="exportTech" type="checkbox" /> 涉及技术资料、软件或再出口</label>
+                  <label class="check"><input id="exportTradeRemedy" type="checkbox" /> 目的国曾发起“双反”、301或337调查</label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">最终用户与最终用途</span>
+                <div class="check-row">
+                  <label class="check"><input id="exportMilitary" type="checkbox" /> 最终用户涉及军事、警用或政府机构</label>
+                  <label class="check"><input id="exportSensitiveUse" type="checkbox" /> 最终用途涉及核、导、生化等敏感领域</label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="module-followup" id="exportFollowup" aria-live="polite"></div>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">生成出口风险清单</button>
+              <button class="btn" type="button" data-add-report="export">✅ 加入全局报告</button>
+              <button class="btn" type="reset" data-clear-module>清空表单</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="result-panel" data-panel="OUTPUT" id="exportResult" aria-live="polite">
+          <h3>风险初筛结果</h3>
+          <div class="service-promise">AI体检不收费 · 分级建议不推销 · 律师对接不强制</div>
+          <div class="triage-flow"><span>填写信息</span><i>→</i><span>AI初筛</span><i>→</i><span>风险分级</span><i>→</i><span>建议行动</span></div>
+          <div class="empty">填写左侧信息后，系统将按“管制属性—许可要求—归类风险—贸易救济—碳关税”生成分诊结果。</div>
+        </div>
+      </div>
+    ﻿      <details class="case-fold">
+        <summary>河北企业相关案例（供理解，需复核）</summary>
+        <div class="case-fold-grid">
+          <article><b>华腾大塘（廊坊）国际贸易有限公司</b><p>出口搪玻璃反应罐归类错误案，罚款4.6万元。</p></article>
+          <article><b>洋山海关化纤装饰品案</b><p>申报品名为化纤装饰品，经鉴定与军需装备特征相符，被纳入军品出口管理范围，罚款2.9万元。</p></article>
+          <article><b>青岛瑞米诺贸易数控铣床案</b><p>未核实技术参数，涉及出口管制判断偏差，罚款3.73万元。</p></article>
+        </div>
+      </details>
+</article>
+
+    <article class="panel module-card" id="module-ip" data-module="ip">
+      <div class="module-head">
+        <div class="module-title-wrap">
+          <div class="module-index">02</div>
+          <div><h2>知识产权海外布局模块</h2><p>检查商标、专利、平台投诉和产品自由实施风险。</p></div>
+        </div>
+        <button class="btn small sample-btn" type="button" data-sample="ip">载入河北车企案例</button>
+      </div>
+      <div class="module-layout">
+        <div class="form-panel" data-panel="INPUT">
+          <h3>输入目标市场与权利状态</h3>
+          <form id="ipForm">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="ipMarket">首要目标市场</label>
+                <select id="ipMarket">
+                  <option value="turkey">土耳其</option><option value="us">美国</option><option value="eu">欧盟</option>
+                  <option value="uk">英国</option><option value="sea">东南亚</option><option value="other">其他市场</option>
+                </select>
+                <div class="control-hint" id="ipMarketHint"></div>
+              </div>
+            </div>
+
+            <fieldset class="form-section">
+              <legend>第一步 · 品牌保护状态</legend>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="ipBrandStage" value="registered" checked /><span><b>核心市场已注册，且有监测机制</b><small>布局相对完善，仍需持续监测公告</small></span></label>
+                <label class="choice-card"><input type="radio" name="ipBrandStage" value="partial" /><span><b>已注册部分国家，但未全面覆盖</b><small>未注册市场可能存在抢注风险</small></span></label>
+                <label class="choice-card"><input type="radio" name="ipBrandStage" value="oem" /><span><b>使用客户商标/为海外品牌代工</b><small>需关注授权范围、知识产权归属和担保责任</small></span></label>
+                <label class="choice-card"><input type="radio" name="ipBrandStage" value="dispute" /><span><b>商标已被抢注或收到侵权指控</b><small>需要立即进入异议、无效或应诉流程</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>第二步 · 产品技术风险与FTO状态</legend>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="ipFtoStatus" value="ready" checked /><span><b>已完成FTO检索，且核心专利已申请</b><small>仍需关注年费和竞争对手专利动态</small></span></label>
+                <label class="choice-card"><input type="radio" name="ipFtoStatus" value="patentOnly" /><span><b>已申请专利，但未做FTO检索</b><small>专利申请不等于不侵犯他人在先专利</small></span></label>
+                <label class="choice-card"><input type="radio" name="ipFtoStatus" value="none" /><span><b>未做专利布局，参考同类产品设计</b><small>可能面临TRO、账户冻结和临时禁令</small></span></label>
+                <label class="choice-card"><input type="radio" name="ipFtoStatus" value="warning" /><span><b>已收到专利警告函或平台投诉</b><small>需要立即固定证据并评估抗辩路径</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>第三步 · 争议与合规状态</legend>
+              <div class="field full">
+                <span class="field-label">平台与争议状态</span>
+                <div class="check-row">
+                  <label class="check"><input id="ipEcommerce" type="checkbox" /> 计划或正在亚马逊/TikTok Shop/Temu等平台销售</label>
+                  <label class="check"><input id="ipComplaint" type="checkbox" /> 已收到平台侵权投诉、链接下架或律师函</label>
+                  <label class="check"><input id="ipOemIndemnity" type="checkbox" /> 客户要求我方承担知识产权担保责任</label>
+                  <label class="check"><input id="ipGeneric" type="checkbox" /> 品牌名称或设计辨识度较低</label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">海关备案与贸易救济</span>
+                <div class="check-row">
+                  <label class="check"><input id="ipCustomsFiled" type="checkbox" /> 已完成知识产权海关备案</label>
+                  <label class="check"><input id="ipUsPatentHeavy" type="checkbox" /> 产品出口美国，且涉及专利密集型技术</label>
+                  <label class="check"><input id="ipTradeCase" type="checkbox" /> 目的国曾发生337调查或知识产权诉讼</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="module-followup" id="ipFollowup" aria-live="polite"></div>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">生成知识产权布局建议</button>
+              <button class="btn" type="button" data-add-report="ip">✅ 加入全局报告</button>
+              <button class="btn" type="reset" data-clear-module>清空表单</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="result-panel" data-panel="OUTPUT" id="ipResult" aria-live="polite">
+          <h3>风险初筛结果</h3>
+          <div class="service-promise">AI体检不收费 · 分级建议不推销 · 律师对接不强制</div>
+          <div class="triage-flow"><span>品牌保护</span><i>→</i><span>技术FTO</span><i>→</i><span>争议合规</span><i>→</i><span>行动建议</span></div>
+          <div class="empty">填写三步信息后，系统将输出商标抢注、专利侵权、平台合规、海关备案和争议应对建议。</div>
+        </div>
+      </div>
+    ﻿      <details class="case-fold">
+        <summary>河北企业相关案例（供理解，需复核）</summary>
+        <div class="case-fold-grid">
+          <article><b>河北车企土耳其商标抢注案</b><p>长城汽车、中兴汽车等多家车企商标在土耳其疑似被恶意抢注，凸显海外商标监测和异议机制的重要性。</p></article>
+          <article><b>南宫毛毡企业海外商标侵权案</b><p>多家河北毛毡企业卷入海外商标侵权纠纷，地方市场监管部门指导应对，成功守住欧盟、北美核心市场。</p></article>
+          <article><b>唐山智能机器人企业专利突破案</b><p>企业面临境外竞争对手技术壁垒，通过目标市场专利数据梳理和技术架构解析推进赴美市场布局。</p></article>
+          <article><b>石家庄悦熙商贸海关处罚案</b><p>出口货物涉及知识产权侵权，被海关行政处罚，提示海关备案和货物流转审查的重要性。</p></article>
+        </div>
+      </details>
+</article>
+    <article class="panel module-card" id="module-labor" data-module="labor">
+      <div class="module-head">
+        <div class="module-title-wrap">
+          <div class="module-index">03</div>
+          <div><h2>跨境用工合规模块</h2><p>检查对外劳务资格、三件套合同、工时、社保与属地劳动法风险。</p></div>
+        </div>
+        <button class="btn small sample-btn" type="button" data-sample="labor">载入劳务合作案例</button>
+      </div>
+      <div class="module-layout">
+        <div class="form-panel" data-panel="INPUT">
+          <h3>输入用工模式与人员信息</h3>
+          <form id="laborForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="laborMarket">主要用工国家或地区</label>
+                <select id="laborMarket">
+                  <option value="eu">欧盟国家</option><option value="us">美国</option><option value="uk">英国</option>
+                  <option value="saudi">沙特阿拉伯</option><option value="mexico">墨西哥</option><option value="brazil">巴西</option>
+                  <option value="sea">东南亚</option><option value="other">其他地区</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="laborWorkers">预计用工人数</label>
+                <input id="laborWorkers" type="number" min="1" value="10" />
+              </div>
+              <div class="field full"><div class="control-hint" id="laborMarketHint"></div></div>
+            </div>
+
+            <fieldset class="form-section">
+              <legend>第一步 · 用工模式与合规路径</legend>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="laborMode" value="local" checked /><span><b>目标国本地雇佣（已设立当地实体）</b><small>由当地子公司或分公司直接签订劳动合同</small></span></label>
+                <label class="choice-card"><input type="radio" name="laborMode" value="dispatch" /><span><b>中国对外劳务合作或外派</b><small>未设当地实体，通过国内主体派遣员工</small></span></label>
+                <label class="choice-card"><input type="radio" name="laborMode" value="mixed" /><span><b>本地雇佣与外派混合</b><small>部分岗位本地招聘，核心岗位国内派遣</small></span></label>
+                <label class="choice-card"><input type="radio" name="laborMode" value="outsourcing" /><span><b>通过外包商/劳务派遣用工</b><small>用工事务交由第三方服务商处理</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>第二步 · 资质与合同状态</legend>
+              <div class="field full">
+                <span class="field-label">资质与备案状态</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="laborQualification" value="qualified" checked /><span><b>已取得资格并完成全部外派备案</b><small>包括风险处置备用金和使领馆报告</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborQualification" value="partial" /><span><b>有资格，但部分外派备案未完成</b><small>存在补办备案和行政处罚风险</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborQualification" value="none" /><span><b>未取得资格，借用资质或委托第三方</b><small>可能触发吊销资质、罚款甚至刑责</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborQualification" value="na" /><span><b>不涉及对外劳务合作</b><small>仅目标国本地雇佣</small></span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">合同签署与证据保全状态</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="laborContracts" value="full" checked /><span><b>全套合同已签署并完成公证认证</b><small>对外劳务合作合同、服务合同、劳动合同齐全</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborContracts" value="partial" /><span><b>已签部分合同，但有关键缺口</b><small>缺少外派协议或当地劳动合同</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborContracts" value="none" /><span><b>未签订书面合同或仅口头约定</b><small>发生争议时举证和救济困难</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborContracts" value="domesticTemplate" /><span><b>直接套用国内劳动合同模板</b><small>可能不符合东道国强制性规定</small></span></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>第三步 · 劳动基准与工会合规</legend>
+              <div class="field full">
+                <span class="field-label">工时与加班制度</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="laborHours" value="local" checked /><span><b>已按目标国标准制定工时与加班制度</b><small>已建立考勤、审批和工会告知机制</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborHours" value="domestic" /><span><b>沿用国内工时制度，尚未属地化</b><small>存在工时、休假和加班限制冲突</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborHours" value="overtime" /><span><b>存在超时加班但已记录</b><small>尚未补发加班工资或调休</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborHours" value="noRecord" /><span><b>存在无记录加班或未支付加班费</b><small>可能触发劳动监察和强迫劳动审查</small></span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">薪酬与社保合规状态</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="laborSocial" value="full" checked /><span><b>全部依法缴纳并留档</b><small>工资、个税、社保和福利记录完整</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborSocial" value="partial" /><span><b>部分缴纳或存在差额</b><small>可能被要求补缴并产生罚款</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborSocial" value="none" /><span><b>未缴纳或未建立当地记录</b><small>双法域社保适用边界不清</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborSocial" value="unknown" /><span><b>尚未确认社保缴纳状态</b><small>需要先完成社保合规快速排查</small></span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">工会与集体协商合规状态</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="laborUnion" value="handled" checked /><span><b>已识别工会要求并建立沟通机制</b><small>已就工时、加班和薪酬进行协商</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborUnion" value="aware" /><span><b>了解基本要求，但未正式沟通</b><small>可能出现集体争议升级</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborUnion" value="unknown" /><span><b>完全不清楚目标国工会要求</b><small>需要开展工会制度和集体协商排查</small></span></label>
+                  <label class="choice-card"><input type="radio" name="laborUnion" value="dispute" /><span><b>已发生工会投诉或集体协商争议</b><small>需要立即进入应急处置和律师介入</small></span></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="module-followup" id="laborFollowup" aria-live="polite"></div>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">生成跨境用工合规清单</button>
+              <button class="btn" type="button" data-add-report="labor">✅ 加入全局报告</button>
+              <button class="btn" type="reset" data-clear-module>清空表单</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="result-panel" data-panel="OUTPUT" id="laborResult" aria-live="polite">
+          <h3>风险初筛结果</h3>
+          <div class="service-promise">AI体检不收费 · 分级建议不推销 · 律师对接不强制</div>
+          <div class="triage-flow"><span>用工模式</span><i>→</i><span>资质合同</span><i>→</i><span>劳动基准</span><i>→</i><span>行动建议</span></div>
+          <div class="empty">填写三步信息后，系统将输出双法域、资质备案、合同证据、工时社保和工会协商风险。</div>
+        </div>
+      </div>
+    ﻿      <details class="case-fold">
+        <summary>河北企业相关案例（供理解，需复核）</summary>
+        <div class="case-fold-grid">
+          <article><b>河北中信境外就业服务有限公司违规案</b><p>允许其他单位以本企业名义组织劳务、未安排培训、未签书面合同、未向使领馆报告，被吊销对外劳务合作资格并罚款。</p></article>
+          <article><b>保定徐水跨境劳务纠纷线上调解案</b><p>7名劳务人员因劳务报酬纠纷诉至法院，法院通过线上调解和分层沟通化解争议。</p></article>
+          <article><b>河北谦谦对外劳务合作有限公司诈骗案</b><p>涉嫌以“赴澳打工”等名义实施诈骗并引发委托合同纠纷，后被列入经营异常名录。</p></article>
+          <article><b>河北金源出入境服务有限公司劳务纠纷案</b><p>涉及劳务服务合同纠纷，提示合同、收费和境外安置责任需清晰约定。</p></article>
+        </div>
+      </details>
+</article>
+
+    <article class="panel module-card" id="module-political" data-module="political">
+      <div class="module-head">
+        <div class="module-title-wrap">
+          <div class="module-index">04</div>
+          <div><h2>东道国政治与法律主权风险模块</h2><p>识别国家安全审查、征收、控制权丧失及BIT救济风险。</p></div>
+        </div>
+        <button class="btn small sample-btn" type="button" data-sample="political">载入敬业英国钢铁案例</button>
+      </div>
+      <div class="module-layout">
+        <div class="form-panel" data-panel="INPUT">
+          <h3>输入海外投资信息</h3>
+          <form id="politicalForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="politicalMarket">投资目标国家或地区</label>
+                <select id="politicalMarket">
+                  <option value="uk">英国</option><option value="eu">欧盟国家</option><option value="us">美国</option>
+                  <option value="turkey">土耳其</option><option value="latam">拉美国家</option><option value="sea">东南亚</option><option value="other">其他地区</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="investmentScale">累计投资规模（参考）</label>
+                <select id="investmentScale">
+                  <option value="small">500万美元以下</option><option value="medium">500万至5000万美元</option>
+                  <option value="large">5000万至5亿美元</option><option value="xlarge">5亿美元以上</option>
+                </select>
+              </div>
+              <div class="field full"><div class="control-hint" id="politicalMarketHint"></div></div>
+              <div class="field full">
+                <span class="field-label">控制权结构</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="investmentControl" value="control" checked /><span><b>取得控制权</b><small>取得多数股权、董事会控制或实际经营控制</small></span></label>
+                  <label class="choice-card"><input type="radio" name="investmentControl" value="influence" /><span><b>少数股权但有实质影响</b><small>持股低于25%，但拥有否决权、董事席位或技术访问权</small></span></label>
+                  <label class="choice-card"><input type="radio" name="investmentControl" value="passive" /><span><b>纯财务投资</b><small>不参与经营，不取得控制权或特殊权利</small></span></label>
+                </div>
+              </div>
+            </div>
+
+            <fieldset class="form-section">
+              <legend>第一步 · 投资与资产类型</legend>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="assetType" value="sales" checked /><span><b>销售/代表处（纯贸易）</b><small>不涉及实体资产，主要关注汇兑和合规</small></span></label>
+                <label class="choice-card"><input type="radio" name="assetType" value="factory" /><span><b>生产制造基地</b><small>含钢厂、工厂、仓储或供应链基地</small></span></label>
+                <label class="choice-card"><input type="radio" name="assetType" value="resource" /><span><b>能源/矿产/关键基础设施</b><small>资源民族主义、特许权和国有持股风险较高</small></span></label>
+                <label class="choice-card"><input type="radio" name="assetType" value="tech" /><span><b>高科技/数据/敏感技术</b><small>可能触发国家安全和数据审查</small></span></label>
+                <label class="choice-card"><input type="radio" name="assetType" value="ma" /><span><b>并购现有企业</b><small>可能同时触发反垄断、国家安全和劳工承接审查</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>第二步 · 审查、BIT与保险</legend>
+              <div class="field full">
+                <span class="field-label">国家安全审查触发判定</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="securityReview" value="cleared" checked /><span><b>已确认无需申报</b><small>已对照目标国强制申报清单并留存记录</small></span></label>
+                  <label class="choice-card"><input type="radio" name="securityReview" value="preparing" /><span><b>需要申报，正在准备材料</b><small>需准备投资方案、控制权结构和最终受益人信息</small></span></label>
+                  <label class="choice-card"><input type="radio" name="securityReview" value="uncertain" /><span><b>不确定是否需要申报</b><small>建议启动审查触发条件自测</small></span></label>
+                  <label class="choice-card"><input type="radio" name="securityReview" value="completed" /><span><b>已完成交易但未申报</b><small>存在追溯申报、罚款和交易无效风险</small></span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">BIT与ICSID路径</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="bitStatus" value="covered" checked /><span><b>已确认BIT覆盖并包含ICSID仲裁条款</b><small>需核查征收补偿、公平公正待遇和岔路口条款</small></span></label>
+                  <label class="choice-card"><input type="radio" name="bitStatus" value="limited" /><span><b>有BIT但仲裁条款覆盖有限</b><small>部分早期BIT仅覆盖征收补偿额争议</small></span></label>
+                  <label class="choice-card"><input type="radio" name="bitStatus" value="none" /><span><b>非ICSID成员或无仲裁条款</b><small>需评估国内法院、PCA或ICC路径</small></span></label>
+                  <label class="choice-card"><input type="radio" name="bitStatus" value="unknown" /><span><b>尚未核查BIT状态</b><small>建议启动目标国BIT自动检索</small></span></label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="field-label">政治风险保险</span>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="insurance" value="sinosure" checked /><span><b>已投保中国信保海外投资保险</b><small>需核查征收、汇兑、战争和政府违约覆盖范围</small></span></label>
+                  <label class="choice-card"><input type="radio" name="insurance" value="miga" /><span><b>已投保MIGA或多边机构担保</b><small>需核查承保条件和主权信用要求</small></span></label>
+                  <label class="choice-card"><input type="radio" name="insurance" value="intended" /><span><b>有意向但尚未落实</b><small>建议评估中国信保或MIGA申请条件</small></span></label>
+                  <label class="choice-card"><input type="radio" name="insurance" value="none" /><span><b>未安排任何政治风险保险</b><small>征收、汇兑限制和战争损失可能无法对冲</small></span></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>第三步 · 重大风险信号</legend>
+              <div class="check-row">
+                <label class="check"><input id="politicalCriticalIndustry" type="checkbox" /> 目标国将该行业列为关键产业或战略产业</label>
+                <label class="check"><input id="politicalGovDependency" type="checkbox" /> 高度依赖政府补贴、电价优惠或税收减免</label>
+                <label class="check"><input id="politicalGovJV" type="checkbox" /> 与东道国政府或国有企业存在合资安排</label>
+                <label class="check"><input id="politicalNoStability" type="checkbox" /> 投资协议未约定稳定条款或征收补偿条款</label>
+                <label class="check"><input id="politicalNoExit" type="checkbox" /> 未设置退出、转让或争议解决机制</label>
+                <label class="check"><input id="politicalNoInsurance" type="checkbox" /> 未购买政治风险保险</label>
+              </div>
+            </fieldset>
+
+            <div class="module-followup" id="politicalFollowup" aria-live="polite"></div>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">生成政治与投资风险画像</button>
+              <button class="btn" type="button" data-add-report="political">✅ 加入全局报告</button>
+              <button class="btn" type="reset" data-clear-module>清空表单</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="result-panel" data-panel="OUTPUT" id="politicalResult" aria-live="polite">
+          <h3>风险初筛结果</h3>
+          <div class="service-promise">AI体检不收费 · 分级建议不推销 · 律师对接不强制</div>
+          <div class="triage-flow"><span>投资结构</span><i>→</i><span>审查BIT</span><i>→</i><span>保险信号</span><i>→</i><span>行动建议</span></div>
+          <div class="empty">填写三步信息后，系统将输出征收、国家安全审查、BIT救济、保险覆盖和控制权风险。</div>
+        </div>
+      </div>
+    ﻿      <details class="case-fold">
+        <summary>河北企业相关案例（供理解，需复核）</summary>
+        <div class="case-fold-grid">
+          <article><b>敬业集团英国钢铁公司被国有化案</b><p>2020年以7000万英镑收购，后续投入超12亿英镑；英国政府通过特别法案接管并推动国有化。敬业集团依据中英BIT启动磋商并要求赔偿。核心教训：普通制造业资产若被认定为关键产业，也可能触发国有化。</p></article>
+        </div>
+      </details>
+</article>
+  </section>
+    <section class="feature-explore" id="new-feature">
+    <div class="feature-copy">
+      <span class="feature-kicker">专项场景探索</span>
+      <h2>跨境电商 · 石家庄产业带专项检测</h2>
+      <p class="feature-lead">针对石家庄产业带，提供商品准入、AIGC素材、资质链路专项检测。该工具是四大风险模块在跨境电商场景下的具象化入口。</p>
+    </div>
+    <div class="feature-actions">
+      <a class="btn" href="features/shijiazhuang-cross-border-ecommerce.html">进入新功能探索</a>
+    </div>
+  </section>
+
+<section class="section" id="knowledge">
+    <div class="section-head">
+      <div><h2>系统知识库</h2><p>来源包括 7 份中国法律法规、20 份国际条约与外国法律，以及 1 份海关行政处罚决定书。</p></div>
+      <div class="section-actions"><span class="eyebrow">原文可检索、可预览、可下载</span></div>
+    </div>
+    <div class="knowledge-toolbar">
+      <div class="search-box"><input id="kbSearch" type="search" placeholder="搜索法规、条约、国家、风险关键词…" aria-label="搜索知识库" /></div>
+      <div class="filter-buttons" id="kbModuleFilters">
+        <button class="filter-btn active" type="button" data-filter="all">全部模块</button>
+        <button class="filter-btn" type="button" data-filter="export">出口管制</button>
+        <button class="filter-btn" type="button" data-filter="ip">知识产权</button>
+        <button class="filter-btn" type="button" data-filter="labor">跨境用工</button>
+        <button class="filter-btn" type="button" data-filter="political">政治与投资</button>
+      </div>
+      <select id="kbTypeFilter" aria-label="文件格式筛选"><option value="all">全部格式</option><option value="PDF">PDF</option><option value="DOCX">DOCX</option></select>
+    </div>
+    <div class="kb-summary"><span>共收录 <strong id="kbCount">28</strong> 份资料</span><span>·</span><span>当前显示 <strong id="kbVisibleCount">28</strong> 份</span><span>·</span><span>知识库仅作规则依据与原文检索，不构成法律意见。</span></div>
+    <div class="knowledge-list" id="knowledgeList"></div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <p class="footer-wordmark">冀企出海</p>
+      <p class="footer-tagline">河北企业出海法律风险工作台 · 本地运行 · 28份资料</p>
+    </div>
+    <div class="footer-meta">
+      <span>四模块初筛原型</span>
+      <span>2026-10-10</span>
+      <em class="legal-disclaimer">（初筛参考，不替代正式法律意见）</em>
+    </div>
+  </footer>
+</main>
+
+<button class="ai-chat-toggle" id="aiChatToggle" type="button" aria-expanded="false" aria-controls="aiChatPanel"><span class="ai-chat-dot" aria-hidden="true"></span>AI 对话</button>
+<aside class="ai-chat-panel" id="aiChatPanel" aria-hidden="true" aria-label="AI法律风险助手">
+  <div class="ai-chat-head"><div><span>AI 助手</span><strong>出海法律风险问答</strong><small class="ai-chat-status" id="aiChatStatus">本地规则助手</small></div><div class="ai-chat-head-actions"><button class="ai-chat-settings-btn" id="aiChatSettingsToggle" type="button" aria-label="DeepSeek设置">⚙</button><button class="ai-chat-close" id="aiChatClose" type="button" aria-label="关闭对话">×</button></div></div>
+  <div class="ai-chat-settings" id="aiChatSettings" hidden><label>DeepSeek API Key<input id="deepseekApiKey" type="password" placeholder="sk-..." autocomplete="off" /></label><label>模型<select id="deepseekModel"><option value="deepseek-chat">deepseek-chat</option><option value="deepseek-reasoner">deepseek-reasoner</option></select></label><button class="btn small primary" id="saveDeepseekSettings" type="button">保存设置</button><small>密钥仅保存在当前标签页 sessionStorage。正式部署建议使用后端代理。</small></div>
+  <div class="ai-chat-messages" id="aiChatMessages" aria-live="polite"><div class="ai-msg assistant">你好，我可以结合当前风险结果和法规库，帮你判断下一步该查什么、是否该找律师。</div></div>
+  <div class="ai-chat-suggestions"><button type="button" data-ai-prompt="我的风险优先级是什么？">我的风险</button><button type="button" data-ai-prompt="怎么判断产品是否属于两用物项？">两用物项</button><button type="button" data-ai-prompt="知识产权应该怎么布局？">知识产权</button><button type="button" data-ai-prompt="跨境电商专项探索在哪里？">跨境电商</button></div>
+  <form class="ai-chat-form" id="aiChatForm"><input id="aiChatInput" type="text" placeholder="描述产品或出海场景…" autocomplete="off" /><button class="btn primary" type="submit">发送</button></form>
+</aside>
+<div class="command-palette" id="commandPalette" aria-hidden="true" role="dialog" aria-modal="true" aria-label="快捷导航">
+  <div class="command-panel">
+    <div class="command-input-row"><span class="console-prompt">›</span><input id="commandSearch" type="search" placeholder="输入模块名、知识库或操作…" autocomplete="off" /></div>
+    <div class="command-list" id="commandList"></div>
+    <div class="command-foot"><span>上下键选择</span><span>Enter 执行</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><h2 id="modalTitle">资料预览</h2><p id="modalSubtitle"></p></div>
+      <div class="modal-actions" id="modalActions"><button class="btn small" type="button" data-close-modal>关闭</button></div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data/knowledge.js"></script>
+<script src="assets/deepseek-config.js"></script>
+<script>window.__INITIAL_MODULE__="political";</script>
+<script src="assets/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
