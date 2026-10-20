@@ -23,4 +23,4 @@ if (-not $env:DEEPSEEK_API_KEY) {
 Set-Location -LiteralPath $root
 Write-Host "使用 Node: $node"
 Write-Host '启动后访问：http://localhost:8080/'
-& $node (Join-Path $root 'server.js')
+& $node (Join-Path $root 'local-server.cjs')

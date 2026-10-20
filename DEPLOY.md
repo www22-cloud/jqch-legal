@@ -27,7 +27,7 @@ $env:PORT="8080"
 
 ## 文件说明
 
-- `server.js`：本地静态服务器与 DeepSeek 代理
+- `local-server.cjs`：本地静态服务器与 DeepSeek 代理
 - `api/chat.js`：Vercel Serverless DeepSeek 代理
 - `start-server.cmd` / `start-server.ps1`：本地启动脚本
 - `assets/deepseek-config.js`：前端模型和接口配置
