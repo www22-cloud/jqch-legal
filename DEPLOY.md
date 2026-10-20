@@ -41,7 +41,7 @@ Vercel 的 `*.vercel.app` 域名在中国大陆网络可能超时。需要长期
 3. 登录服务器终端，运行：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/www22-cloud/jqch-legal/main/deploy/tencent-cloud-install.sh -o /tmp/jqch-install.sh
+curl -fsSL -H "Accept: application/vnd.github.raw" https://api.github.com/repos/www22-cloud/jqch-legal/contents/deploy/tencent-cloud-install.sh -o /tmp/jqch-install.sh
 sudo bash /tmp/jqch-install.sh
 ```
 

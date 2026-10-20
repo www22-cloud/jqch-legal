@@ -5,7 +5,7 @@ if [[ ${EUID:-$(id -u)} -ne 0 ]]; then
   exit 1
 fi
 APP_DIR=/opt/jqch-legal
-TARBALL=https://github.com/www22-cloud/jqch-legal/archive/refs/heads/main.tar.gz
+TARBALL=https://api.github.com/repos/www22-cloud/jqch-legal/tarball/main
 
 apt-get update
 apt-get install -y curl ca-certificates tar nginx
